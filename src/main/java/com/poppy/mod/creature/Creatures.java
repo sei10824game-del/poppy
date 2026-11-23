@@ -15,6 +15,6 @@ public final class Creatures {
         for (var l : List.of(BatchA.all(), BatchB.all(), BatchC.all(), BatchD.all(), BatchE.all(), BatchF.all(), BatchG.all(), BatchH.all())) l.forEach(Creatures::add);
     }
 
-    private static void add(CreatureDef d) { ALL.add(d); BY_ID.put(d.id, d); }
+    private static void add(CreatureDef d) { Canon.apply(d); ALL.add(d); BY_ID.put(d.id, d); }
     private Creatures() {}
 }
