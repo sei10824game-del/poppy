@@ -57,10 +57,11 @@ final class Canon {
 
     static void apply(CreatureDef d) {
         Consumer<CreatureDef> f = MAP.getOrDefault(d.id, MAP2.getOrDefault(d.id, Canon2.MAP.get(d.id)));
-        if (f == null) return;
+        if (f == null) { Canon3.apply(d); return; }
         d.parts.clear();
         f.accept(d);
         retarget(d);
+        Canon3.apply(d);
         if (System.getenv("POPPY_AUDIT") != null) for (var a : d.attacks) if (a.anim() != null) for (float[] ph : new float[][]{{1, 0, 0}, {1, 1, 0}, {1, 1, 0.5f}})
             try { a.anim().apply(new com.poppy.mod.client.Pose(), null, ph[0], ph[1], ph[2], 5f); } catch (Throwable t) { }
         java.util.Set<String> seen = new java.util.HashSet<>();

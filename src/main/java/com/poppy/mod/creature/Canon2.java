@@ -317,6 +317,8 @@ final class Canon2 {
             b.pr("earIn#", "ear#", 0, 0, -1.3f, 2.4f, 2.4f, 0.4f, 0, 1.4f, 0, 0xf0a0b8);
             b.p("snout", "head", 0, 3.6f, -6f, 6.4f, 4.4f, 2.4f, 0, 0, 0, 0xf0a0b8); b.p("nose", "head", 0, 5.4f, -7.3f, 2.6f, 1.8f, 0.6f, 0, 0, 0, BLK);
         });
+        MAP.put("bubba_bubbaphant", MAP.get("bubba")); MAP.put("hoppy_hopscotch", MAP.get("hoppy")); MAP.put("kickin_chicken", MAP.get("kickin")); MAP.put("bobby_bearhug", MAP.get("bobby"));
+        MAP.put("mini_bubba", MAP.get("bubba"));
         for (String s : new String[]{"mini_huggy", "mini_huggies", "mini_plush"}) MAP.put(s, d -> huggy(d, 0x2f6fe0, 0x1c3f94, 0xd8262b, 0xf4d12a, false, false));
         MAP.put("nightmare_huggy", d -> huggy(d, 0x1a3070, 0x0e1a44, 0x7a0e12, 0xd01818, true, false));
         for (String s : new String[]{"kissy_missy", "mini_kissy", "giant_kissy"}) kissy(s, false);
