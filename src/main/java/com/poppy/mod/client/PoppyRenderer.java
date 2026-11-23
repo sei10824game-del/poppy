@@ -1,0 +1,79 @@
+package com.poppy.mod.client;
+
+import com.mojang.blaze3d.vertex.PoseStack;
+import com.mojang.blaze3d.vertex.VertexConsumer;
+import com.mojang.math.Axis;
+import com.poppy.mod.creature.CreatureDef;
+import com.poppy.mod.entity.PoppyMob;
+import net.minecraft.client.renderer.MultiBufferSource;
+import net.minecraft.client.renderer.RenderType;
+import net.minecraft.client.renderer.entity.EntityRenderer;
+import net.minecraft.client.renderer.entity.EntityRendererProvider;
+import net.minecraft.client.renderer.entity.LivingEntityRenderer;
+import net.minecraft.client.renderer.texture.OverlayTexture;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.util.Mth;
+import org.joml.Matrix3f;
+import org.joml.Matrix4f;
+import org.joml.Quaternionf;
+
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+/** Renders a CreatureDef's box tree with Anim poses. */
+public class PoppyRenderer extends EntityRenderer<PoppyMob> {
+    static final ResourceLocation WHITE = new ResourceLocation("poppyplaytime", "textures/entity/white.png");
+    private final Map<CreatureDef, Map<String, List<CreatureDef.Part>>> kids = new HashMap<>();
+
+    public PoppyRenderer(EntityRendererProvider.Context c) { super(c); shadowRadius = 0.6f; }
+    @Override public ResourceLocation getTextureLocation(PoppyMob e) { return WHITE; }
+
+    @Override public void render(PoppyMob e, float yaw, float pt, PoseStack ps, MultiBufferSource buf, int light) {
+        CreatureDef d = e.def;
+        ps.pushPose();
+        shadowRadius = d.w * 0.6f;
+        ps.mulPose(Axis.YP.rotationDegrees(180f - Mth.rotLerp(pt, e.yBodyRotO, e.yBodyRot)));
+        if (e.deathTime > 0) { float f = Math.min(Mth.sqrt((e.deathTime + pt - 1f) / 20f * 1.6f), 1f); ps.translate(0, d.h * 0.1f * f, 0); ps.mulPose(Axis.ZP.rotationDegrees(f * 90f)); }
+        ps.scale(d.scale / 16f, d.scale / 16f, d.scale / 16f);
+        float ls = e.walkAnimation.position(pt), lsa = e.walkAnimation.speed(pt);
+        float age = e.tickCount + pt;
+        float hy = Mth.rotLerp(pt, e.yHeadRotO, e.yHeadRot) - Mth.rotLerp(pt, e.yBodyRotO, e.yBodyRot);
+        Pose pose = Anim.compute(e, pt, ls, lsa, age, Mth.clamp(hy, -75, 75), Mth.lerp(pt, e.xRotO, e.getXRot()));
+        int ov = LivingEntityRenderer.getOverlayCoords(e, 0f);
+        Map<String, List<CreatureDef.Part>> tree = kids.computeIfAbsent(d, x -> { Map<String, List<CreatureDef.Part>> m = new HashMap<>(); for (var p : x.parts) m.computeIfAbsent(p.parent == null ? "" : p.parent, k -> new java.util.ArrayList<>()).add(p); return m; });
+        VertexConsumer vc = buf.getBuffer(RenderType.entityCutoutNoCull(WHITE));
+        draw("", tree, pose, ps, vc, light, ov);
+        ps.popPose();
+        super.render(e, yaw, pt, ps, buf, light);
+    }
+
+    private void draw(String parent, Map<String, List<CreatureDef.Part>> tree, Pose pose, PoseStack ps, VertexConsumer vc, int light, int ov) {
+        for (CreatureDef.Part p : tree.getOrDefault(parent, List.of())) {
+            float[] a = pose.m.getOrDefault(p.name, new float[]{0, 0, 0, 0, 0, 0, 1, 1, 1});
+            ps.pushPose();
+            ps.translate(p.px + a[3], p.py + a[4], p.pz + a[5]);
+            ps.mulPose(new Quaternionf().rotationZYX(a[2], a[1], a[0]));
+            ps.scale(a[6], a[7], a[8]);
+            PoseStack.Pose pp = ps.last();
+            box(pp.pose(), pp.normal(), vc, p.cx - p.w / 2, p.cy - p.h / 2, p.cz - p.d / 2, p.cx + p.w / 2, p.cy + p.h / 2, p.cz + p.d / 2, p.color, p.glow ? 0xF000F0 : light, ov);
+            draw(p.name, tree, pose, ps, vc, light, ov);
+            ps.popPose();
+        }
+    }
+
+    static void box(Matrix4f m, Matrix3f n, VertexConsumer vc, float x0, float y0, float z0, float x1, float y1, float z1, int c, int l, int ov) {
+        float r = (c >> 16 & 255) / 255f, g = (c >> 8 & 255) / 255f, b = (c & 255) / 255f;
+        // -z (front), +z, -x, +x, -y, +y
+        q(m, n, vc, r, g, b, l, ov, 0, 0, -1, x1, y0, z0, x0, y0, z0, x0, y1, z0, x1, y1, z0);
+        q(m, n, vc, r, g, b, l, ov, 0, 0, 1, x0, y0, z1, x1, y0, z1, x1, y1, z1, x0, y1, z1);
+        q(m, n, vc, r, g, b, l, ov, -1, 0, 0, x0, y0, z0, x0, y0, z1, x0, y1, z1, x0, y1, z0);
+        q(m, n, vc, r, g, b, l, ov, 1, 0, 0, x1, y0, z1, x1, y0, z0, x1, y1, z0, x1, y1, z1);
+        q(m, n, vc, r * 0.8f, g * 0.8f, b * 0.8f, l, ov, 0, -1, 0, x0, y0, z0, x1, y0, z0, x1, y0, z1, x0, y0, z1);
+        q(m, n, vc, r, g, b, l, ov, 0, 1, 0, x0, y1, z1, x1, y1, z1, x1, y1, z0, x0, y1, z0);
+    }
+    private static void q(Matrix4f m, Matrix3f n, VertexConsumer vc, float r, float g, float b, int l, int ov, float nx, float ny, float nz, float... v) {
+        for (int i = 0; i < 4; i++)
+            vc.vertex(m, v[i * 3], v[i * 3 + 1], v[i * 3 + 2]).color(r, g, b, 1f).uv(i == 1 || i == 2 ? 1 : 0, i >= 2 ? 1 : 0).overlayCoords(ov).uv2(l).normal(n, nx, ny, nz).endVertex();
+    }
+}
