@@ -60,11 +60,54 @@ final class Canon {
         if (f == null) return;
         d.parts.clear();
         f.accept(d);
+        retarget(d);
         java.util.Set<String> seen = new java.util.HashSet<>();
         for (var pt : d.parts) {
             if (pt.parent != null && !seen.contains(pt.parent)) throw new IllegalStateException(d.id + ": part " + pt.name + " has undefined parent " + pt.parent);
             if (!seen.add(pt.name)) throw new IllegalStateException(d.id + ": duplicate part " + pt.name);
         }
+    }
+
+    /** Wrap every attack choreography so it drives the NEW rig: missing nodes (armL2, legR_upper, wing...) fold into the nearest existing limb. */
+    static void retarget(CreatureDef d) {
+        java.util.Set<String> names = new java.util.HashSet<>();
+        for (var pt : d.parts) names.add(pt.name);
+        for (int i = 0; i < d.attacks.size(); i++) {
+            AttackSpec a = d.attacks.get(i);
+            if (a.anim() == null) continue;
+            AnimHook h = a.anim();
+            AnimHook w = (p, e, wi, st, re, age) -> {
+                com.poppy.mod.client.Pose t = new com.poppy.mod.client.Pose();
+                java.util.Map<String, float[]> seed = new java.util.HashMap<>();
+                for (String n : names) if (p.has(n)) { float[] c = p.m.get(n).clone(); t.m.put(n, c); seed.put(n, c.clone()); }
+                h.apply(t, e, wi, st, re, age);
+                java.util.Set<String> touched = new java.util.HashSet<>();
+                for (var en : t.m.entrySet()) if (!seed.containsKey(en.getKey()) || !java.util.Arrays.equals(seed.get(en.getKey()), en.getValue())) touched.add(en.getKey());
+                for (var en : t.m.entrySet()) {
+                    String n = en.getKey();
+                    if (names.contains(n)) { p.m.put(n, en.getValue()); continue; }
+                    String tg = target(n, names);
+                    if (tg != null && !touched.contains(tg)) {
+                        float[] cur = p.g(tg), v = en.getValue();
+                        if (touched.contains(n)) for (int k = 0; k < 9; k++) cur[k] = v[k];
+                    }
+                }
+            };
+            d.attacks.set(i, new AttackSpec(a.kind(), a.dmg(), a.reach(), a.minRange(), a.cd(), a.n(), a.s(), a.custom(), a.t(), w));
+        }
+    }
+
+    /** Heuristic: armL2/armR_upper/handR... -> armL/armR, leg*, tail*, else none. */
+    static String target(String n, java.util.Set<String> names) {
+        for (String pre : new String[]{"arm", "leg", "hand", "foot"}) if (n.startsWith(pre)) {
+            for (char c : n.substring(pre.length()).toCharArray()) if (c == 'L' || c == 'R') {
+                String g = pre + c;
+                if (names.contains(g)) return g;
+                if (pre.equals("hand") || pre.equals("foot")) { g = (pre.equals("hand") ? "arm" : "leg") + c; if (names.contains(g)) return g; }
+            }
+        }
+        if (n.startsWith("tail") && names.contains("tail")) return "tail";
+        return null;
     }
 
     static final int BLK = 0x0b0b0e, WHT = 0xf4f1ea;
