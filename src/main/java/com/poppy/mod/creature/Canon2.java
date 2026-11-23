@@ -42,6 +42,7 @@ final class Canon2 {
             n.glow = pt.glow; n.walkAmp = pt.walkAmp; n.walkPhase = pt.walkPhase; n.swayAmp = pt.swayAmp; n.swaySpeed = pt.swaySpeed; n.swayPhase = pt.swayPhase; n.swayAxis = pt.swayAxis;
         }
         B b = new B(d, k);
+        b.p("tongue", "jaw", 0, -2, -1, 6, 1, 8, 0, 0, -3, 0xe0506a);
         if (nm) for (int i = 0; i < 7; i++) b.p("nfang" + i, "head", -9 + i * 3, 3.5f, -9.9f, 1.4f, 4.5f, 0.8f, 0, -2, 0, WHT);
         if (kissy) {
             b.pr("lash#", "head", 6, 18.4f, -9.5f, 6, 1, 1, 0, 0, 0, BLK);
@@ -178,6 +179,8 @@ final class Canon2 {
         b.p("fang0", "head", -2.4f, 3.4f, -6, 1.2f, 2, 0.4f, 0, -1, 0, WHT); b.p("fang1", "head", 0.4f, 3.4f, -6, 1.2f, 2.6f, 0.4f, 0, -1, 0, WHT); b.p("fang2", "head", 2.8f, 3.4f, -6, 1.2f, 1.8f, 0.4f, 0, -1, 0, WHT);
         b.pr("arm#", "body", 8.4f, 12, 0, 3.6f, 12, 3.6f, 0, -5, 0, am);
         b.pr("hand#", "arm#", 0, -11, 0, 4.4f, 3.4f, 4.4f, 0, -1, 0, tan);
+        b.p("spool", "body", 0, 9, 6, 6, 6, 6, 0, 0, 0, yarn[0]);
+        b.p("thread", "spool", 0, 0, 3, 0.8f, 0.8f, 12, 0, 0, 6, yarn[3]);
     }
 
     static void prototype(CreatureDef d, boolean nm) {

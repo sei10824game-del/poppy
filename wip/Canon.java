@@ -61,6 +61,8 @@ final class Canon {
         d.parts.clear();
         f.accept(d);
         retarget(d);
+        if (System.getenv("POPPY_AUDIT") != null) for (var a : d.attacks) if (a.anim() != null) for (float[] ph : new float[][]{{1, 0, 0}, {1, 1, 0}, {1, 1, 0.5f}})
+            try { a.anim().apply(new com.poppy.mod.client.Pose(), null, ph[0], ph[1], ph[2], 5f); } catch (Throwable t) { }
         java.util.Set<String> seen = new java.util.HashSet<>();
         for (var pt : d.parts) {
             if (pt.parent != null && !seen.contains(pt.parent)) throw new IllegalStateException(d.id + ": part " + pt.name + " has undefined parent " + pt.parent);
@@ -87,6 +89,7 @@ final class Canon {
                     String n = en.getKey();
                     if (names.contains(n)) { p.m.put(n, en.getValue()); continue; }
                     String tg = target(n, names);
+                    if (tg == null && touched.contains(n) && System.getenv("POPPY_AUDIT") != null) System.out.println("AUDIT " + d.id + " " + n);
                     if (tg != null && !touched.contains(tg)) {
                         float[] cur = p.g(tg), v = en.getValue();
                         if (touched.contains(n)) for (int k = 0; k < 9; k++) cur[k] = v[k];
@@ -98,6 +101,12 @@ final class Canon {
     }
 
     /** Heuristic: armL2/armR_upper/handR... -> armL/armR, leg*, tail*, else none. */
+    static final Map<String, String> ALIAS = Map.ofEntries(
+        Map.entry("fistR", "forearmR"), Map.entry("fistL", "forearmL"), Map.entry("crankArm", "crank"), Map.entry("box", "body"), Map.entry("lipU", "head"),
+        Map.entry("armL", "limb0L"), Map.entry("armR", "limb0R"), Map.entry("mandibleL", "limb1L"), Map.entry("mandibleR", "limb1R"),
+        Map.entry("neck", "head"), Map.entry("throat", "jaw"), Map.entry("hornWax", "horn0"), Map.entry("screen", "head"), Map.entry("coreDot", "dot"),
+        Map.entry("tuskL", "snout"), Map.entry("puff", "wool"), Map.entry("lantern", "pendant"), Map.entry("smoke", "head"), Map.entry("hump", "torso"), Map.entry("core", "torso"));
+
     static String target(String n, java.util.Set<String> names) {
         for (String pre : new String[]{"arm", "leg", "hand", "foot"}) if (n.startsWith(pre)) {
             for (char c : n.substring(pre.length()).toCharArray()) if (c == 'L' || c == 'R') {
@@ -107,6 +116,8 @@ final class Canon {
             }
         }
         if (n.startsWith("tail") && names.contains("tail")) return "tail";
+        String al = ALIAS.get(n);
+        if (al != null) { if (names.contains(al)) return al; if (al.contains("#")) { for (char c : new char[]{'L', 'R'}) { String g = al.replace('#', c); if (names.contains(g)) return g; } } }
         return null;
     }
 
@@ -133,6 +144,8 @@ final class Canon {
             b.p("finTop", "head", 0, 12, 1, 1.4f, 6, 6, 0, 3, 0, tl).p("finTop2", "finTop", 0, 5, 1, 1.4f, 3, 3, 0, 1, 0, tl);
             b.p("tailFin", "tail", 0, 0, 7, 1.4f, 9, 4, 0, 3, 3, tl);
             b.pr("gill#", "body", 5.5f, 8, -1, 0.6f, 3, 3, 0, 0, 0, tl);
+            for (int i = 0; i < 8; i++) b.p("spike" + i, "body", 0, 11 - i * 1.4f, 4.8f, 1, 1.6f, 1.6f, 0, 0, 0.8f, tl);
+            b.p("lipU", "head", 0, 5, -5.7f, 10, 1, 1, 0, 0, 0, WHT);
             b.pendant(12, 12, 0xffd23a);
         }),
         Map.entry("allister_gator", d -> { // alligator
