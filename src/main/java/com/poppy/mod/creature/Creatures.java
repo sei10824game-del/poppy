@@ -12,6 +12,7 @@ public final class Creatures {
 
     static {
         add(HuggyWuggy.def());
+        for (var l : List.of(BatchA.all(), BatchB.all(), BatchC.all(), BatchD.all(), BatchE.all(), BatchF.all(), BatchG.all(), BatchH.all())) l.forEach(Creatures::add);
     }
 
     private static void add(CreatureDef d) { ALL.add(d); BY_ID.put(d.id, d); }
