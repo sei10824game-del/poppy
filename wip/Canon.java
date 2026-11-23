@@ -62,6 +62,7 @@ final class Canon {
         f.accept(d);
         retarget(d);
         Canon3.apply(d);
+        dump(d);
         if (System.getenv("POPPY_AUDIT") != null) for (var a : d.attacks) if (a.anim() != null) for (float[] ph : new float[][]{{1, 0, 0}, {1, 1, 0}, {1, 1, 0.5f}})
             try { a.anim().apply(new com.poppy.mod.client.Pose(), null, ph[0], ph[1], ph[2], 5f); } catch (Throwable t) { }
         java.util.Set<String> seen = new java.util.HashSet<>();
@@ -102,6 +103,15 @@ final class Canon {
     }
 
     /** Heuristic: armL2/armR_upper/handR... -> armL/armR, leg*, tail*, else none. */
+    static void dump(CreatureDef d) {
+        String dir = System.getenv("POPPY_DUMP");
+        if (dir == null) return;
+        StringBuilder sb = new StringBuilder("[");
+        for (var q : d.parts) sb.append(String.format(java.util.Locale.ROOT, "%s[\"%s\",%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%d,%d],", sb.length() > 1 ? "" : "", q.name, q.parent == null ? "null" : "\"" + q.parent + "\"", q.px, q.py, q.pz, q.w, q.h, q.d, q.cx, q.cy, q.cz, q.color, q.glow ? 1 : 0));
+        sb.append("[]]");
+        try { java.nio.file.Files.writeString(java.nio.file.Path.of(dir, d.id + ".json"), sb.toString()); } catch (Exception e) { }
+    }
+
     static final Map<String, String> ALIAS = Map.ofEntries(
         Map.entry("fistR", "forearmR"), Map.entry("fistL", "forearmL"), Map.entry("crankArm", "crank"), Map.entry("box", "body"), Map.entry("lipU", "head"),
         Map.entry("armL", "limb0L"), Map.entry("armR", "limb0R"), Map.entry("mandibleL", "limb1L"), Map.entry("mandibleR", "limb1R"),
@@ -134,6 +144,11 @@ final class Canon {
         b.pr("foot#", "leg#", 0, -10, -1, 5.6f, 2.2f, 7f, 0, 1.1f, -0.8f, claw);
         b.face(14, 12, 11, eyeC, mouth, WHT, teeth);
         b.p("tail", "body", 0, 2, 4.5f, 3, 3, 8, 0, 0, 3, fur).sw(0.2f, 0.12f, 0, 1);
+        b.p("zip", "body", 0, 0, -4.7f, 0.8f, 12, 0.4f, 0, 6, 0, 0x101014);
+        for (int i = 0; i < 3; i++) { b.pr("finger" + i + "#", "hand#", -1.4f + i * 1.4f, -3, -1.6f, 1, 1.6f, 1, 0, -0.8f, 0, claw); b.pr("toe" + i + "#", "foot#", -1.6f + i * 1.6f, 0, -3.6f, 1.2f, 1.2f, 1.2f, 0, 0.6f, 0, claw); }
+        b.pr("cheek#", "head", 6.4f, 4, -3, 1.4f, 3, 4, 0, 0, 0, belly);
+        b.p("brow", "head", 0, 12.2f, -1, 7, 1.4f, 5, 0, 0, 0, fur);
+        b.pr("hip#", "body", 4, 1, 0, 5.4f, 3, 8.6f, 0, 0, 0, fur);
         return b;
     }
 

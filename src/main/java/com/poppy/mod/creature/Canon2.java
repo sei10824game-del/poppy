@@ -23,7 +23,7 @@ final class Canon2 {
         for (boolean n : new boolean[]{false, true}) {
             String key = n ? "nightmare_" + id : id;
             MAP.put(key, d -> {
-                float f = n ? 0.62f : 1f;
+                float f = n ? 0.78f : 1f;
                 B b = Canon.critter(d, tint(fur, f), tint(belly, f), n ? 0x300408 : 0x2a0a10, tint(claw, f), n ? RED : 0xffffff, n);
                 extra.accept(b);
                 b.pendant(12, 12, pend);
@@ -58,35 +58,35 @@ final class Canon2 {
 
     /** Tall spindly Long Legs build. */
     static void longLegs(CreatureDef d, boolean daddy, boolean nm, int extraArms) {
-        float f = nm ? 0.62f : 1f;
+        float f = nm ? 0.78f : 1f;
         int skin = tint(daddy ? 0x90c8f0 : 0xf4b6c8, f), hair = tint(daddy ? 0x1a2a6a : 0xf070a0, f), suit = tint(daddy ? 0xf2d23a : 0xf06a98, f), acc = tint(0x90c8f0, f);
         B b = plush(d, 76);
-        b.pr("leg#", null, 4, 40, 0, 2.6f, 40, 2.6f, 0, -20, 0, skin, 0.7f);
+        b.pr("leg#", null, 4, 40, 0, 3.4f, 40, 3.4f, 0, -20, 0, skin, 0.7f);
         b.pr("boot#", "leg#", 0, -40, -1, 4.4f, 3, 6, 0, 1, 0, daddy ? 0xf2d23a : suit);
-        b.p("body", null, 0, 40, 0, daddy ? 11 : 9, 13, 6, 0, 6.5f, 0, suit).sw(0.02f, 0.1f, 0, 2);
+        b.p("body", null, 0, 40, 0, daddy ? 14 : 12, 15, 8, 0, 7.5f, 0, suit).sw(0.02f, 0.1f, 0, 2);
         b.p("belly", "body", 0, -3, 1, 8, 6, 6, 0, 0, 3, skin);
-        b.p("neck", "body", 0, 13, 0, 2.4f, 8, 2.4f, 0, 4, 0, skin);
-        b.p("head", "neck", 0, 8, 0, 10, 13, 8, 0, 6.5f, 0, skin);
+        b.p("neck", "body", 0, 15, 0, 3.2f, 5, 3.2f, 0, 2.5f, 0, skin);
+        b.p("head", "neck", 0, 5, 0, 15, 18, 12, 0, 9, 0, skin);
         b.p("choker", "neck", 0, 1, 0, 3.6f, 1.4f, 3.6f, 0, 0, 0, acc);
-        b.pr("eyeW#", "head", 2.6f, 8, -4.1f, 3.6f, 3.6f, 0.5f, 0, 0, 0, WHT);
-        b.pr("eye#", "head", 2.6f, 8, -4.4f, 2, 2, 0.4f, 0, 0, 0, nm ? RED : (daddy ? 0xe020a0 : 0x30c050)).g();
-        b.pr("lash#", "head", 2.6f, 10.4f, -4.4f, 4, 0.5f, 0.3f, 0, 0, 0, BLK);
-        b.p("jaw", "head", 0, 3, -4.1f, 7.4f, 2.4f, 0.6f, 0, 0, 0, nm ? 0x200408 : 0x0e0e12);
-        b.p("lips", "head", 0, 4.4f, -4.3f, 7.6f, 0.8f, 0.4f, 0, 0, 0, daddy ? skin : 0xd02060);
-        if (nm) for (int i = 0; i < 6; i++) b.p("nfang" + i, "head", -3 + i * 1.2f, 4, -4.5f, 0.8f, 2, 0.4f, 0, -1, 0, WHT);
+        b.pr("eyeW#", "head", 3.6f, 11, -6.1f, 5, 5, 0.5f, 0, 0, 0, WHT);
+        b.pr("eye#", "head", 3.6f, 11, -6.4f, 2.8f, 2.8f, 0.4f, 0, 0, 0, nm ? RED : (daddy ? 0xe020a0 : 0x30c050)).g();
+        b.pr("lash#", "head", 3.6f, 14, -6.4f, 5.6f, 0.7f, 0.3f, 0, 0, 0, BLK);
+        b.p("jaw", "head", 0, 3.4f, -6.1f, 10.4f, 3.2f, 0.6f, 0, 0, 0, nm ? 0x200408 : 0x0e0e12);
+        b.p("lips", "head", 0, 5.2f, -6.3f, 10.6f, 1f, 0.4f, 0, 0, 0, daddy ? skin : 0xd02060);
+        if (nm) for (int i = 0; i < 6; i++) b.p("nfang" + i, "head", -3 + i * 1.2f, 5, -6.5f, 0.8f, 2, 0.4f, 0, -1, 0, WHT);
         if (daddy) {
-            b.p("mustache", "head", 0, 5.8f, -4.4f, 8, 1.6f, 0.6f, 0, 0, 0, hair);
-            b.p("fedoraBrim", "head", 0, 13, 0, 14, 1, 12, 0, 0.5f, 0, 0x808088);
-            b.p("fedora", "head", 0, 13.5f, 0, 9, 5, 8, 0, 2.5f, 0, 0x6a6a72);
+            b.p("mustache", "head", 0, 7.4f, -6.4f, 11, 2f, 0.6f, 0, 0, 0, hair);
+            b.p("fedoraBrim", "head", 0, 18, 0, 19, 1, 16, 0, 0.5f, 0, 0x808088);
+            b.p("fedora", "head", 0, 18.5f, 0, 12, 6, 11, 0, 3, 0, 0x6a6a72);
             b.p("bowtie", "body", 0, 13, -3.2f, 5, 2, 1, 0, 0, 0, 0xf2d23a);
         } else {
-            b.p("fringe", "head", 0, 13, -1, 11, 3, 8.6f, 0, -0.5f, 0, hair);
-            b.p("tie", "head", 4.6f, 10.4f, 0, 2, 3, 3, 0, 0, 0, acc);
-            b.p("ponytail", "head", 5.2f, 12, 2, 2.4f, 30, 2.4f, 0, 14, 0, hair).sw(0.15f, 0.1f, 0, 2);
+            b.p("fringe", "head", 0, 18, -1, 16, 4, 12.6f, 0, -0.5f, 0, hair);
+            b.p("tie", "head", 6.8f, 15, 0, 2.4f, 3.4f, 3.4f, 0, 0, 0, acc);
+            b.p("ponytail", "head", 7.4f, 17, 2, 2.4f, 30, 2.4f, 0, 14, 0, hair).sw(0.15f, 0.1f, 0, 2);
             b.p("heart", "body", 0, 8, -3.2f, 6, 5, 0.6f, 0, 0, 0, suit);
         }
-        float aw = 2.2f;
-        b.pr("arm#", "body", 5.8f, 11, 0, aw, 36, aw, 0, -18, 0, skin);
+        float aw = 3f;
+        b.pr("arm#", "body", 8, 13, 0, aw, 36, aw, 0, -18, 0, skin);
         b.pr("hand#", "arm#", 0, -36, 0, 3.4f, 3.6f, 3.4f, 0, -1, 0, daddy ? 0xf2d23a : skin);
         for (int i = 0; i < extraArms; i++) {
             b.pr("arm" + (i + 2) + "#", "body", 4.6f, 7 - i * 3, 0, aw, 30, aw, 0, -15, 0, skin);
@@ -95,7 +95,7 @@ final class Canon2 {
     }
 
     static void bron(CreatureDef d, boolean nm) {
-        float f = nm ? 0.62f : 1f; int rd = tint(0xe02020, f), pale = tint(0xf4e090, f), bl = tint(0x3a6ae0, f);
+        float f = nm ? 0.78f : 1f; int rd = tint(0xe02020, f), pale = tint(0xf4e090, f), bl = tint(0x3a6ae0, f);
         B b = plush(d, 40);
         b.pr("leg#", null, 5, 7, -7, 5, 7, 5, 0, -3.5f, 0, rd, 0.7f);
         b.pr("legB#", null, 5, 7, 7, 5, 7, 5, 0, -3.5f, 0, rd, 0.7f);
@@ -117,7 +117,7 @@ final class Canon2 {
     }
 
     static void boxy(CreatureDef d, boolean nm) {
-        float f = nm ? 0.62f : 1f; int bx = tint(0x8ad0f0, f), gold = tint(0xf2c030, f), rd = tint(0xd02828, f), sk = tint(0xf4e4cc, f);
+        float f = nm ? 0.78f : 1f; int bx = tint(0x8ad0f0, f), gold = tint(0xf2c030, f), rd = tint(0xd02828, f), sk = tint(0xf4e4cc, f);
         B b = plush(d, 40);
         b.pr("leg#", null, 3.4f, 8, 0, 3, 8, 3, 0, -4, 0, gold, 0.8f);
         b.pr("shoe#", "leg#", 0, -8, -1, 3.6f, 2, 5, 0, 1, 0, rd);
@@ -169,7 +169,7 @@ final class Canon2 {
         b.p("body", null, 0, 10, 0, 14, 14, 10, 0, 7, 0, am).sw(0.02f, 0.1f, 0, 2);
         for (int i = 0; i < 6; i++) b.p("yarnB" + i, "body", -5 + (i % 3) * 5, 2 + (i / 3) * 6, -5.2f, 4, 4, 0.8f, 0, 0, 0, yarn[i]);
         b.p("head", "body", 0, 14, 0, 13, 12, 11, 0, 6, 0, am);
-        for (int i = 0; i < 12; i++) { double a = i * Math.PI / 6; b.p("mane" + i, "head", (float) Math.cos(a) * 8, 6 + (float) Math.sin(a) * 7.4f, 0, 5, 5, 8, 0, 0, 0, yarn[i % 6]); }
+        for (int i = 0; i < 12; i++) { double a = i * Math.PI / 6; b.p("mane" + i, "head", (float) Math.cos(a) * 8.6f, 6 + (float) Math.sin(a) * 8f, 3.4f, 5, 5, 6, 0, 0, 0, yarn[i % 6]); }
         b.p("seam", "head", 0, 0, -5.6f, 0.6f, 12, 0.4f, 0, 6, 0, BLK);
         b.p("muzzle", "head", 0, 3, -5.6f, 7, 4, 1.2f, 0, 0, 0, tan);
         b.p("nose", "head", 0, 5, -6.3f, 2.4f, 1.6f, 0.6f, 0, 0, 0, BLK);
@@ -184,38 +184,38 @@ final class Canon2 {
     }
 
     static void prototype(CreatureDef d, boolean nm) {
-        float f = nm ? 0.62f : 1f; int gr = tint(0x5a5a62, f), dk = tint(0x2c2c34, f), por = tint(0xf0ece0, f), co = tint(0x3a60b0, f), gold = tint(0xd8b040, f), rd = tint(0xc82020, f);
+        float f = nm ? 0.78f : 1f; int gr = tint(0x5a5a62, f), dk = tint(0x2c2c34, f), por = tint(0xf0ece0, f), co = tint(0x3a60b0, f), gold = tint(0xd8b040, f), rd = tint(0xc82020, f);
         B b = plush(d, 90);
-        b.pr("leg#", null, 7, 38, -12, 4.4f, 38, 4.4f, 0, -19, 0, gr, 0.7f);
-        b.pr("legB#", null, 7, 38, 12, 4.4f, 38, 4.4f, 0, -19, 0, gr, 0.7f);
+        b.pr("leg#", null, 7, 38, -12, 6f, 38, 6f, 0, -19, 0, gr, 0.7f);
+        b.pr("legB#", null, 7, 38, 12, 6f, 38, 6f, 0, -19, 0, gr, 0.7f);
         b.pr("hoof#", "leg#", 0, -38, -1, 6, 2.4f, 7, 0, 1.2f, 0, dk); b.pr("hoofB#", "legB#", 0, -38, -1, 6, 2.4f, 7, 0, 1.2f, 0, dk);
         b.p("body", null, 0, 38, 0, 16, 14, 34, 0, 7, 0, dk).sw(0.02f, 0.1f, 0, 2);
         for (int i = 0; i < 4; i++) b.p("cable" + i, "body", -5 + i * 3.4f, 14.4f, 6 + i * 2, 1, 1, 14, 0, 0, 0, 0xc82020);
-        b.p("torso", "body", 0, 12, -14, 14, 24, 9, 0, 12, 0, co);
-        b.p("trim", "torso", 0, 6, -4.6f, 12, 1.2f, 0.4f, 0, 0, 0, gold);
-        b.p("bow", "torso", 0, 24, -4.6f, 6, 3, 1.4f, 0, 0, 0, rd);
-        b.p("head", "torso", 0, 24, 0, 11, 12, 10, 0, 6, 0, por);
-        b.p("eyeHollow", "head", -2.6f, 7.4f, -5.1f, 3, 3, 0.5f, 0, 0, 0, BLK);
-        b.p("eyeY", "head", 2.6f, 7.4f, -5.2f, 1.8f, 1.8f, 0.5f, 0, 0, 0, nm ? RED : 0xffd820).g();
-        b.p("jaw", "head", 0, 2.6f, -5.1f, 8, 3, 0.6f, 0, 0, 0, 0x14080a);
-        for (int i = 0; i < 6; i++) b.p("sqt" + i, "head", -3.5f + i * 1.4f, 3.2f, -5.5f, 1.2f, 1.6f, 0.4f, 0, 0, 0, WHT);
-        b.p("hatBase", "head", 0, 11, 0, 11, 2, 10, 0, 1, 0, rd);
-        for (int i = -1; i <= 1; i++) { b.p("prong" + i, "hatBase", i * 4.4f, 1, 0, 2.4f, 7 - Math.abs(i), 2.4f, 0, 3.5f, 0, i == 0 ? gold : co); b.p("bell" + i, "prong" + i, 0, 7 - Math.abs(i), 0, 2, 2, 2, 0, 0.6f, 0, gold); }
-        b.pr("arm#", "torso", 9, 20, 0, 3.4f, 26, 3.4f, 0, -12, 0, co);
+        b.p("torso", "body", 0, 12, -14, 20, 28, 12, 0, 14, 0, co);
+        b.p("trim", "torso", 0, 6, -6.1f, 17, 1.4f, 0.4f, 0, 0, 0, gold);
+        b.p("bow", "torso", 0, 27, -6.1f, 8, 4, 1.6f, 0, 0, 0, rd);
+        b.p("head", "torso", 0, 28, 0, 16, 17, 13, 0, 8.5f, 0, por);
+        b.p("eyeHollow", "head", -3.6f, 10.5f, -6.6f, 4.2f, 4.2f, 0.5f, 0, 0, 0, BLK);
+        b.p("eyeY", "head", 3.6f, 10.5f, -6.7f, 2.4f, 2.4f, 0.5f, 0, 0, 0, nm ? RED : 0xffd820).g();
+        b.p("jaw", "head", 0, 3.4f, -6.6f, 11, 4, 0.6f, 0, 0, 0, 0x14080a);
+        for (int i = 0; i < 6; i++) b.p("sqt" + i, "head", -4.5f + i * 1.8f, 4.4f, -7f, 1.6f, 2.2f, 0.4f, 0, 0, 0, WHT);
+        b.p("hatBase", "head", 0, 17, 0, 16, 2.4f, 13, 0, 1, 0, rd);
+        for (int i = -1; i <= 1; i++) { b.p("prong" + i, "hatBase", i * 6f, 1, 0, 3.2f, 9 - Math.abs(i), 3.2f, 0, 4.5f, 0, i == 0 ? gold : co); b.p("bell" + i, "prong" + i, 0, 9 - Math.abs(i), 0, 2.6f, 2.6f, 2.6f, 0, 0.6f, 0, gold); }
+        b.pr("arm#", "torso", 12, 24, 0, 4.4f, 26, 4.4f, 0, -12, 0, co);
         b.pr("hand#", "arm#", 0, -26, 0, 4.4f, 4.4f, 4.4f, 0, -2, 0, por);
         for (int i = 0; i < 3; i++) b.pr("claw" + i + "#", "hand#", -1.2f + i * 1.2f, -4, -0.6f, 0.8f, 4, 0.8f, 0, -2, 0, gr);
         b.p("tail", "body", 0, 8, 17, 2, 2, 22, 0, 0, 11, gr).sw(0.2f, 0.1f, 0, 1);
     }
 
     static void bunzo(CreatureDef d, boolean nm) {
-        float f = nm ? 0.62f : 1f; int ye = tint(0xf2d23a, f), or = tint(0xf08a30, f), gr = tint(0x3aa850, f), gold = tint(0xf2c030, f);
+        float f = nm ? 0.78f : 1f; int ye = tint(0xf2d23a, f), or = tint(0xf08a30, f), gr = tint(0x3aa850, f), gold = tint(0xf2c030, f);
         B b = Canon.critter(d, ye, tint(0xf8e890, f), nm ? 0x300408 : 0x2a0a10, ye, nm ? RED : 0xffffff, false);
         b.p("overall", "body", 0, 0, -0.2f, 12.6f, 6, 9.6f, 0, 3, 0, gr);
         b.pr("strap#", "body", 3.4f, 6, -4.6f, 1.6f, 6.4f, 0.5f, 0, 3, 0, gr);
         b.pr("btn#", "body", 3.4f, 6, -5f, 1.2f, 1.2f, 0.4f, 0, 0, 0, gold);
         b.pr("ear#", "head", 3.6f, 12, 0, 3.4f, 13, 1.6f, 0, 6.5f, 0, ye);
         b.pr("earIn#", "ear#", 0, 0, -0.9f, 2, 11, 0.4f, 0, 5.5f, 0, or);
-        b.pr("cheek#", "head", 5, 4, -5.6f, 2.6f, 2.6f, 0.4f, 0, 0, 0, or);
+        b.pr("bcheek#", "head", 5, 4, -5.6f, 2.6f, 2.6f, 0.4f, 0, 0, 0, or);
         b.pr("buck#", "head", 0.9f, 3.6f, -5.9f, 1.6f, 3, 0.5f, 0, 0, 0, WHT);
         b.p("hat", "head", 0, 12, 0, 7, 5, 7, 0, 2.5f, 0, gr); b.p("hatTop", "hat", 0, 5, 0, 3.4f, 4, 3.4f, 0, 2, 0, gr); b.p("hatPom", "hatTop", 0, 4, 0, 1.8f, 1.8f, 1.8f, 0, 0.6f, 0, gold);
         b.p("tuft", "head", 0, 12, -3, 3, 2, 2, 0, 0, 0, ye);
@@ -224,7 +224,7 @@ final class Canon2 {
     }
 
     static void delight(CreatureDef d, boolean nm) {
-        float f = nm ? 0.62f : 1f; int sk = tint(0xf0d0b0, f), hair = tint(0xe8c040, f), sh = tint(0xf2d84a, f), ov = tint(0x8ac0e8, f), sk2 = tint(0xb81c2c, f);
+        float f = nm ? 0.78f : 1f; int sk = tint(0xf0d0b0, f), hair = tint(0xe8c040, f), sh = tint(0xf2d84a, f), ov = tint(0x8ac0e8, f), sk2 = tint(0xb81c2c, f);
         B b = plush(d, 41);
         b.biped(14, 3.4f, 9, 12, 6, 11, 11, 9, 2.6f, 12, sh, sk, sk);
         b.p("skirt", "body", 0, 0, 0, 13, 7, 9, 0, -1, 0, sk2);
@@ -247,7 +247,7 @@ final class Canon2 {
     }
 
     static void pj(CreatureDef d, boolean nm) {
-        float f = nm ? 0.62f : 1f; int[] seg = {tint(0xf08ab8, f), tint(0xd02a88, f), tint(0xa8a0e0, f)};
+        float f = nm ? 0.78f : 1f; int[] seg = {tint(0xf08ab8, f), tint(0xd02a88, f), tint(0xa8a0e0, f)};
         B b = plush(d, 28);
         for (int i = 0; i < 5; i++) {
             b.p("seg" + i, i == 0 ? null : "seg" + (i - 1), 0, i == 0 ? 7 : 0, i == 0 ? 0 : 8, 12 - i, 11 - i * 0.6f, 9, 0, 5, 0, seg[i % 3]).sw(0.08f, 0.15f, i, 1);
