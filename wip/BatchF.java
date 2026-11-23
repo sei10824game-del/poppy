@@ -31,7 +31,7 @@ public final class BatchF {
     // =====================================================================================================
     static CreatureDef kneadKnight() {
         int dough = 0xe9cf98, light = 0xf3e0b5, crust = 0xb8803f, dark = 0x3b2414, flour = 0xfbf6ea, glint = 0xffa23a, wood = 0x9a6a36, woodD = 0x6e4a24;
-        CreatureDef d = CreatureDef.of("knead_knight", "Kneadknight", "ニードナイト").size(1.4f, 2.7f).hp(120).dmg(8).speed(0.27).kbRes(0.7).egg(dough, crust).spawn(1)
+        CreatureDef d = CreatureDef.of("doey_the_doughman", "Doey the Doughman", "ドーイ・ザ・ドウマン").size(1.4f, 2.7f).hp(120).dmg(8).speed(0.27).kbRes(0.7).egg(dough, crust).spawn(1)
                 .part("legL", null, -5, 12, 0, 8, 12, 9, 0, -6, 0, dough).walk(0.7f, 0)
                 .part("footL", "legL", 0, -12, -1, 9, 3, 11, 0, 1.5f, -0.5f, crust)
                 .part("legR", null, 5, 12, 0, 8, 12, 9, 0, -6, 0, dough).walk(0.7f, P)
@@ -109,7 +109,7 @@ public final class BatchF {
                     if (w > 0 && s <= 0) p.add("body", 0, 0, Mth.sin(age * 2.2f) * 0.04f * w);
                 })
                 // tear dough chunks from the belly and fling them to the floor
-                .atk(Atk.SUMMON, 0, 10f, 0, 400, 2, "dough_blob").anim((p, e, w, s, r, age) -> {
+                .atk(Atk.SUMMON, 0, 10f, 0, 400, 2, "mini_doey").anim((p, e, w, s, r, age) -> {
                     p.rot("armL", 0.9f, 0, 0.6f, 1.4f, 0, -1.4f, w, s, r); p.rot("armR", 0.9f, 0, -0.6f, 1.4f, 0, 1.4f, w, s, r);
                     p.rot("body", -0.35f, 0, 0, 0.15f, 0, 0, w, s, r); p.scl("belly", 1, 1, 1, 0.6f, 0.6f, 1, w, s, r); p.rot("jaw", -0.3f, 0, 0, -0.8f, 0, 0, w, s, r);
                 });
@@ -119,7 +119,7 @@ public final class BatchF {
 
     static CreatureDef doughBlob() {
         int dough = 0xe9cf98, light = 0xf3e0b5, crust = 0xb8803f, dark = 0x3b2414, glint = 0xffa23a;
-        CreatureDef d = CreatureDef.of("dough_blob", "Dough Blob", "ドウブロブ").size(0.6f, 0.65f).hp(18).dmg(3).speed(0.31).egg(light, dark)
+        CreatureDef d = CreatureDef.of("mini_doey", "Mini Doey", "ミニ・ドーイ").size(0.6f, 0.65f).hp(18).dmg(3).speed(0.31).egg(light, dark)
                 .part("legL", null, -2.5f, 2, 0, 3, 2, 3, 0, -1, 0, crust).walk(1.1f, 0)
                 .part("legR", null, 2.5f, 2, 0, 3, 2, 3, 0, -1, 0, crust).walk(1.1f, P)
                 .part("body", null, 0, 1, 0, 9, 7, 9, 0, 3.5f, 0, dough).sway(0.05f, 0.25f, 0, 2)
@@ -149,7 +149,7 @@ public final class BatchF {
     // =====================================================================================================
     static CreatureDef clockjaw() {
         int tin = 0x3c8c4c, tinD = 0x2a5e35, rivet = 0xc9c9bb, brass = 0xd6a62c, belly = 0xdcca8c, eye = 0xff3a2a, tooth = 0xf4f1e6, mouth = 0x5a1212;
-        CreatureDef d = CreatureDef.of("clockjaw_croc", "Clockjaw", "クロックジョー").size(1.5f, 1.1f).hp(90).dmg(7).speed(0.3).kbRes(0.5).armor(4).egg(tin, brass).spawn(1)
+        CreatureDef d = CreatureDef.of("mr_hippo", "Mr. Hippo", "ミスター・ヒッポ").size(1.5f, 1.1f).hp(90).dmg(7).speed(0.3).kbRes(0.5).armor(4).egg(tin, brass).spawn(1)
                 .part("body", null, 0, 11, 0, 14, 9, 24, 0, 0, 2, tin).sway(0.015f, 0.12f, 0, 2)
                 .part("belly", "body", 0, -4.6f, 2, 12, 1, 20, 0, 0, 0, belly);
         row(d, "scute", "body", 1, 0, 0, 4.5f, -6, 4, 2, 4, 1, tinD);
@@ -216,7 +216,7 @@ public final class BatchF {
     // =====================================================================================================
     static CreatureDef skeinMoth() {
         int yarn = 0x7d4fb5, yarnD = 0x5a3488, cream = 0xf1e6cc, button = 0x1a1a22, stitch = 0xe8d24a, wing = 0xb07ad8, spot = 0xf2a83a, pink = 0xe87aa8, steel = 0xc8c8d0;
-        CreatureDef d = CreatureDef.of("skein_moth", "Skein Moth", "スケインモス").size(1.0f, 1.9f).hp(60).dmg(6).speed(0.32).egg(yarn, spot).spawn(1)
+        CreatureDef d = CreatureDef.of("mini_yarnaby", "Mini Yarnaby", "ミニ・ヤーナビー").size(1.0f, 1.9f).hp(60).dmg(6).speed(0.32).egg(yarn, spot).spawn(1)
                 .part("legL", null, -2.5f, 12, 0, 3, 12, 3, 0, -6, 0, yarnD).walk(0.8f, 0)
                 .part("legR", null, 2.5f, 12, 0, 3, 12, 3, 0, -6, 0, yarnD).walk(0.8f, P)
                 .part("body", null, 0, 12, 0, 10, 12, 7, 0, 6, 0, yarn).sway(0.03f, 0.12f, 0, 2);
@@ -298,7 +298,7 @@ public final class BatchF {
     // =====================================================================================================
     static CreatureDef puddleToad() {
         int rub = 0x36b39a, rubD = 0x23806c, spot = 0xf2d23c, belly = 0xf6eecb, white = 0xfafafa, pupil = 0x111111, mouth = 0x7a1c2c, tongue = 0xff5d7a, foot = 0xf2a93c;
-        return CreatureDef.of("puddle_toad", "Puddle Toad", "パドルトード").size(1.2f, 1.1f).hp(70).dmg(6).speed(0.28).egg(rub, spot).spawn(2)
+        return CreatureDef.of("sheriff_pickle_pie", "Sheriff Pickle Pie", "シェリフ・ピクルパイ").size(1.2f, 1.1f).hp(70).dmg(6).speed(0.28).egg(rub, spot).spawn(2)
                 .part("body", null, 0, 8, 0, 16, 9, 16, 0, 3, 1, rub).sway(0.02f, 0.1f, 0, 0)
                 .part("belly", "body", 0, 3, -7.2f, 12, 7, 1, 0, 0, 0, belly)
                 .part("spot0", "body", -5, 7.6f, 2, 3, 1, 3, 0, 0, 0, spot)
@@ -365,7 +365,7 @@ public final class BatchF {
     // =====================================================================================================
     static CreatureDef heartshell() {
         int shell = 0xd8336b, shellD = 0x9c1f4a, heart = 0xffc0d6, under = 0x2b1a24, eye = 0xffe14a, leg = 0x3a2230, horn = 0xf5d0dc, mem = 0xf7e8ff;
-        CreatureDef d = CreatureDef.of("heartshell_beetle", "Heartshell Beetle", "ハートシェルビートル").size(1.0f, 0.9f).hp(45).dmg(5).speed(0.33).armor(5).egg(shell, heart).spawn(2)
+        CreatureDef d = CreatureDef.of("mini_kissy", "Mini Kissy", "ミニ・キッシー").size(1.0f, 0.9f).hp(45).dmg(5).speed(0.33).armor(5).egg(shell, heart).spawn(2)
                 .part("body", null, 0, 6, 0, 12, 6, 16, 0, 2, 1, under)
                 .part("wingL", "body", -1, 4.8f, -5, 7, 0.3f, 14, -3.5f, 0, 7, mem)
                 .part("wingR", "body", 1, 4.8f, -5, 7, 0.3f, 14, 3.5f, 0, 7, mem)
@@ -435,7 +435,7 @@ public final class BatchF {
     // =====================================================================================================
     static CreatureDef noodleWyrm() {
         int lime = 0x8fe03a, mag = 0xe03aa8, cyan = 0x3ac8e0, orange = 0xff9a2e, hole = 0x3a0a2a, white = 0xf4f4f4, yel = 0xffe14a;
-        return CreatureDef.of("noodle_wyrm", "Noodle Wyrm", "ヌードルワーム").size(1.0f, 1.6f).hp(75).dmg(7).speed(0.3).egg(lime, mag).spawn(1)
+        return CreatureDef.of("nightmare_pj", "Nightmare PJ", "ナイトメアPJ").size(1.0f, 1.6f).hp(75).dmg(7).speed(0.3).egg(lime, mag).spawn(1)
                 .part("seg0", null, 0, 3, 5, 8, 6, 10, 0, 0, 0, lime).sway(0.2f, 0.15f, 0, 1)
                 .part("seg1", "seg0", 0, 0, 6, 7, 6, 8, 0, 0, 4, mag).sway(0.25f, 0.15f, 0.7f, 1)
                 .part("seg2", "seg1", 0, 0, 8, 6, 5, 8, 0, 0, 4, cyan).sway(0.3f, 0.15f, 1.4f, 1)
@@ -500,7 +500,7 @@ public final class BatchF {
     // =====================================================================================================
     static CreatureDef bobbinMatriarch() {
         int wood = 0xc9975a, woodD = 0x8a5f30, thread = 0xb3122e, threadL = 0xd8344f, cushion = 0xc8223a, leaf = 0x2f8a3a, steel = 0xc9ccd6, steelD = 0x7b8090, thimble = 0xb8bcc8, eye = 0x7cf2ff;
-        CreatureDef d = CreatureDef.of("bobbin_matriarch", "Bobbin Matriarch", "ボビンマトリアーク").size(2.6f, 2.4f).hp(550).dmg(12).speed(0.3).kbRes(0.95).armor(6).egg(cushion, steel).boss()
+        CreatureDef d = CreatureDef.of("yarnaby", "Yarnaby", "ヤーナビー").size(2.6f, 2.4f).hp(550).dmg(12).speed(0.3).kbRes(0.95).armor(6).egg(cushion, steel).boss()
                 .part("body", null, 0, 22, 0, 16, 12, 16, 0, 0, -2, cushion).sway(0.02f, 0.08f, 0, 2)
                 .part("leafTop", "body", 0, 6, -2, 12, 1.5f, 12, 0, 0.75f, 0, leaf);
         float[][] pins = {{-4, -6}, {4, -4}, {-2, 2}, {5, 3}};
@@ -562,7 +562,7 @@ public final class BatchF {
                     p.rot("body", -0.15f, 0, 0, 0.15f, 0, 0, w, s, r);
                 })
                 // brood call: whole body shudders, spool spins, knitted moths hatch around her
-                .atk(Atk.SUMMON, 0, 14f, 0, 500, 2, "skein_moth").anim((p, e, w, s, r, age) -> {
+                .atk(Atk.SUMMON, 0, 14f, 0, 500, 2, "mini_yarnaby").anim((p, e, w, s, r, age) -> {
                     float sh = (r > 0 ? 1 - r : w) * 0.06f; p.add("body", Mth.sin(age * 3f) * sh, 0, Mth.cos(age * 2.7f) * sh);
                     p.rot("spool", 0, 0, 0, 0, 0, 1.5f, w, s, r); p.rot("head", 0.4f, 0, 0, -0.2f, 0, 0, w, s, r);
                     p.rot("bladeL", 0, 0.6f, 0, 0, 0.6f, 0, w, s, r); p.rot("bladeR", 0, -0.6f, 0, 0, -0.6f, 0, w, s, r);
@@ -578,7 +578,7 @@ public final class BatchF {
     static CreatureDef slurpSlug() {
         int red = 0xe8304a, white = 0xfaf4f4, pink = 0xf2b8d0, blue = 0x6ad1ff, mouth = 0x4a0a1a, tongue = 0x9b4cff;
         int[] spr = {0xffe14a, 0x3ac8e0, 0x8fe03a, 0xff9a2e, 0xffffff};
-        CreatureDef d = CreatureDef.of("slurp_slug", "Slurp Slug", "スラープスラッグ").size(1.0f, 1.2f).hp(55).dmg(5).speed(0.22).egg(red, white).spawn(2)
+        CreatureDef d = CreatureDef.of("mini_hippo", "Mini Hippo", "ミニ・ヒッポ").size(1.0f, 1.2f).hp(55).dmg(5).speed(0.22).egg(red, white).spawn(2)
                 .part("foot", null, 0, 0, 2, 12, 3, 22, 0, 1.5f, 0, pink)
                 .part("tailPart", "foot", 0, 3, 8, 8, 5, 8, 0, 2.5f, 0, red).sway(0.08f, 0.12f, 0, 1)
                 .part("tailStripe", "tailPart", 0, 2.5f, 0, 8.4f, 5.4f, 2, 0, 0, 0, white)
@@ -637,7 +637,7 @@ public final class BatchF {
     // =====================================================================================================
     static CreatureDef gloopGumdrop() {
         int jelly = 0x6fd14a, jellyD = 0x3f9a2a, sugar = 0xf2f7e8, gut = 0xb0235a, gutL = 0xff6fa0, eye = 0xfff6c8, mouth = 0x2a0a18, tooth = 0xf2efe0;
-        CreatureDef d = CreatureDef.of("gloop_gumdrop", "Gloop Gumdrop", "グループガムドロップ").size(1.1f, 1.2f).hp(60).dmg(6).speed(0.3).egg(jelly, gut).spawn(2)
+        CreatureDef d = CreatureDef.of("mini_doughman", "Mini Doughman", "ミニ・ドウマン").size(1.1f, 1.2f).hp(60).dmg(6).speed(0.3).egg(jelly, gut).spawn(2)
                 .part("legL", null, -4, 2, 0, 5, 2, 5, 0, -1, 0, jellyD).walk(0.9f, 0)
                 .part("legR", null, 4, 2, 0, 5, 2, 5, 0, -1, 0, jellyD).walk(0.9f, P)
                 .part("body", null, 0, 1, 0, 16, 13, 16, 0, 6.5f, 0, jelly).sway(0.04f, 0.2f, 0, 2)
@@ -705,7 +705,7 @@ public final class BatchF {
     // =====================================================================================================
     static CreatureDef topsyJester() {
         int red = 0xe63a3a, yel = 0xf6d23a, blue = 0x3a6ae6, white = 0xf8f4ec, black = 0x1a1a1a, gold = 0xe8b830, pink = 0xff8fb0, purple = 0x8a3ae6;
-        CreatureDef d = CreatureDef.of("topsy_jester", "Topsy Jester", "トプシージェスター").size(0.9f, 1.9f).hp(65).dmg(6).speed(0.34).egg(purple, yel).spawn(1)
+        CreatureDef d = CreatureDef.of("nightmare_bunzo", "Nightmare Bunzo", "ナイトメア・バンゾー").size(0.9f, 1.9f).hp(65).dmg(6).speed(0.34).egg(purple, yel).spawn(1)
                 .part("spinner", null, 0, 0, 0, 1, 1, 1, 0, 0.5f, 0, gold).sway(0.6f, 0.5f, 0, 1)
                 .part("tip", "spinner", 0, 0, 0, 2, 3, 2, 0, 1.5f, 0, gold)
                 .part("tier1", "spinner", 0, 3, 0, 6, 3, 6, 0, 1.5f, 0, blue)
@@ -781,7 +781,7 @@ public final class BatchF {
     // =====================================================================================================
     static CreatureDef gloamOwl() {
         int navy = 0x23305e, navyD = 0x161e40, cream = 0xe9dfc4, amber = 0xffb02e, ring = 0x6a7bc4, beak = 0xe08a2a, stitch = 0xc9c2a8;
-        CreatureDef d = CreatureDef.of("gloam_owl", "Gloam Owl", "グロームオウル").size(0.9f, 1.6f).hp(50).dmg(6).speed(0.3).egg(navy, amber).spawn(2)
+        CreatureDef d = CreatureDef.of("officer_owl", "Officer Owl", "オフィサー・オウル").size(0.9f, 1.6f).hp(50).dmg(6).speed(0.3).egg(navy, amber).spawn(2)
                 .part("legL", null, -2.5f, 4, 0, 2.5f, 4, 2.5f, 0, -2, 0, beak).walk(0.8f, 0)
                 .part("talonL", "legL", 0, -4, -1, 3, 1, 4, 0, 0.5f, -1, 0x2a2a2a)
                 .part("legR", null, 2.5f, 4, 0, 2.5f, 4, 2.5f, 0, -2, 0, beak).walk(0.8f, P)

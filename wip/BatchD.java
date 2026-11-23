@@ -18,7 +18,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Consumer;
 
-/** Batch D – original "nightmare plush" creatures (glitchy, red-stitched horror toys). See DEV_GUIDE.md. */
+/** Batch D – canon Poppy Playtime roster (see DEV_GUIDE.md). */
 public final class BatchD {
     static final float P = (float) Math.PI;
     static final int BLACK = 0x0d0608, BONE = 0xe8e0cc, BLOOD = 0xb0101c, GLOW_RED = 0xff2a2a, THREAD = 0xd8d0c0, IRON = 0x7a7f88;
@@ -74,7 +74,7 @@ public final class BatchD {
     /** Dusk Prowler – lanky smoke-violet cat plush, split stitched grin, red slit eyes. */
     static CreatureDef duskProwler() {
         int fur = 0x3a2d4a, dark = 0x241a30, muz = 0x5b4d6a;
-        CreatureDef d = CreatureDef.of("dusk_prowler", "Dusk Prowler", "ダスクプラウラー").size(0.9f, 3.3f).hp(160).dmg(9).speed(0.36).kbRes(0.4).egg(fur, GLOW_RED).spawn(1)
+        CreatureDef d = CreatureDef.of("nightmare_catnap", "Nightmare CatNap", "ナイトメア・キャットナップ").size(0.9f, 3.3f).hp(160).dmg(9).speed(0.36).kbRes(0.4).egg(fur, GLOW_RED).spawn(1)
                 .part("legL", null, -4, 22, 1, 5, 22, 5, 0, -11, 0, dark).walk(0.9f, 0)
                 .part("footL", "legL", 0, -21, -1, 6, 2, 8, 0, 0, -1, fur)
                 .part("legR", null, 4, 22, 1, 5, 22, 5, 0, -11, 0, dark).walk(0.9f, P)
@@ -150,7 +150,7 @@ public final class BatchD {
     /** Rag Hound – hunched patchwork hound, spiked collar & chain, one button eye. */
     static CreatureDef ragHound() {
         int tan = 0x8a5a2b, dark = 0x4a2e16, snout = 0xb98a50, mouth = 0x2a0508;
-        CreatureDef d = CreatureDef.of("rag_hound", "Rag Hound", "ラグハウンド").size(1.0f, 2.8f).hp(130).dmg(8).speed(0.38).kbRes(0.4).egg(tan, BLOOD).spawn(1)
+        CreatureDef d = CreatureDef.of("nightmare_dogday", "Nightmare DogDay", "ナイトメア・ドッグデイ").size(1.0f, 2.8f).hp(130).dmg(8).speed(0.38).kbRes(0.4).egg(tan, BLOOD).spawn(1)
                 .part("legL", null, -4, 18, 1, 6, 18, 6, 0, -9, 0, tan).walk(1.0f, 0).part("pawL", "legL", 0, -16.5f, -1, 7, 3, 8, 0, 0, 0, dark)
                 .part("legR", null, 4, 18, 1, 6, 18, 6, 0, -9, 0, tan).walk(1.0f, P).part("pawR", "legR", 0, -16.5f, -1, 7, 3, 8, 0, 0, 0, dark)
                 .part("body", null, 0, 18, 0, 15, 16, 10, 0, 8, 0, tan).sway(0.03f, 0.1f, 0, 0)
@@ -213,7 +213,7 @@ public final class BatchD {
     /** Tusk Lump – hulking stitched elephant plush with cracked bloody tusks and a jointed trunk. */
     static CreatureDef tuskLump() {
         int grey = 0x55606e, dark = 0x3a414c, light = 0x7a8594;
-        CreatureDef d = CreatureDef.of("tusk_lump", "Tusk Lump", "タスクランプ").size(2.0f, 3.6f).hp(280).dmg(11).speed(0.27).kbRes(0.9).armor(4).egg(grey, BLOOD).spawn(1)
+        CreatureDef d = CreatureDef.of("nightmare_bubba", "Nightmare Bubba", "ナイトメア・ババ").size(2.0f, 3.6f).hp(280).dmg(11).speed(0.27).kbRes(0.9).armor(4).egg(grey, BLOOD).spawn(1)
                 .part("legL", null, -7, 20, 0, 10, 20, 10, 0, -10, 0, dark).walk(0.6f, 0).part("nailsL", "legL", 0, -19, -5.2f, 8, 2, 1, 0, 0, 0, BONE)
                 .part("legR", null, 7, 20, 0, 10, 20, 10, 0, -10, 0, dark).walk(0.6f, P).part("nailsR", "legR", 0, -19, -5.2f, 8, 2, 1, 0, 0, 0, BONE)
                 .part("body", null, 0, 20, 0, 28, 24, 18, 0, 12, 0, grey).sway(0.02f, 0.07f, 0, 2)
@@ -275,7 +275,7 @@ public final class BatchD {
     /** Snarl Hare – twitchy rabbit plush with spring-coil legs, torn ear and buck fangs. */
     static CreatureDef snarlHare() {
         int fur = 0x6e8a86, dark = 0x45605c, cream = 0xc9bfa8;
-        CreatureDef d = CreatureDef.of("snarl_hare", "Snarl Hare", "スナールヘア").size(0.8f, 2.9f).hp(90).dmg(7).speed(0.42).kbRes(0.2).egg(fur, BLOOD).spawn(2)
+        CreatureDef d = CreatureDef.of("nightmare_hoppy", "Nightmare Hoppy", "ナイトメア・ホッピー").size(0.8f, 2.9f).hp(90).dmg(7).speed(0.42).kbRes(0.2).egg(fur, BLOOD).spawn(2)
                 .part("legL", null, -4, 16, 2, 6, 16, 7, 0, -8, 0, fur).walk(1.1f, 0).part("footL", "legL", 0, -14.5f, -3, 5, 3, 12, 0, 0, -1, dark)
                 .part("legR", null, 4, 16, 2, 6, 16, 7, 0, -8, 0, fur).walk(1.1f, P).part("footR", "legR", 0, -14.5f, -3, 5, 3, 12, 0, 0, -1, dark)
                 .part("body", null, 0, 16, 0, 12, 16, 9, 0, 8, 0, fur).sway(0.04f, 0.15f, 0, 2)
@@ -337,7 +337,7 @@ public final class BatchD {
     /** Spurclaw – a rooster plush with rusted blade-spurs, serrated beak and a ragged black tail. */
     static CreatureDef spurclaw() {
         int red = 0xa8321c, wing = 0x7a2010, chest = 0xd4602a, leg = 0xb8a040, beak = 0xe0b020, comb = 0xd01020;
-        CreatureDef d = CreatureDef.of("spurclaw", "Spurclaw", "スパークロウ").size(0.9f, 2.6f).hp(100).dmg(8).speed(0.4).kbRes(0.2).egg(red, BLACK).spawn(2)
+        CreatureDef d = CreatureDef.of("nightmare_kickin", "Nightmare Kickin Chicken", "ナイトメア・キッキンチキン").size(0.9f, 2.6f).hp(100).dmg(8).speed(0.4).kbRes(0.2).egg(red, BLACK).spawn(2)
                 .part("legL", null, -3, 14, 1, 2, 14, 2, 0, -7, 0, leg).walk(1.0f, 0)
                 .part("toeL", "legL", 0, -13.5f, -2, 4, 1, 5, 0, 0, 0, leg).part("spurL", "legL", 0, -10, 1.5f, 1, 1, 4, 0, 0, 1.5f, IRON).part("spurLt", "spurL", 0, 0, 4, 1.2f, 1.2f, 1.2f, 0, 0, 0, BLOOD)
                 .part("legR", null, 3, 14, 1, 2, 14, 2, 0, -7, 0, leg).walk(1.0f, P)
@@ -393,7 +393,7 @@ public final class BatchD {
     /** Glimmerhorn – faded unicorn plush with hollow sockets, red-streaked black mane and a cracked glowing horn. */
     static CreatureDef glimmerhorn() {
         int lav = 0x7d6b8f, dark = 0x4e3f5e, snout = 0xa391b4, hoof = 0x2a2430, mane = 0x1a0a14, horn = 0xe9d7ff;
-        CreatureDef d = CreatureDef.of("glimmerhorn", "Glimmerhorn", "グリマーホーン").size(0.9f, 3.0f).hp(120).dmg(8).speed(0.36).kbRes(0.3).egg(lav, 0xc040ff).spawn(1)
+        CreatureDef d = CreatureDef.of("nightmare_craftycorn", "Nightmare Craftycorn", "ナイトメア・クラフティコーン").size(0.9f, 3.0f).hp(120).dmg(8).speed(0.36).kbRes(0.3).egg(lav, 0xc040ff).spawn(1)
                 .part("legL", null, -4, 18, 0, 6, 18, 6, 0, -9, 0, lav).walk(0.9f, 0).part("hoofL", "legL", 0, -16, 0, 7, 4, 7, 0, 0, 0, hoof)
                 .part("legR", null, 4, 18, 0, 6, 18, 6, 0, -9, 0, lav).walk(0.9f, P).part("hoofR", "legR", 0, -16, 0, 7, 4, 7, 0, 0, 0, hoof)
                 .part("body", null, 0, 18, 0, 14, 16, 10, 0, 8, 0, lav).sway(0.03f, 0.1f, 0, 2)
@@ -457,7 +457,7 @@ public final class BatchD {
     /** Trough Hog – bloated dirty pig plush with a stitched belly gash, tusks and a wide maw. */
     static CreatureDef troughHog() {
         int pink = 0xb47a80, dark = 0x7a4a50, snout = 0xd49aa0, mud = 0x4a3020;
-        CreatureDef d = CreatureDef.of("trough_hog", "Trough Hog", "トラフホッグ").size(1.6f, 2.8f).hp(190).dmg(10).speed(0.3).kbRes(0.7).egg(pink, mud).spawn(1)
+        CreatureDef d = CreatureDef.of("nightmare_pickypiggy", "Nightmare PickyPiggy", "ナイトメア・ピッキーピギー").size(1.6f, 2.8f).hp(190).dmg(10).speed(0.3).kbRes(0.7).egg(pink, mud).spawn(1)
                 .part("legL", null, -5, 14, 0, 8, 14, 8, 0, -7, 0, pink).walk(0.8f, 0).part("trotL", "legL", 0, -12.5f, 0, 8.4f, 3, 9, 0, 0, -0.3f, dark)
                 .part("legR", null, 5, 14, 0, 8, 14, 8, 0, -7, 0, pink).walk(0.8f, P).part("trotR", "legR", 0, -12.5f, 0, 8.4f, 3, 9, 0, 0, -0.3f, dark)
                 .part("body", null, 0, 14, 0, 22, 20, 16, 0, 10, 0, pink).sway(0.03f, 0.08f, 0, 2)
@@ -513,7 +513,7 @@ public final class BatchD {
     /** Gloom Cub – towering ash-grey bear plush, X-stitched seams, one button eye, crushing embrace. */
     static CreatureDef gloomCub() {
         int fur = 0x4b4f5e, dark = 0x2e313c, muz = 0x8a8070;
-        CreatureDef d = CreatureDef.of("gloom_cub", "Gloom Cub", "グルームカブ").size(1.5f, 3.4f).hp(210).dmg(10).speed(0.31).kbRes(0.7).egg(fur, BLOOD).spawn(1)
+        CreatureDef d = CreatureDef.of("nightmare_bobby", "Nightmare Bobby", "ナイトメア・ボビー").size(1.5f, 3.4f).hp(210).dmg(10).speed(0.31).kbRes(0.7).egg(fur, BLOOD).spawn(1)
                 .part("legL", null, -5, 20, 0, 8, 20, 8, 0, -10, 0, fur).walk(0.8f, 0).part("soleL", "legL", 0, -18, -4.2f, 6, 4, 0.6f, 0, 0, 0, BLOOD)
                 .part("legR", null, 5, 20, 0, 8, 20, 8, 0, -10, 0, fur).walk(0.8f, P).part("soleR", "legR", 0, -18, -4.2f, 6, 4, 0.6f, 0, 0, 0, BLOOD)
                 .part("body", null, 0, 20, 0, 20, 22, 14, 0, 11, 0, fur).sway(0.03f, 0.08f, 0, 2)

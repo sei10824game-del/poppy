@@ -158,7 +158,7 @@ public final class BatchB {
     // ================================================================= 1. COIL WIDOW (boss) – wind-up tin spider-matron with telescoping spring arms
     static CreatureDef coilWidow() {
         int brass = 0xc9a24a, copper = 0xb5652e, teal = 0x2f8f8a, tealD = 0x1d5e5b, amber = 0xffb02e, dark = 0x1a1414, ivory = 0xf1ead2, plum = 0x6b2d5c, pink = 0xe58fb6;
-        CreatureDef d = CreatureDef.of("coil_widow", "Coil Widow", "コイル・ウィドウ").size(1.8f, 4.6f).hp(520).dmg(12).speed(0.33).kbRes(0.9).armor(6).egg(teal, brass).boss();
+        CreatureDef d = CreatureDef.of("mommy_long_legs", "Mommy Long Legs", "マミー・ロングレッグス").size(1.8f, 4.6f).hp(520).dmg(12).speed(0.33).kbRes(0.9).armor(6).egg(teal, brass).boss();
         new M(d)
                 // spider legs: thigh rises outward to a knee, long shin down to the floor
                 .sw(0.5f, "leg#", null, 7, 36, -4, 3, 9, 3, 3, 4, 0, brass)
@@ -237,7 +237,7 @@ public final class BatchB {
     // ================================================================= 2. COIL HATCHLING – fist-sized tin spiderling
     static CreatureDef coilHatchling() {
         int brass = 0xc9a24a, copper = 0xb5652e, teal = 0x2f8f8a, amber = 0xffb02e, dark = 0x1a1414, ivory = 0xf1ead2;
-        CreatureDef d = CreatureDef.of("coil_hatchling", "Coil Hatchling", "コイル・ハッチリング").size(0.8f, 0.7f).hp(26).dmg(4).speed(0.38).egg(brass, teal).spawn(2);
+        CreatureDef d = CreatureDef.of("mini_mommy", "Mini Mommy", "ミニ・マミー").size(0.8f, 0.7f).hp(26).dmg(4).speed(0.38).egg(brass, teal).spawn(2);
         new M(d)
                 .p("body", null, 0, 6, 0, 8, 6, 8, 0, 0, 0, teal).sway(0.05f, 0.3f, 0, 2)
                 .p("band", "body", 0, 0, 0, 9, 1.5f, 9, 0, 0, 0, brass)
@@ -270,7 +270,7 @@ public final class BatchB {
     // ================================================================= 3. COIL PATRIARCH (giant boss) – stilt-legged tin gentleman
     static CreatureDef coilPatriarch() {
         int brass = 0xc9a24a, copper = 0xb5652e, navy = 0x23305e, navyD = 0x161d3d, amber = 0xffb02e, dark = 0x141010, ivory = 0xf1ead2, red = 0xa3222a, silver = 0xb8bcc4;
-        CreatureDef d = CreatureDef.of("coil_patriarch", "Coil Patriarch", "コイル・パトリアーク").size(2.4f, 7.2f).hp(950).dmg(15).speed(0.3).kbRes(1.0).armor(10).egg(navy, brass).boss();
+        CreatureDef d = CreatureDef.of("mama_long_legs", "Mama Long Legs", "ママ・ロングレッグス").size(2.4f, 7.2f).hp(950).dmg(15).speed(0.3).kbRes(1.0).armor(10).egg(navy, brass).boss();
         new M(d)
                 .sw(0.45f, "leg#", null, 6, 64, 0, 4, 64, 4, 0, -32, 0, dark)
                 .s("hip#", "leg#", 0, 0, 0, 6, 6, 6, 0, 0, 0, copper)
@@ -316,7 +316,7 @@ public final class BatchB {
                     p.rot("body", 0.3f, 0, 0, -0.2f, 0, 0, w, s, r); p.rot("armR", 2.2f, 0, 0.4f, 1.0f, 0, 0, w, s, r); p.rot("head", 0.4f, 0, 0, -0.5f, 0, 0, w, s, r);
                     if (w < 1) p.add("body", 0, 0, Mth.sin(a * 2f) * 0.03f * w);
                 })
-                .atk(Atk.SUMMON, 0, 18f, 4f, 360, 3, "coil_hatchling").anim((p, e, w, s, r, a) -> { // wind his own key, spring the brood loose
+                .atk(Atk.SUMMON, 0, 18f, 4f, 360, 3, "mini_mommy").anim((p, e, w, s, r, a) -> { // wind his own key, spring the brood loose
                     p.rot("keyBow", 0, 0, 0, 0, 0, 9f, w, s, r); p.rot("armR", 2.2f, -0.8f, -0.6f, 0.4f, 0, 1.2f, w, s, r); p.rot("armL", 0.2f, 0, -1.1f, 0.4f, 0, -1.2f, w, s, r);
                     p.rot("head", -0.3f, 0, 0, 0.5f, 0, 0, w, s, r); p.rot("jaw", 0, 0, 0, -0.9f, 0, 0, w, s, r);
                 })
@@ -330,7 +330,7 @@ public final class BatchB {
     // ================================================================= 4. BOLSTERPEDE (boss) – crawler stitched from striped bolster pillows
     static CreatureDef bolsterpede() {
         int lilac = 0x9a7fd1, cream = 0xf4ecd6, mint = 0x8fd6b5, dark = 0x1e1626, lamp = 0xfff2a8, red = 0xc23a4a, ivory = 0xf3efe6, seam = 0x5b3f8f;
-        CreatureDef d = CreatureDef.of("bolsterpede", "Bolsterpede", "ボルスターピード").size(2.2f, 2.4f).hp(560).dmg(12).speed(0.36).kbRes(0.85).armor(4).egg(lilac, mint).boss();
+        CreatureDef d = CreatureDef.of("pj_pug_a_pillar", "PJ Pug-a-Pillar", "PJパグ・ア・ピラー").size(2.2f, 2.4f).hp(560).dmg(12).speed(0.36).kbRes(0.85).armor(4).egg(lilac, mint).boss();
         M m = new M(d)
                 .p("body", null, 0, 14, -10, 18, 18, 14, 0, 0, 0, lilac).sway(0.05f, 0.12f, 0, 1)
                 .p("stripeF", "body", 0, 0, 0, 18.5f, 4, 14.5f, 0, 0, 0, cream)
@@ -389,7 +389,7 @@ public final class BatchB {
     // ================================================================= 5. CRANK CRATE – wooden crate, brass crank, spring-necked paper-lantern head
     static CreatureDef crankCrate() {
         int wood = 0x8a5a2b, woodD = 0x5c3a1a, green = 0x3f8a4e, brass = 0xc9a24a, paper = 0xf0d9a0, red = 0xd03a2f, dark = 0x1a1010, ivory = 0xf6f1e3, metal = 0x9aa0a8;
-        CreatureDef d = CreatureDef.of("crank_crate", "Crank Crate", "クランク・クレート").size(1.2f, 2.4f).hp(95).dmg(7).speed(0.3).kbRes(0.6).armor(3).egg(green, brass).spawn(1);
+        CreatureDef d = CreatureDef.of("nightmare_boxy_boo", "Nightmare Boxy Boo", "ナイトメア・ボクシーブー").size(1.2f, 2.4f).hp(95).dmg(7).speed(0.3).kbRes(0.6).armor(3).egg(green, brass).spawn(1);
         new M(d)
                 .p("box", null, 0, 9, 0, 18, 18, 18, 0, 0, 0, green)
                 .p("trimTop", "box", 0, 8.5f, 0, 19, 2, 19, 0, 0, 0, woodD).p("trimBot", "box", 0, -8.5f, 0, 19, 2, 19, 0, 0, 0, woodD)
@@ -436,7 +436,7 @@ public final class BatchB {
     // ================================================================= 6. BRICKREX – snap-brick toy dinosaur
     static CreatureDef brickrex() {
         int yel = 0xf2b51c, yelD = 0xc98d0e, red = 0xd23a2a, blue = 0x2b6fd6, white = 0xf4f4f0, dark = 0x1a1a1a, green = 0x47b04b;
-        CreatureDef d = CreatureDef.of("brickrex", "Brickrex", "ブリックレックス").size(1.6f, 2.6f).hp(170).dmg(9).speed(0.33).kbRes(0.7).armor(5).egg(yel, blue).spawn(1);
+        CreatureDef d = CreatureDef.of("bron", "Bron", "ブロン").size(1.6f, 2.6f).hp(170).dmg(9).speed(0.33).kbRes(0.7).armor(5).egg(yel, blue).spawn(1);
         new M(d)
                 .sw(0.8f, "leg#", null, 5, 16, 2, 7, 10, 9, 0, -2, 0, yelD)
                 .s("shin#", "leg#", 0, -7, 0, 5, 9, 5, 0, -4.5f, 0, yel)
@@ -488,7 +488,7 @@ public final class BatchB {
     // ================================================================= 7. GRUBLET – chubby larva doll in a frilled bonnet, ring-mouth
     static CreatureDef grublet() {
         int cream = 0xefe0c4, peach = 0xf2b49a, bonnet = 0x8ec9e8, lace = 0xffffff, dark = 0x1f1416, pink = 0xd96b86, ivory = 0xfaf5ea, slime = 0x9bd34f;
-        CreatureDef d = CreatureDef.of("grublet", "Grublet", "グラブレット").size(0.8f, 1.1f).hp(34).dmg(4).speed(0.26).egg(cream, bonnet).spawn(2);
+        CreatureDef d = CreatureDef.of("mini_pj", "Mini PJ", "ミニPJ").size(0.8f, 1.1f).hp(34).dmg(4).speed(0.26).egg(cream, bonnet).spawn(2);
         new M(d)
                 .p("body", null, 0, 7, 2, 10, 10, 11, 0, 0, 0, cream).sway(0.05f, 0.2f, 0, 0)
                 .p("ring1", "body", 0, 0, -2, 10.5f, 10.5f, 1, 0, 0, 0, peach).p("ring2", "body", 0, 0, 2, 10.5f, 10.5f, 1, 0, 0, 0, peach)
@@ -527,7 +527,7 @@ public final class BatchB {
     // ================================================================= 8. SCRIBBLE BONES – a crayon doodle of a skeleton, flat as paper
     static CreatureDef scribbleBones() {
         int paper = 0xf7f3e8, ink = 0x22222b, crayonR = 0xe0453a, crayonB = 0x3c6fd9, crayonY = 0xf2cf3a, glow = 0x7cf5ff;
-        CreatureDef d = CreatureDef.of("scribble_bones", "Scribble Bones", "スクリブル・ボーンズ").size(0.7f, 2.0f).hp(48).dmg(5).speed(0.34).egg(paper, ink).spawn(2);
+        CreatureDef d = CreatureDef.of("ollie", "Ollie", "オリー").size(0.7f, 2.0f).hp(48).dmg(5).speed(0.34).egg(paper, ink).spawn(2);
         new M(d)
                 .sw(0.9f, "leg#", null, 2.5f, 13, 0, 2, 13, 1, 0, -6.5f, 0, paper)
                 .s("legLine#", "leg#", 1.2f, 0, 0, 0.5f, 13, 1.2f, 0, -6.5f, 0, ink)
@@ -572,7 +572,7 @@ public final class BatchB {
     // ================================================================= 9. GUMDROP TABBY – a cat built from gumdrops, candy-cane tail, wrapper bow
     static CreatureDef gumdropTabby() {
         int orange = 0xff8f3a, lime = 0x9be04a, cherry = 0xe2324a, grape = 0x8a4fd1, sugar = 0xfff5fa, dark = 0x1c1018, mint = 0x6ff0c8, white = 0xffffff;
-        CreatureDef d = CreatureDef.of("gumdrop_tabby", "Gumdrop Tabby", "ガムドロップ・タビー").size(0.8f, 1.3f).hp(40).dmg(5).speed(0.37).egg(orange, cherry).spawn(2);
+        CreatureDef d = CreatureDef.of("ruby_the_cat", "Ruby the Cat", "ルビー・ザ・キャット").size(0.8f, 1.3f).hp(40).dmg(5).speed(0.37).egg(orange, cherry).spawn(2);
         new M(d)
                 .sw(1.0f, "leg#", null, 3, 6, -4, 3, 6, 3, 0, -3, 0, orange).s("paw#", "leg#", 0, -6, -0.5f, 3.5f, 1.5f, 4, 0, 0.7f, 0, sugar)
                 .sw(1.0f, "leg#2", null, 3, 6, 5, 3, 6, 3, 0, -3, 0, orange)
@@ -617,7 +617,7 @@ public final class BatchB {
     // ================================================================= 10. MOTHMOUSE – fuzzy mouse with dusty moth wings and lamp antennae
     static CreatureDef mothmouse() {
         int fur = 0xb9a58a, furD = 0x8c7a63, wing = 0xd9cba5, wingE = 0x6e5a3c, eyeSpot = 0x3a6fd0, pink = 0xf0a0b0, dark = 0x140e0c, lamp = 0xfff2a0, ruff = 0xf4ecdc;
-        CreatureDef d = CreatureDef.of("mothmouse", "Mothmouse", "モスマウス").size(0.7f, 1.0f).hp(28).dmg(4).speed(0.4).egg(wing, eyeSpot).spawn(2);
+        CreatureDef d = CreatureDef.of("mini_bunzo", "Mini Bunzo", "ミニ・バンゾー").size(0.7f, 1.0f).hp(28).dmg(4).speed(0.4).egg(wing, eyeSpot).spawn(2);
         new M(d)
                 .sw(1.0f, "leg#", null, 2, 4, 1, 2, 4, 3, 0, -2, 0, furD)
                 .p("body", null, 0, 7, 1, 7, 7, 9, 0, 0, 0, fur).sway(0.06f, 0.25f, 0, 0)

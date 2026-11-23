@@ -21,7 +21,7 @@ import org.joml.Vector3f;
 import java.util.ArrayList;
 import java.util.List;
 
-/** Batch C – original "bedtime critters" toy-mascot roster (see DEV_GUIDE.md). */
+/** Batch C – canon Poppy Playtime roster (see DEV_GUIDE.md). */
 public final class BatchC {
     static final float P = (float) Math.PI;
 
@@ -111,7 +111,7 @@ public final class BatchC {
         int indigo = 0x3b3a7a, navy = 0x1d1b45, lav = 0xb9c3e6, gold = 0xf5d36b, cyan = 0x9ff3ff, slit = 0x0b0b18, ivory = 0xf4f1e6,
                 pink = 0xd27aa8, capB = 0x5a7bd6, capW = 0xeef0ff, mouth = 0x1a0d2a;
         Vector3f mistC = new Vector3f(0.55f, 0.75f, 1f);
-        return CreatureDef.of("lullaby_lynx", "Lullaby Lynx", "ララバイ・リンクス").size(1.4f, 4.8f).hp(620).dmg(12).speed(0.33).kbRes(0.9).armor(6).egg(indigo, gold).boss()
+        return CreatureDef.of("catnap", "CatNap", "キャットナップ").size(1.4f, 4.8f).hp(620).dmg(12).speed(0.33).kbRes(0.9).armor(6).egg(indigo, gold).boss()
                 .part("legL", null, -5, 30, 0, 7, 30, 7, 0, -15, 0, navy).walk(0.8f, 0)
                 .part("footL", "legL", 0, -30, 0, 8, 3, 11, 0, 1.5f, -2, indigo)
                 .part("legR", null, 5, 30, 0, 7, 30, 7, 0, -15, 0, navy).walk(0.8f, P)
@@ -230,7 +230,7 @@ public final class BatchC {
                     p.rot("head", 0.2f, 0, 0, -0.1f, 0, 0, w, s, r);
                 })
                 // call the pups: yowl with head thrown back
-                .atk(Atk.SUMMON, 0, 18f, 0, 600, 2, "patchwork_pup").anim((p, e, w, s, r, age) -> {
+                .atk(Atk.SUMMON, 0, 18f, 0, 600, 2, "dogday").anim((p, e, w, s, r, age) -> {
                     p.rot("head", -0.9f, 0, 0, -0.6f, 0, 0, w, s, r); p.rot("jaw", 0.6f, 0, 0, 1.0f, 0, 0, w, s, r);
                     p.rot("armL", 0.3f, 0, -1.3f, 0.2f, 0, -0.9f, w, s, r); p.rot("armR", 0.3f, 0, 1.3f, 0.2f, 0, 0.9f, w, s, r);
                     p.rot("body", 0.25f, 0, 0, 0.1f, 0, 0, w, s, r); p.rot("tail", -1.0f, 0, 0, -0.6f, 0, 0, w, s, r);
@@ -243,7 +243,7 @@ public final class BatchC {
     /** Scrappy stitched-together terrier: claw flurry, lunging bite, leap, shoulder tackle. */
     static CreatureDef patchworkPup() {
         int tan = 0xc58a4b, brown = 0x7a4a22, cream = 0xf1dcb5, blue = 0x4f7fb8, stitch = 0x2a1a10, black = 0x111111, white = 0xffffff, red = 0xb8322b, gold = 0xe8c14a;
-        return CreatureDef.of("patchwork_pup", "Patchwork Pup", "パッチワーク・パップ").size(0.9f, 2.3f).hp(70).dmg(7).speed(0.36).kbRes(0.2).egg(tan, blue).spawn(2)
+        return CreatureDef.of("dogday", "DogDay", "ドッグデイ").size(0.9f, 2.3f).hp(70).dmg(7).speed(0.36).kbRes(0.2).egg(tan, blue).spawn(2)
                 .part("legL", null, -3, 12, 0, 5, 12, 5, 0, -6, 0, brown).walk(1.0f, 0)
                 .part("footL", "legL", 0, -12, 0, 5.5f, 2, 7, 0, 1, -1, cream)
                 .part("legR", null, 3, 12, 0, 5, 12, 5, 0, -6, 0, tan).walk(1.0f, P)
@@ -320,7 +320,7 @@ public final class BatchC {
     /** Heavy quadruped with a brass bell on its trunk: trunk slam, rearing stomp, tusk charge, tusk toss, bell blast. */
     static CreatureDef brassMammoth() {
         int slate = 0x7d8ea3, dark = 0x55657a, brass = 0xd4a640, ivory = 0xf1ead2, ear = 0xd99aa5, red = 0xa8323a, black = 0x101010, white = 0xffffff, mouth = 0x6e2a35;
-        return CreatureDef.of("brass_mammoth", "Brass Mammoth", "ブラス・マンモス").size(2.2f, 2.9f).hp(180).dmg(10).speed(0.24).kbRes(1.0).armor(6).egg(slate, brass).spawn(1)
+        return CreatureDef.of("bubba_bubbaphant", "Bubba Bubbaphant", "ババ・ババファント").size(2.2f, 2.9f).hp(180).dmg(10).speed(0.24).kbRes(1.0).armor(6).egg(slate, brass).spawn(1)
                 .part("body", null, 0, 22, 12, 24, 20, 34, 0, 7, -12, slate)
                 .part("blanket", "body", 0, 17.5f, -12, 26, 2, 16, 0, 0, 0, red)
                 .part("trimF", "body", 0, 17.5f, -20.2f, 26.4f, 2.4f, 1, 0, 0, 0, brass)
@@ -403,7 +403,7 @@ public final class BatchC {
     /** Antlered bunny on coil-spring legs: sky-high leap slam, bounce stomp, double kick, antler butt. */
     static CreatureDef springJackalope() {
         int mint = 0x8fd6b0, mintD = 0x5fae8a, white = 0xf7f7f2, coral = 0xf08a8a, wood = 0x8a5a2b, steel = 0xb8bec6, steelD = 0x6d737b, amber = 0xffb12a, black = 0x121212;
-        return CreatureDef.of("spring_jackalope", "Spring Jackalope", "スプリング・ジャッカロープ").size(0.9f, 2.6f).hp(60).dmg(6).speed(0.38).kbRes(0.1).egg(mint, steel).spawn(2)
+        return CreatureDef.of("hoppy_hopscotch", "Hoppy Hopscotch", "ホッピー・ホップスコッチ").size(0.9f, 2.6f).hp(60).dmg(6).speed(0.38).kbRes(0.1).egg(mint, steel).spawn(2)
                 .part("legL", null, -4, 14, 0, 6, 5, 6, 0, -2.5f, 0, mint).walk(0.9f, 0)
                 .part("coilL1", "legL", 0, -5, 0, 4.5f, 1.5f, 4.5f, 0, -1, 0, steel)
                 .part("coilL2", "legL", 0, -7.5f, 0, 4, 1.5f, 4, 0, -1, 0, steelD)
@@ -480,7 +480,7 @@ public final class BatchC {
     /** Masked wrestling rooster: flying talon kick, peck combo, egg barrage, wing buffet. */
     static CreatureDef rumbleRooster() {
         int plume = 0xe0662a, plumeD = 0xb2441b, comb = 0xc4152b, beak = 0xf2b51c, mask = 0x2456c8, trim = 0xf5f5f5, leg = 0xf2c230, talon = 0x3a2a1a, teal = 0x1e7a6a, black = 0x0e0e0e;
-        return CreatureDef.of("rumble_rooster", "Rumble Rooster", "ランブル・ルースター").size(0.9f, 2.6f).hp(65).dmg(7).speed(0.35).kbRes(0.2).egg(plume, mask).spawn(2)
+        return CreatureDef.of("kickin_chicken", "Kickin Chicken", "キッキンチキン").size(0.9f, 2.6f).hp(65).dmg(7).speed(0.35).kbRes(0.2).egg(plume, mask).spawn(2)
                 .part("legL", null, -3, 13, 0, 2.5f, 13, 2.5f, 0, -6.5f, 0, leg).walk(1.0f, 0)
                 .part("footL", "legL", 0, -13, 0, 5, 1.5f, 7, 0, 0.75f, -2, leg)
                 .part("talonL", "footL", 0, 0, -5.5f, 4, 1, 1.2f, 0, 0.5f, 0, talon)
@@ -546,7 +546,7 @@ public final class BatchC {
     static CreatureDef crayonKirin() {
         int paper = 0xf2efe6, scrib = 0x4aa3d9, hoof = 0x3a3340, wax = 0xd93a3a, wrap = 0xe8d36a, blue = 0x2f6fd6, black = 0x101018, pink = 0xf4a3b8;
         int[] mane = {0xe63946, 0xf4a261, 0xf1d04b, 0x5cc26a, 0x3a86ff, 0x8f5bd8};
-        CreatureDef d = CreatureDef.of("crayon_kirin", "Crayon Kirin", "クレヨン・キリン").size(1.3f, 2.5f).hp(85).dmg(7).speed(0.36).kbRes(0.4).egg(paper, wax).spawn(1)
+        CreatureDef d = CreatureDef.of("craftycorn", "Craftycorn", "クラフティコーン").size(1.3f, 2.5f).hp(85).dmg(7).speed(0.36).kbRes(0.4).egg(paper, wax).spawn(1)
                 .part("body", null, 0, 18, 9, 12, 11, 22, 0, 4, -9, paper)
                 .part("scribble1", "body", -6.2f, 5, -12, 0.4f, 1, 10, 0, 0, 0, scrib)
                 .part("scribble2", "body", 6.2f, 3, -6, 0.4f, 1, 8, 0, 0, 0, 0xe86a92)
@@ -610,7 +610,7 @@ public final class BatchC {
     /** Harnessed truffle-hunting boar: tusk charge, uproot burst under the target, gnashing bite, tusk gore. */
     static CreatureDef truffleBoar() {
         int hide = 0xb07a6a, bristle = 0x5a3a30, snout = 0xe8a0a0, ivory = 0xf1ead2, eye = 0xffd23a, leather = 0x6b4423, brass = 0xd4a640, nostril = 0x7a3b3b;
-        return CreatureDef.of("truffle_boar", "Truffle Boar", "トリュフ・ボア").size(1.3f, 1.6f).hp(75).dmg(7).speed(0.33).kbRes(0.6).armor(3).egg(hide, bristle).spawn(2)
+        return CreatureDef.of("pickypiggy", "PickyPiggy", "ピッキーピギー").size(1.3f, 1.6f).hp(75).dmg(7).speed(0.33).kbRes(0.6).armor(3).egg(hide, bristle).spawn(2)
                 .part("body", null, 0, 14, 9, 16, 13, 24, 0, 3, -9, hide)
                 .part("mane", "body", 0, 10, -14, 4, 3, 14, 0, 0, 0, bristle)
                 .part("mane2", "body", 0, 10.5f, -18, 3, 3, 4, 0, 1, 0, bristle)
@@ -679,7 +679,7 @@ public final class BatchC {
     /** Plush grizzly with a honeycomb patch: crushing bear hug, claw swipe, rearing roar, belly flop. */
     static CreatureDef snuggleGrizzly() {
         int fur = 0xa86b3c, furD = 0x7a4a26, cream = 0xf1d8b0, nose = 0x2a1a12, black = 0x0f0f0f, white = 0xffffff, honey = 0xf2b632, honeyD = 0xc7861a, pad = 0xe79aa3, stitch = 0x3a2416, claw = 0xf4ecd8;
-        CreatureDef d = CreatureDef.of("snuggle_grizzly", "Snuggle Grizzly", "スナッグル・グリズリー").size(1.4f, 3.1f).hp(130).dmg(8).speed(0.29).kbRes(0.7).armor(4).egg(fur, honey).spawn(1)
+        CreatureDef d = CreatureDef.of("bobby_bearhug", "Bobby BearHug", "ボビー・ベアハグ").size(1.4f, 3.1f).hp(130).dmg(8).speed(0.29).kbRes(0.7).armor(4).egg(fur, honey).spawn(1)
                 .part("legL", null, -5, 16, 0, 8, 16, 8, 0, -8, 0, furD).walk(0.7f, 0)
                 .part("footL", "legL", 0, -16, 0, 9, 3, 11, 0, 1.5f, -1.5f, fur)
                 .part("legR", null, 5, 16, 0, 8, 16, 8, 0, -8, 0, furD).walk(0.7f, P)

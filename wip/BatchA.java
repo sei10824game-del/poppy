@@ -22,7 +22,7 @@ import org.joml.Vector3f;
 import java.util.ArrayList;
 import java.util.List;
 
-/** Batch A – original toy-factory creatures (own designs, Chapter-1 "toy line" theme). See DEV_GUIDE.md. */
+/** Batch A – canon Poppy Playtime roster (see DEV_GUIDE.md). */
 public final class BatchA {
     static final float P = (float) Math.PI;
 
@@ -92,7 +92,7 @@ public final class BatchA {
     // ---------------------------------------------------------------- 1. Snuggle Scamp – tiny swarm plush
     static CreatureDef snuggleScamp() {
         int teal = 0x2bb5a8, tealD = 0x1d8076, pink = 0xf7c6d9, pinkD = 0xd986a6, mouth = 0x2a0a14, white = 0xfbf8ee, black = 0x111111;
-        return CreatureDef.of("snuggle_scamp", "Snuggle Scamp", "スナッグル・スキャンプ").size(0.6f, 1.0f).hp(24).dmg(3).speed(0.36).kbRes(0).egg(teal, pink).spawn(3)
+        return CreatureDef.of("mini_huggy", "Mini Huggy", "ミニハギー").size(0.6f, 1.0f).hp(24).dmg(3).speed(0.36).kbRes(0).egg(teal, pink).spawn(3)
                 .part("legL", null, -2.5f, 4, 0, 3, 4, 3, 0, -2, 0, tealD).walk(1.1f, 0)
                 .part("footL", "legL", 0, -4, -0.5f, 3.4f, 1.2f, 4, 0, 0.6f, -0.5f, pink)
                 .part("legR", null, 2.5f, 4, 0, 3, 4, 3, 0, -2, 0, tealD).walk(1.1f, P)
@@ -148,7 +148,7 @@ public final class BatchA {
                     if (striking(s, r)) { p.g("jaw")[0] = -0.4f - 0.4f * Mth.sin(a * 2.4f); p.add("head", 0.15f * Mth.sin(a * 2.4f), 0.2f * Mth.sin(a * 1.2f), 0); }
                 })
                 // Squeak call: hops on tiptoes waving for friends
-                .atk(Atk.SUMMON, 0, 10, 0, 420, 1, "snuggle_scamp").anim((p, e, w, s, r, a) -> {
+                .atk(Atk.SUMMON, 0, 10, 0, 420, 1, "mini_huggy").anim((p, e, w, s, r, a) -> {
                     pair(p, "armL", "armR", 2.8f, 0, 0.4f, 2.9f, 0, 0.9f, w, s, r); p.rot("head", 0.5f, 0, 0, 0.7f, 0, 0, w, s, r);
                     p.rot("jaw", -0.8f, 0, 0, -1.0f, 0, 0, w, s, r); p.pos("body", 0, 1, 0, 0, 2.5f, 0, w, s, r);
                     if (striking(s, r) || w > 0.5f) { p.add("armL", 0, 0, 0.4f * Mth.sin(a * 1.8f)); p.add("armR", 0, 0, -0.4f * Mth.sin(a * 1.8f)); }
@@ -158,7 +158,7 @@ public final class BatchA {
     // ---------------------------------------------------------------- 2. Ribbon Rosie – tall lanky lavender plush with a bow
     static CreatureDef ribbonRosie() {
         int lav = 0xb58ae6, lavD = 0x7d55b8, cream = 0xf3e3f7, bow = 0x3cc8c0, bowD = 0x2a9790, mouth = 0x1e0616, teeth = 0xf4f0e6, hand = 0xf6c0dc;
-        return CreatureDef.of("ribbon_rosie", "Ribbon Rosie", "リボン・ロージー").size(1.0f, 3.1f).hp(110).dmg(7).speed(0.32).kbRes(0.5).egg(lav, bow).spawn(1)
+        return CreatureDef.of("miss_delight", "Miss Delight", "ミス・ディライト").size(1.0f, 3.1f).hp(110).dmg(7).speed(0.32).kbRes(0.5).egg(lav, bow).spawn(1)
                 .part("legL", null, -3.5f, 20, 0, 5, 20, 5, 0, -10, 0, lav).walk(0.8f, 0)
                 .part("footL", "legL", 0, -20, -1, 6, 2, 7, 0, 1, 0, hand)
                 .part("legR", null, 3.5f, 20, 0, 5, 20, 5, 0, -10, 0, lav).walk(0.8f, P)
@@ -232,7 +232,7 @@ public final class BatchA {
     // ---------------------------------------------------------------- 3. Tambo Hare – drum-bellied rabbit with tambourines
     static CreatureDef tamboHare() {
         int pink = 0xf29bc0, white = 0xfaf6f0, red = 0xd83a3a, gold = 0xe8c040, wood = 0xc98a4a, silver = 0xd8d8e0;
-        return CreatureDef.of("tambo_hare", "Tambo Hare", "タンボ・ヘア").size(0.8f, 2.4f).hp(60).dmg(5).speed(0.33).kbRes(0.3).egg(pink, gold).spawn(2)
+        return CreatureDef.of("bunzo_bunny", "Bunzo Bunny", "バンゾー・バニー").size(0.8f, 2.4f).hp(60).dmg(5).speed(0.33).kbRes(0.3).egg(pink, gold).spawn(2)
                 .part("legL", null, -3, 10, 0, 4, 10, 5, 0, -5, 0, pink).walk(0.9f, 0)
                 .part("footL", "legL", 0, -10, -2, 5, 2.4f, 9, 0, 1.2f, 0, white)
                 .part("legR", null, 3, 10, 0, 4, 10, 5, 0, -5, 0, pink).walk(0.9f, P)
@@ -306,7 +306,7 @@ public final class BatchA {
     // ---------------------------------------------------------------- 4. Disco Droid – mirror-ball headed dancing robot toy
     static CreatureDef discoDroid() {
         int chrome = 0xb8c2cf, steel = 0x5a6170, mag = 0xff3fb4, cyan = 0x3fe8ff, gold = 0xf2c94c, black = 0x15151a;
-        return CreatureDef.of("disco_droid", "Disco Droid", "ディスコ・ドロイド").size(0.9f, 2.3f).hp(70).dmg(6).speed(0.3).kbRes(0.6).armor(4).egg(chrome, mag).spawn(1)
+        return CreatureDef.of("bigger_bot", "Bigger Bot", "ビガー・ボット").size(0.9f, 2.3f).hp(70).dmg(6).speed(0.3).kbRes(0.6).armor(4).egg(chrome, mag).spawn(1)
                 .part("legL", null, -3.5f, 12, 0, 4, 12, 4, 0, -6, 0, steel).walk(0.8f, 0)
                 .part("bootL", "legL", 0, -12, -0.5f, 5.5f, 3, 7, 0, 1.5f, -0.5f, chrome)
                 .part("legR", null, 3.5f, 12, 0, 4, 12, 4, 0, -6, 0, steel).walk(0.8f, P)
@@ -368,7 +368,7 @@ public final class BatchA {
     // ---------------------------------------------------------------- 5. Crate o' Cuddlers – shipping crate stuffed with live plush
     static CreatureDef crateCuddlers() {
         int wood = 0xb07a45, woodD = 0x7a5230, metal = 0x8a8f98, teal = 0x2bb5a8, pink = 0xf29bc0, yellow = 0xf2d04a, eye = 0x111111;
-        return CreatureDef.of("crate_cuddlers", "Crate o' Cuddlers", "クレート・オ・カドラーズ").size(1.2f, 1.6f).hp(80).dmg(5).speed(0.26).kbRes(0.8).armor(3).egg(wood, teal).spawn(1)
+        return CreatureDef.of("mini_boxy_boo", "Mini Boxy Boo", "ミニ・ボクシーブー").size(1.2f, 1.6f).hp(80).dmg(5).speed(0.26).kbRes(0.8).armor(3).egg(wood, teal).spawn(1)
                 .part("legL", null, -4, 5, 0, 4, 5, 4, 0, -2.5f, 0, teal).walk(1.2f, 0)
                 .part("legR", null, 4, 5, 0, 4, 5, 4, 0, -2.5f, 0, pink).walk(1.2f, P)
                 .part("body", null, 0, 5, 0, 18, 16, 16, 0, 8, 0, wood)
@@ -400,7 +400,7 @@ public final class BatchA {
                     pair(p, "armL", "armR", -0.3f, 0, 0.5f, 1.4f, 0, -0.2f, w, s, r);
                 })
                 // Spill: lid flung open, crate rattles, a cuddler tumbles out
-                .atk(Atk.SUMMON, 0, 10, 0, 360, 2, "snuggle_scamp").anim((p, e, w, s, r, a) -> {
+                .atk(Atk.SUMMON, 0, 10, 0, 360, 2, "mini_huggy").anim((p, e, w, s, r, a) -> {
                     p.rot("jaw", 1.4f, 0, 0, 1.9f, 0, 0, w, s, r); p.pos("head", 0, 3, 0, 0, 5, 0, w, s, r); p.pos("pk1", 0, 3, 0, 0, 6, 0, w, s, r); p.pos("pk3", 0, 2, 0, 0, 5, -2, w, s, r);
                     pair(p, "armL", "armR", 2.4f, 0, 0.6f, 2.9f, 0, 0.9f, w, s, r);
                     p.add("body", 0, 0, 0.08f * Mth.sin(a * 2.5f) * (1 - r));
@@ -422,7 +422,7 @@ public final class BatchA {
     // ---------------------------------------------------------------- 6. Lantern Moth – lightbulb-bodied moth toy
     static CreatureDef lanternMoth() {
         int bulb = 0xffe27a, brass = 0xb8892e, fuzz = 0xf4efe0, wing = 0xd9c9a0, spot = 0xff9f40, dark = 0x3a2e24;
-        return CreatureDef.of("lantern_moth", "Lantern Moth", "ランタン・モス").size(0.9f, 1.6f).hp(40).dmg(4).speed(0.34).kbRes(0.1).egg(bulb, brass).spawn(2)
+        return CreatureDef.of("poppy", "Poppy", "ポピー").size(0.9f, 1.6f).hp(40).dmg(4).speed(0.34).kbRes(0.1).egg(bulb, brass).spawn(2)
                 .part("legL", null, -2.5f, 8, 0, 2, 8, 2, 0, -4, 0, dark).walk(1.0f, 0)
                 .part("footL", "legL", 0, -8, -0.5f, 3, 1.2f, 4, 0, 0.6f, 0, brass)
                 .part("legR", null, 2.5f, 8, 0, 2, 8, 2, 0, -4, 0, dark).walk(1.0f, P)
@@ -483,7 +483,7 @@ public final class BatchA {
     // ---------------------------------------------------------------- 7. Quilt Phantom – walking patchwork blanket
     static CreatureDef quiltPhantom() {
         int red = 0xd9534f, blue = 0x5b9bd5, yellow = 0xf0c75e, green = 0x6cbf6a, purple = 0xb07cc6, cream = 0xf4ede0, seam = 0x3a2a20;
-        return CreatureDef.of("quilt_phantom", "Quilt Phantom", "キルト・ファントム").size(1.0f, 2.5f).hp(75).dmg(6).speed(0.28).kbRes(0.4).egg(blue, yellow).spawn(1)
+        return CreatureDef.of("nightmare_kissy_missy", "Nightmare Kissy Missy", "ナイトメア・キッシーミッシー").size(1.0f, 2.5f).hp(75).dmg(6).speed(0.28).kbRes(0.4).egg(blue, yellow).spawn(1)
                 .part("legL", null, -3, 6, 0, 4, 6, 4, 0, -3, 0, 0x2a2020).walk(0.7f, 0)
                 .part("legR", null, 3, 6, 0, 4, 6, 4, 0, -3, 0, 0x2a2020).walk(0.7f, P)
                 .part("body", null, 0, 6, 0, 14, 20, 10, 0, 10, 0, cream).sway(0.04f, 0.12f, 0, 2)
@@ -545,7 +545,7 @@ public final class BatchA {
     // ---------------------------------------------------------------- 8. Bubble Barb – spiky pufferfish bath toy on stubby feet
     static CreatureDef bubbleBarb() {
         int orange = 0xf5a03a, belly = 0xfde2a8, spike = 0xfff1d0, fin = 0x3fb8e0, lips = 0xe8456a;
-        CreatureDef d = CreatureDef.of("bubble_barb", "Bubble Barb", "バブル・バーブ").size(1.0f, 1.3f).hp(45).dmg(4).speed(0.27).kbRes(0.3).egg(orange, fin).spawn(2)
+        CreatureDef d = CreatureDef.of("chum_chompers", "Chum Chompers", "チャム・チョンパーズ").size(1.0f, 1.3f).hp(45).dmg(4).speed(0.27).kbRes(0.3).egg(orange, fin).spawn(2)
                 .part("legL", null, -3, 4, 0, 3, 4, 3, 0, -2, 0, fin).walk(1.1f, 0)
                 .part("footL", "legL", 0, -4, -1, 3.6f, 1.2f, 5, 0, 0.6f, 0, fin)
                 .part("legR", null, 3, 4, 0, 3, 4, 3, 0, -2, 0, fin).walk(1.1f, P)
@@ -598,7 +598,7 @@ public final class BatchA {
     // ---------------------------------------------------------------- 9. Longarm Sweeper – towering red/orange plush with floor-dragging arms
     static CreatureDef longarmSweeper() {
         int red = 0xd9482b, redD = 0x9e2a18, orange = 0xf08a2a, mouth = 0x18040a, teeth = 0xf2efe4, eye = 0xffe14a;
-        CreatureDef d = CreatureDef.of("longarm_sweeper", "Longarm Sweeper", "ロングアーム・スイーパー").size(1.3f, 3.6f).hp(160).dmg(9).speed(0.32).kbRes(0.7).egg(red, orange).spawn(1)
+        CreatureDef d = CreatureDef.of("daddy_long_legs", "Daddy Long Legs", "ダディ・ロングレッグス").size(1.3f, 3.6f).hp(160).dmg(9).speed(0.32).kbRes(0.7).egg(red, orange).spawn(1)
                 .part("legL", null, -5, 26, 0, 7, 26, 7, 0, -13, 0, redD).walk(0.8f, 0)
                 .part("footL", "legL", 0, -26, -1, 8, 3, 10, 0, 1.5f, 0, orange)
                 .part("legR", null, 5, 26, 0, 7, 26, 7, 0, -13, 0, redD).walk(0.8f, P)

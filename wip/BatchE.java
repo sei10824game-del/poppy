@@ -21,7 +21,7 @@ public final class BatchE {
     /** Final boss: hunched scrap-metal colossus with six mechanical limbs, cable tail and a cluster of red optics. */
     static CreatureDef scrapSovereign() {
         int steel = 0x5b6168, dark = 0x2b2e33, rust = 0x8a4b2a, brass = 0xb08a3e, red = 0xff2a1a, cable = 0x1a1a1d, bone = 0xd9d2bf, glow = 0x6fd8ff;
-        return CreatureDef.of("scrap_sovereign", "Scrap Sovereign", "スクラップ・ソブリン").size(2.6f, 5.6f).hp(900).dmg(14).speed(0.3).kbRes(1.0).armor(10).egg(steel, red).boss()
+        return CreatureDef.of("the_prototype", "The Prototype", "ザ・プロトタイプ").size(2.6f, 5.6f).hp(900).dmg(14).speed(0.3).kbRes(1.0).armor(10).egg(steel, red).boss()
                 // legs (hydraulic, reverse-knee feel via foot offset)
                 .part("legL", null, -8, 30, 2, 10, 30, 10, 0, -15, 0, dark).walk(0.6f, 0)
                 .part("pistonL", "legL", 0, -8, -5.5f, 4, 14, 2, 0, 0, 0, brass)
@@ -126,7 +126,7 @@ public final class BatchE {
                     p.rot("head", 0.5f, 0, 0, -0.3f, 0, 0, w, s, r); p.rot("jaw", 0, 0, 0, -0.7f, 0, 0, w, s, r);
                 })
                 // summons scrap crawlers out of its hump
-                .atk(Atk.SUMMON, 0, 20f, 0, 420, 3, "tin_crawler").anim((p, e, w, s, r, age) -> {
+                .atk(Atk.SUMMON, 0, 20f, 0, 420, 3, "mini_prototype").anim((p, e, w, s, r, age) -> {
                     p.rot("body", 0.6f, 0, 0, 0.1f, 0, 0, w, s, r); p.rot("head", -0.6f, 0, 0, 0.3f, 0, 0, w, s, r);
                     p.rot("armL", 0.2f, 0, -1.2f, 0.5f, 0, -0.6f, w, s, r); p.rot("armR", 0.2f, 0, 1.2f, 0.5f, 0, 0.6f, w, s, r);
                     p.scl("hump", 1, 1, 1, 1.25f, 1.4f, 1.2f, w, s, r); p.rot("tail", 0.6f, 0, 0, -0.3f, 0, 0, w, s, r);
@@ -144,7 +144,7 @@ public final class BatchE {
     /** Lanky bandage-wrapped stalker with a stitched-shut mouth and long finger blades. */
     static CreatureDef ragStalker() {
         int cloth = 0xbfb39a, band = 0x8f8470, dark = 0x2a221c, stitch = 0xe8e0c8, eye = 0xf4f0ff, claw = 0x3b3b3b;
-        return CreatureDef.of("rag_stalker", "Rag Stalker", "ラグ・ストーカー").size(0.9f, 3.4f).hp(90).dmg(7).speed(0.34).kbRes(0.3).egg(cloth, dark).spawn(2)
+        return CreatureDef.of("nightmare_miss_delight", "Nightmare Miss Delight", "ナイトメア・ミスディライト").size(0.9f, 3.4f).hp(90).dmg(7).speed(0.34).kbRes(0.3).egg(cloth, dark).spawn(2)
                 .part("legL", null, -3, 24, 0, 4, 24, 4, 0, -12, 0, cloth).walk(0.9f, 0)
                 .part("wrapL", "legL", 0, -10, 0, 4.4f, 2, 4.4f, 0, 0, 0, band)
                 .part("legR", null, 3, 24, 0, 4, 24, 4, 0, -12, 0, cloth).walk(0.9f, P)
@@ -201,7 +201,7 @@ public final class BatchE {
     /** Four-legged clockwork hound: brass gears on its flanks, piston jaw, steam tail. */
     static CreatureDef cogHound() {
         int brass = 0xb98b3a, iron = 0x3d3f44, cog = 0xd8b45a, eye = 0x4dffb2, steam = 0xdddddd, tooth = 0xeae4d0;
-        return CreatureDef.of("cog_hound", "Cog Hound", "コグ・ハウンド").size(1.0f, 1.3f).hp(50).dmg(6).speed(0.38).kbRes(0.2).egg(brass, eye).spawn(2)
+        return CreatureDef.of("pianosaurus", "Pianosaurus", "ピアノサウルス").size(1.0f, 1.3f).hp(50).dmg(6).speed(0.38).kbRes(0.2).egg(brass, eye).spawn(2)
                 .part("body", null, 0, 13, 0, 10, 9, 22, 0, 2, 0, brass)
                 .part("spine", "body", 0, 7, 0, 3, 2, 20, 0, 0, 0, iron)
                 .part("cogL", "body", -5.5f, 2, 2, 1, 7, 7, 0, 0, 0, cog).sway(3f, 0.15f, 0, 0)
@@ -249,7 +249,7 @@ public final class BatchE {
     /** Spider made of tangled copper wire: bulb abdomen with glowing filaments, six eyes, pincer fangs, eight legs. */
     static CreatureDef wireWidow() {
         int wire = 0xb5652a, dark = 0x2a1c14, bulb = 0xf2ecc8, fil = 0xffc24a, eye = 0xff3b3b, fang = 0xd8d8d8;
-        CreatureDef d = CreatureDef.of("wire_widow", "Wire Widow", "ワイヤー・ウィドウ").size(1.6f, 1.0f).hp(60).dmg(6).speed(0.36).kbRes(0.3).egg(wire, fil).spawn(1)
+        CreatureDef d = CreatureDef.of("nightmare_mommy", "Nightmare Mommy Long Legs", "ナイトメア・マミー").size(1.6f, 1.0f).hp(60).dmg(6).speed(0.36).kbRes(0.3).egg(wire, fil).spawn(1)
                 .part("body", null, 0, 9, 0, 8, 6, 8, 0, 0, -2, dark)
                 .part("abdomen", "body", 0, 2, 6, 11, 9, 12, 0, 0, 3, bulb).sway(0.05f, 0.1f, 0, 0)
                 .part("filament1", "abdomen", -2, 0, 3, 1, 6, 1, 0, 0, 0, fil).glow()
@@ -303,7 +303,7 @@ public final class BatchE {
     /** Hulking furnace-bellied brute: glowing grate belly, chimney on its back, riveted fists. */
     static CreatureDef furnaceBrute() {
         int iron = 0x45403c, soot = 0x1e1b19, fire = 0xff7a1a, ember = 0xffd34a, rivet = 0x9a8f80, eye = 0xffe08a;
-        return CreatureDef.of("furnace_brute", "Furnace Brute", "ファーネス・ブルート").size(1.8f, 3.0f).hp(140).dmg(9).speed(0.25).kbRes(0.8).armor(6).egg(iron, fire).spawn(1).fireImmune()
+        return CreatureDef.of("nightmare_bron", "Nightmare Bron", "ナイトメア・ブロン").size(1.8f, 3.0f).hp(140).dmg(9).speed(0.25).kbRes(0.8).armor(6).egg(iron, fire).spawn(1).fireImmune()
                 .part("legL", null, -6, 16, 0, 8, 16, 8, 0, -8, 0, soot).walk(0.7f, 0)
                 .part("legR", null, 6, 16, 0, 8, 16, 8, 0, -8, 0, soot).walk(0.7f, P)
                 .part("bootL", "legL", 0, -16, -1, 9, 3, 11, 0, 1.5f, 0, iron)
@@ -359,7 +359,7 @@ public final class BatchE {
     /** Walking specimen jar: glass tank on spindly brass legs, a one-eyed goo blob inside with tentacles spilling out the lid. */
     static CreatureDef jarWraith() {
         int glass = 0xa8e6e0, goo = 0x58c23a, gooD = 0x2f7a1e, lid = 0x7a7a80, brass = 0xa98238, eye = 0xfff36a, pupil = 0x101010;
-        return CreatureDef.of("jar_wraith", "Jar Wraith", "ジャー・レイス").size(1.2f, 2.4f).hp(70).dmg(6).speed(0.27).kbRes(0.4).egg(glass, goo).spawn(1)
+        return CreatureDef.of("harley_sawyer", "Dr. Harley Sawyer", "ハーレー・ソーヤー博士").size(1.2f, 2.4f).hp(70).dmg(6).speed(0.27).kbRes(0.4).egg(glass, goo).spawn(1)
                 .part("legL", null, -5, 10, 0, 2, 10, 2, 0, -5, 0, brass).walk(1.0f, 0)
                 .part("legR", null, 5, 10, 0, 2, 10, 2, 0, -5, 0, brass).walk(1.0f, P)
                 .part("legL2", null, -5, 10, 5, 2, 10, 2, 0, -5, 0, brass).walk(1.0f, P)
@@ -411,7 +411,7 @@ public final class BatchE {
     /** Wooden marionette that pulls its own strings: control cross floating above its head, ball joints, painted grin. */
     static CreatureDef stringPuppeteer() {
         int wood = 0xc49a6c, joint = 0x6b4a2e, paint = 0xb3202a, white = 0xf2ead8, str = 0xe6e6e6, coat = 0x3b2a5c, eye = 0x1a1a1a;
-        return CreatureDef.of("string_puppeteer", "String Puppeteer", "ストリング・パペッティア").size(0.9f, 2.6f).hp(100).dmg(7).speed(0.3).kbRes(0.3).egg(wood, coat).spawn(1)
+        return CreatureDef.of("nightmare_prototype", "Nightmare Prototype", "ナイトメア・プロトタイプ").size(0.9f, 2.6f).hp(100).dmg(7).speed(0.3).kbRes(0.3).egg(wood, coat).spawn(1)
                 .part("legL", null, -3, 18, 0, 3, 18, 3, 0, -9, 0, wood).walk(1.1f, 0)
                 .part("kneeL", "legL", 0, -9, 0, 4, 3, 4, 0, 0, 0, joint)
                 .part("legR", null, 3, 18, 0, 3, 18, 3, 0, -9, 0, wood).walk(1.1f, P)
@@ -459,7 +459,7 @@ public final class BatchE {
                     if (s >= 1 && r <= 0) { float q = Mth.sin(age * 0.7f); p.add("armL", q * 0.3f, 0, 0); p.add("armR", -q * 0.3f, 0, 0); p.add("cross", 0, 0, q * 0.3f); p.add("head", 0, 0, q * 0.2f); }
                 })
                 // jerks the cross and summons tin crawlers like puppets
-                .atk(Atk.SUMMON, 0, 16f, 0, 400, 2, "tin_crawler").anim((p, e, w, s, r, age) -> {
+                .atk(Atk.SUMMON, 0, 16f, 0, 400, 2, "mini_prototype").anim((p, e, w, s, r, age) -> {
                     p.rot("armL", 3.0f, 0, -0.4f, 2.0f, 0, -0.9f, w, s, r); p.rot("armR", 3.0f, 0, 0.4f, 2.0f, 0, 0.9f, w, s, r);
                     p.pos("cross", 0, 4, 0, 0, -2, 0, w, s, r); p.rot("head", -0.4f, 0, 0, 0.3f, 0, 0, w, s, r); p.rot("jaw", 0, 0, 0, -0.8f, 0, 0, w, s, r);
                 });
@@ -468,7 +468,7 @@ public final class BatchE {
     /** Mutated carnivorous plant: thick stalk, fanged bulb head ringed by petals, thorny vine arms, root feet. */
     static CreatureDef thornBloom() {
         int stalk = 0x3f7a2c, dark = 0x23461a, petal = 0xc8326e, inner = 0x5a0f1e, tooth = 0xf3edd5, thorn = 0xd6c27a, pollen = 0xffe14a;
-        return CreatureDef.of("thorn_bloom", "Thorn Bloom", "ソーン・ブルーム").size(1.4f, 3.2f).hp(110).dmg(8).speed(0.22).kbRes(0.6).egg(stalk, petal).spawn(1)
+        return CreatureDef.of("kissy_missy", "Kissy Missy", "キッシーミッシー").size(1.4f, 3.2f).hp(110).dmg(8).speed(0.22).kbRes(0.6).egg(stalk, petal).spawn(1)
                 .part("legL", null, -4, 8, 0, 5, 8, 5, 0, -4, 0, dark).walk(0.6f, 0)
                 .part("rootL", "legL", -2, -8, -2, 8, 2, 3, 0, 1, 0, dark)
                 .part("legR", null, 4, 8, 0, 5, 8, 5, 0, -4, 0, dark).walk(0.6f, P)
@@ -529,7 +529,7 @@ public final class BatchE {
     /** Hostile toadstool: spotted cap with gills, glowing eyes in the shade beneath, stubby limbs. */
     static CreatureDef sporecap() {
         int cap = 0x9a2fb8, spot = 0xf0e6ff, stem = 0xe8dcc0, gill = 0x7a6a5a, eye = 0x9cff4a, dark = 0x2a1f18;
-        return CreatureDef.of("sporecap", "Sporecap", "スポアキャップ").size(1.0f, 1.6f).hp(45).dmg(5).speed(0.26).kbRes(0.2).egg(cap, spot).spawn(2)
+        return CreatureDef.of("mini_bubba", "Mini Bubba", "ミニ・ババ").size(1.0f, 1.6f).hp(45).dmg(5).speed(0.26).kbRes(0.2).egg(cap, spot).spawn(2)
                 .part("legL", null, -2.5f, 5, 0, 3.5f, 5, 3.5f, 0, -2.5f, 0, stem).walk(1.2f, 0)
                 .part("legR", null, 2.5f, 5, 0, 3.5f, 5, 3.5f, 0, -2.5f, 0, stem).walk(1.2f, P)
                 .part("body", null, 0, 5, 0, 9, 10, 9, 0, 5, 0, stem)
@@ -571,7 +571,7 @@ public final class BatchE {
     /** Two-headed beast stitched from mismatched hides: one head snarls, the other screeches. */
     static CreatureDef patchworkHydra() {
         int hideA = 0x6b8a3c, hideB = 0xa0603a, hideC = 0x5a5a7a, stitch = 0xefe6c8, mouth = 0x2a0a0a, tooth = 0xf1ecd8, eyeA = 0xffd23a, eyeB = 0x3af0ff;
-        return CreatureDef.of("patchwork_hydra", "Patchwork Hydra", "パッチワーク・ヒドラ").size(1.8f, 2.6f).hp(160).dmg(9).speed(0.3).kbRes(0.6).egg(hideA, hideB).spawn(1)
+        return CreatureDef.of("nightmare_huggy", "Nightmare Huggy Wuggy", "ナイトメア・ハギーワギー").size(1.8f, 2.6f).hp(160).dmg(9).speed(0.3).kbRes(0.6).egg(hideA, hideB).spawn(1)
                 .part("body", null, 0, 18, 0, 18, 14, 28, 0, 2, 2, hideA)
                 .part("patch1", "body", -9.2f, 3, 6, 1, 8, 10, 0, 0, 0, hideB)
                 .part("patch2", "body", 9.2f, 2, -4, 1, 9, 9, 0, 0, 0, hideC)
@@ -629,7 +629,7 @@ public final class BatchE {
     /** Small legless tin torso that drags itself on two arms; one lamp eye. Summoned by the Sovereign and Puppeteer. */
     static CreatureDef tinCrawler() {
         int tin = 0x9aa3ab, dark = 0x3a3f45, eye = 0xff4a2a, rust = 0x8a4b2a, tooth = 0xe8e2d0;
-        return CreatureDef.of("tin_crawler", "Tin Crawler", "ティン・クローラー").size(0.7f, 0.6f).hp(18).dmg(3).speed(0.36).kbRes(0).egg(tin, eye)
+        return CreatureDef.of("mini_prototype", "Mini Prototype", "ミニ・プロトタイプ").size(0.7f, 0.6f).hp(18).dmg(3).speed(0.36).kbRes(0).egg(tin, eye)
                 .part("body", null, 0, 4, 2, 7, 5, 9, 0, 0, 0, tin)
                 .part("rust", "body", 2, 2.6f, 2, 3, 1, 4, 0, 0, 0, rust)
                 .part("spring", "body", 0, 0, 5, 2, 2, 4, 0, 0, 2, dark).sway(0.3f, 0.4f, 0, 1)
