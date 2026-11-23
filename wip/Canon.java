@@ -56,7 +56,7 @@ final class Canon {
     }
 
     static void apply(CreatureDef d) {
-        Consumer<CreatureDef> f = MAP.getOrDefault(d.id, MAP2.get(d.id));
+        Consumer<CreatureDef> f = MAP.getOrDefault(d.id, MAP2.getOrDefault(d.id, Canon2.MAP.get(d.id)));
         if (f == null) return;
         d.parts.clear();
         f.accept(d);
