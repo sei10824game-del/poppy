@@ -527,7 +527,7 @@ public final class BatchB {
     // ================================================================= 8. SCRIBBLE BONES – a crayon doodle of a skeleton, flat as paper
     static CreatureDef scribbleBones() {
         int paper = 0xf7f3e8, ink = 0x22222b, crayonR = 0xe0453a, crayonB = 0x3c6fd9, crayonY = 0xf2cf3a, glow = 0x7cf5ff;
-        CreatureDef d = CreatureDef.of("ollie", "Ollie", "オリー").size(0.7f, 2.0f).hp(48).dmg(5).speed(0.34).egg(paper, ink).spawn(2);
+        CreatureDef d = CreatureDef.of("doodle_bones", "Doodle Bones", "ドゥードル・ボーンズ").size(0.7f, 2.0f).hp(48).dmg(5).speed(0.34).egg(paper, ink).spawn(2);
         new M(d)
                 .sw(0.9f, "leg#", null, 2.5f, 13, 0, 2, 13, 1, 0, -6.5f, 0, paper)
                 .s("legLine#", "leg#", 1.2f, 0, 0, 0.5f, 13, 1.2f, 0, -6.5f, 0, ink)
@@ -572,7 +572,7 @@ public final class BatchB {
     // ================================================================= 9. GUMDROP TABBY – a cat built from gumdrops, candy-cane tail, wrapper bow
     static CreatureDef gumdropTabby() {
         int orange = 0xff8f3a, lime = 0x9be04a, cherry = 0xe2324a, grape = 0x8a4fd1, sugar = 0xfff5fa, dark = 0x1c1018, mint = 0x6ff0c8, white = 0xffffff;
-        CreatureDef d = CreatureDef.of("ruby_the_cat", "Ruby the Cat", "ルビー・ザ・キャット").size(0.8f, 1.3f).hp(40).dmg(5).speed(0.37).egg(orange, cherry).spawn(2);
+        CreatureDef d = CreatureDef.of("candy_cat", "Candy Cat", "キャンディ・キャット").size(0.8f, 1.3f).hp(40).dmg(5).speed(0.37).egg(orange, cherry).spawn(2);
         new M(d)
                 .sw(1.0f, "leg#", null, 3, 6, -4, 3, 6, 3, 0, -3, 0, orange).s("paw#", "leg#", 0, -6, -0.5f, 3.5f, 1.5f, 4, 0, 0.7f, 0, sugar)
                 .sw(1.0f, "leg#2", null, 3, 6, 5, 3, 6, 3, 0, -3, 0, orange)
@@ -617,7 +617,7 @@ public final class BatchB {
     // ================================================================= 10. MOTHMOUSE – fuzzy mouse with dusty moth wings and lamp antennae
     static CreatureDef mothmouse() {
         int fur = 0xb9a58a, furD = 0x8c7a63, wing = 0xd9cba5, wingE = 0x6e5a3c, eyeSpot = 0x3a6fd0, pink = 0xf0a0b0, dark = 0x140e0c, lamp = 0xfff2a0, ruff = 0xf4ecdc;
-        CreatureDef d = CreatureDef.of("mini_bunzo", "Mini Bunzo", "ミニ・バンゾー").size(0.7f, 1.0f).hp(28).dmg(4).speed(0.4).egg(wing, eyeSpot).spawn(2);
+        CreatureDef d = CreatureDef.of("loopsy_noodle", "Loopsy Noodle", "ルーピー・ヌードル").size(0.7f, 1.0f).hp(28).dmg(4).speed(0.4).egg(wing, eyeSpot).spawn(2);
         new M(d)
                 .sw(1.0f, "leg#", null, 2, 4, 1, 2, 4, 3, 0, -2, 0, furD)
                 .p("body", null, 0, 7, 1, 7, 7, 9, 0, 0, 0, fur).sway(0.06f, 0.25f, 0, 0)

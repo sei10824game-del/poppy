@@ -2,7 +2,7 @@
   "type": "forge:add_spawns",
   "biomes": "#minecraft:is_overworld",
   "spawners": {
-    "type": "poppyplaytime:huggy_wuggy_plush",
+    "type": "poppyplaytime:boogie_bot",
     "maxCount": 1,
     "minCount": 1,
     "weight": 1

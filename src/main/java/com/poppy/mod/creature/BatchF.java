@@ -149,7 +149,7 @@ public final class BatchF {
     // =====================================================================================================
     static CreatureDef clockjaw() {
         int tin = 0x3c8c4c, tinD = 0x2a5e35, rivet = 0xc9c9bb, brass = 0xd6a62c, belly = 0xdcca8c, eye = 0xff3a2a, tooth = 0xf4f1e6, mouth = 0x5a1212;
-        CreatureDef d = CreatureDef.of("mr_hippo", "Mr. Hippo", "ミスター・ヒッポ").size(1.5f, 1.1f).hp(90).dmg(7).speed(0.3).kbRes(0.5).armor(4).egg(tin, brass).spawn(1)
+        CreatureDef d = CreatureDef.of("allister_gator", "Allister Gator", "アリスター・ゲイター").size(1.5f, 1.1f).hp(90).dmg(7).speed(0.3).kbRes(0.5).armor(4).egg(tin, brass).spawn(1)
                 .part("body", null, 0, 11, 0, 14, 9, 24, 0, 0, 2, tin).sway(0.015f, 0.12f, 0, 2)
                 .part("belly", "body", 0, -4.6f, 2, 12, 1, 20, 0, 0, 0, belly);
         row(d, "scute", "body", 1, 0, 0, 4.5f, -6, 4, 2, 4, 1, tinD);
@@ -298,7 +298,7 @@ public final class BatchF {
     // =====================================================================================================
     static CreatureDef puddleToad() {
         int rub = 0x36b39a, rubD = 0x23806c, spot = 0xf2d23c, belly = 0xf6eecb, white = 0xfafafa, pupil = 0x111111, mouth = 0x7a1c2c, tongue = 0xff5d7a, foot = 0xf2a93c;
-        return CreatureDef.of("sheriff_pickle_pie", "Sheriff Pickle Pie", "シェリフ・ピクルパイ").size(1.2f, 1.1f).hp(70).dmg(6).speed(0.28).egg(rub, spot).spawn(2)
+        return CreatureDef.of("icky_licky", "Icky Licky", "イッキー・リッキー").size(1.2f, 1.1f).hp(70).dmg(6).speed(0.28).egg(rub, spot).spawn(2)
                 .part("body", null, 0, 8, 0, 16, 9, 16, 0, 3, 1, rub).sway(0.02f, 0.1f, 0, 0)
                 .part("belly", "body", 0, 3, -7.2f, 12, 7, 1, 0, 0, 0, belly)
                 .part("spot0", "body", -5, 7.6f, 2, 3, 1, 3, 0, 0, 0, spot)
@@ -578,7 +578,7 @@ public final class BatchF {
     static CreatureDef slurpSlug() {
         int red = 0xe8304a, white = 0xfaf4f4, pink = 0xf2b8d0, blue = 0x6ad1ff, mouth = 0x4a0a1a, tongue = 0x9b4cff;
         int[] spr = {0xffe14a, 0x3ac8e0, 0x8fe03a, 0xff9a2e, 0xffffff};
-        CreatureDef d = CreatureDef.of("mini_hippo", "Mini Hippo", "ミニ・ヒッポ").size(1.0f, 1.2f).hp(55).dmg(5).speed(0.22).egg(red, white).spawn(2)
+        CreatureDef d = CreatureDef.of("bubby_chumz", "Bubby Chumz", "バビー・チャムズ").size(1.0f, 1.2f).hp(55).dmg(5).speed(0.22).egg(red, white).spawn(2)
                 .part("foot", null, 0, 0, 2, 12, 3, 22, 0, 1.5f, 0, pink)
                 .part("tailPart", "foot", 0, 3, 8, 8, 5, 8, 0, 2.5f, 0, red).sway(0.08f, 0.12f, 0, 1)
                 .part("tailStripe", "tailPart", 0, 2.5f, 0, 8.4f, 5.4f, 2, 0, 0, 0, white)
@@ -781,7 +781,7 @@ public final class BatchF {
     // =====================================================================================================
     static CreatureDef gloamOwl() {
         int navy = 0x23305e, navyD = 0x161e40, cream = 0xe9dfc4, amber = 0xffb02e, ring = 0x6a7bc4, beak = 0xe08a2a, stitch = 0xc9c2a8;
-        CreatureDef d = CreatureDef.of("officer_owl", "Officer Owl", "オフィサー・オウル").size(0.9f, 1.6f).hp(50).dmg(6).speed(0.3).egg(navy, amber).spawn(2)
+        CreatureDef d = CreatureDef.of("poe", "Poe", "ポー").size(0.9f, 1.6f).hp(50).dmg(6).speed(0.3).egg(navy, amber).spawn(2)
                 .part("legL", null, -2.5f, 4, 0, 2.5f, 4, 2.5f, 0, -2, 0, beak).walk(0.8f, 0)
                 .part("talonL", "legL", 0, -4, -1, 3, 1, 4, 0, 0.5f, -1, 0x2a2a2a)
                 .part("legR", null, 2.5f, 4, 0, 2.5f, 4, 2.5f, 0, -2, 0, beak).walk(0.8f, P)

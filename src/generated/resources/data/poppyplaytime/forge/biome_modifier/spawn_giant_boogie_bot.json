@@ -2,9 +2,9 @@
   "type": "forge:add_spawns",
   "biomes": "#minecraft:is_overworld",
   "spawners": {
-    "type": "poppyplaytime:ruby_the_cat",
+    "type": "poppyplaytime:giant_boogie_bot",
     "maxCount": 1,
     "minCount": 1,
-    "weight": 2
+    "weight": 1
   }
 }

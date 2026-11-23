@@ -306,7 +306,7 @@ public final class BatchA {
     // ---------------------------------------------------------------- 4. Disco Droid – mirror-ball headed dancing robot toy
     static CreatureDef discoDroid() {
         int chrome = 0xb8c2cf, steel = 0x5a6170, mag = 0xff3fb4, cyan = 0x3fe8ff, gold = 0xf2c94c, black = 0x15151a;
-        return CreatureDef.of("bigger_bot", "Bigger Bot", "ビガー・ボット").size(0.9f, 2.3f).hp(70).dmg(6).speed(0.3).kbRes(0.6).armor(4).egg(chrome, mag).spawn(1)
+        return CreatureDef.of("boogie_bot", "Boogie Bot", "ブギーボット").size(0.9f, 2.3f).hp(70).dmg(6).speed(0.3).kbRes(0.6).armor(4).egg(chrome, mag).spawn(1)
                 .part("legL", null, -3.5f, 12, 0, 4, 12, 4, 0, -6, 0, steel).walk(0.8f, 0)
                 .part("bootL", "legL", 0, -12, -0.5f, 5.5f, 3, 7, 0, 1.5f, -0.5f, chrome)
                 .part("legR", null, 3.5f, 12, 0, 4, 12, 4, 0, -6, 0, steel).walk(0.8f, P)
@@ -422,7 +422,7 @@ public final class BatchA {
     // ---------------------------------------------------------------- 6. Lantern Moth – lightbulb-bodied moth toy
     static CreatureDef lanternMoth() {
         int bulb = 0xffe27a, brass = 0xb8892e, fuzz = 0xf4efe0, wing = 0xd9c9a0, spot = 0xff9f40, dark = 0x3a2e24;
-        return CreatureDef.of("poppy", "Poppy", "ポピー").size(0.9f, 1.6f).hp(40).dmg(4).speed(0.34).kbRes(0.1).egg(bulb, brass).spawn(2)
+        return CreatureDef.of("glowby", "Glowby", "グロウビー").size(0.9f, 1.6f).hp(40).dmg(4).speed(0.34).kbRes(0.1).egg(bulb, brass).spawn(2)
                 .part("legL", null, -2.5f, 8, 0, 2, 8, 2, 0, -4, 0, dark).walk(1.0f, 0)
                 .part("footL", "legL", 0, -8, -0.5f, 3, 1.2f, 4, 0, 0.6f, 0, brass)
                 .part("legR", null, 2.5f, 8, 0, 2, 8, 2, 0, -4, 0, dark).walk(1.0f, P)
@@ -545,7 +545,7 @@ public final class BatchA {
     // ---------------------------------------------------------------- 8. Bubble Barb – spiky pufferfish bath toy on stubby feet
     static CreatureDef bubbleBarb() {
         int orange = 0xf5a03a, belly = 0xfde2a8, spike = 0xfff1d0, fin = 0x3fb8e0, lips = 0xe8456a;
-        CreatureDef d = CreatureDef.of("chum_chompers", "Chum Chompers", "チャム・チョンパーズ").size(1.0f, 1.3f).hp(45).dmg(4).speed(0.27).kbRes(0.3).egg(orange, fin).spawn(2)
+        CreatureDef d = CreatureDef.of("maggie_mako", "Maggie Mako", "マギー・マコ").size(1.0f, 1.3f).hp(45).dmg(4).speed(0.27).kbRes(0.3).egg(orange, fin).spawn(2)
                 .part("legL", null, -3, 4, 0, 3, 4, 3, 0, -2, 0, fin).walk(1.1f, 0)
                 .part("footL", "legL", 0, -4, -1, 3.6f, 1.2f, 5, 0, 0.6f, 0, fin)
                 .part("legR", null, 3, 4, 0, 3, 4, 3, 0, -2, 0, fin).walk(1.1f, P)

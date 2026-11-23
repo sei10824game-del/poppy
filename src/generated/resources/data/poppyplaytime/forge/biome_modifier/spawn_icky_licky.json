@@ -2,7 +2,7 @@
   "type": "forge:add_spawns",
   "biomes": "#minecraft:is_overworld",
   "spawners": {
-    "type": "poppyplaytime:officer_owl",
+    "type": "poppyplaytime:icky_licky",
     "maxCount": 1,
     "minCount": 1,
     "weight": 2

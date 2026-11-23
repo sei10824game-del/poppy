@@ -201,7 +201,7 @@ public final class BatchE {
     /** Four-legged clockwork hound: brass gears on its flanks, piston jaw, steam tail. */
     static CreatureDef cogHound() {
         int brass = 0xb98b3a, iron = 0x3d3f44, cog = 0xd8b45a, eye = 0x4dffb2, steam = 0xdddddd, tooth = 0xeae4d0;
-        return CreatureDef.of("pianosaurus", "Pianosaurus", "ピアノサウルス").size(1.0f, 1.3f).hp(50).dmg(6).speed(0.38).kbRes(0.2).egg(brass, eye).spawn(2)
+        return CreatureDef.of("baba_chops", "Baba Chops", "ババ・チョップス").size(1.0f, 1.3f).hp(50).dmg(6).speed(0.38).kbRes(0.2).egg(brass, eye).spawn(2)
                 .part("body", null, 0, 13, 0, 10, 9, 22, 0, 2, 0, brass)
                 .part("spine", "body", 0, 7, 0, 3, 2, 20, 0, 0, 0, iron)
                 .part("cogL", "body", -5.5f, 2, 2, 1, 7, 7, 0, 0, 0, cog).sway(3f, 0.15f, 0, 0)
@@ -303,7 +303,7 @@ public final class BatchE {
     /** Hulking furnace-bellied brute: glowing grate belly, chimney on its back, riveted fists. */
     static CreatureDef furnaceBrute() {
         int iron = 0x45403c, soot = 0x1e1b19, fire = 0xff7a1a, ember = 0xffd34a, rivet = 0x9a8f80, eye = 0xffe08a;
-        return CreatureDef.of("nightmare_bron", "Nightmare Bron", "ナイトメア・ブロン").size(1.8f, 3.0f).hp(140).dmg(9).speed(0.25).kbRes(0.8).armor(6).egg(iron, fire).spawn(1).fireImmune()
+        return CreatureDef.of("simon_smoke", "Simon Smoke", "サイモン・スモーク").size(1.8f, 3.0f).hp(140).dmg(9).speed(0.25).kbRes(0.8).armor(6).egg(iron, fire).spawn(1).fireImmune()
                 .part("legL", null, -6, 16, 0, 8, 16, 8, 0, -8, 0, soot).walk(0.7f, 0)
                 .part("legR", null, 6, 16, 0, 8, 16, 8, 0, -8, 0, soot).walk(0.7f, P)
                 .part("bootL", "legL", 0, -16, -1, 9, 3, 11, 0, 1.5f, 0, iron)

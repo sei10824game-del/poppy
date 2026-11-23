@@ -74,7 +74,7 @@ public final class BatchG {
     // 1. Cleaver Matron – porcelain-faced kitchen-play doll, two cleaver hands, apron, bun.
     static CreatureDef cleaverMatron() {
         int skin = 0xe9d9c4, apron = 0xf3f0ea, dress = 0x6b2a3a, hair = 0x3a2a22, steel = 0xb8c0c8, wood = 0x6b4a2a, blood = 0x8a1010, mouth = 0x1a0808;
-        CreatureDef d = CreatureDef.of("mother_marie", "Mother Marie", "マザー・マリー").size(1.0f, 2.6f).hp(90).dmg(7).speed(0.3).kbRes(0.3).egg(apron, dress).spawn(1)
+        CreatureDef d = CreatureDef.of("lily_lovebraids", "Lily Lovebraids", "リリー・ラブブレイズ").size(1.0f, 2.6f).hp(90).dmg(7).speed(0.3).kbRes(0.3).egg(apron, dress).spawn(1)
                 .part("body", null, 0, 22, 0, 14, 16, 9, 0, 8, 0, dress).sway(0.02f, 0.1f, 0, 2)
                 .part("skirt", "body", 0, 0, 0, 18, 8, 12, 0, -3, 0, dress)
                 .part("apron", "body", 0, 4, -4.8f, 10, 14, 1, 0, -1, 0, apron)
@@ -143,7 +143,7 @@ public final class BatchG {
     // 2. Rivet Hound – tin wind-up robo-dog, wind key, antenna, bolted panels, red visor eyes.
     static CreatureDef rivetHound() {
         int tin = 0x9aa3ad, dark = 0x4d555e, rust = 0x9a5a2c, red = 0xff3020, gold = 0xd8b040, black = 0x111111;
-        CreatureDef d = CreatureDef.of("nightmare_chompers", "Nightmare Chum Chompers", "ナイトメア・チャムチョンパーズ").size(0.9f, 1.2f).hp(40).dmg(5).speed(0.38).kbRes(0.2).egg(tin, red).spawn(2)
+        CreatureDef d = CreatureDef.of("touille", "Touille", "トゥイユ").size(0.9f, 1.2f).hp(40).dmg(5).speed(0.38).kbRes(0.2).egg(tin, red).spawn(2)
                 .part("body", null, 0, 11, 0, 9, 8, 16, 0, 0, 0, tin).sway(0.02f, 0.2f, 0, 2)
                 .part("panel", "body", 0, 1, -0.5f, 9.4f, 3, 10, 0, 0, 0, dark)
                 .part("rivet1", "body", -4.9f, 2, -5, 0.6f, 1, 1, 0, 0, 0, gold)
@@ -190,7 +190,7 @@ public final class BatchG {
     // 3. Gravel Grinder – monster-truck toy turned beast; grille mouth, headlight eyes, four big wheels.
     static CreatureDef gravelGrinder() {
         int paint = 0x2a8a3a, trim = 0xe8c020, tire = 0x1a1a1a, rim = 0xb0b0b0, glass = 0x5a8ab0, light = 0xfff2a0, grille = 0x2a2a2a;
-        CreatureDef d = CreatureDef.of("giant_bigger_bot", "Giant Bigger Bot", "ジャイアント・ビガーボット").size(2.0f, 2.2f).hp(160).dmg(9).speed(0.32).kbRes(0.9).armor(4).egg(paint, trim).spawn(1)
+        CreatureDef d = CreatureDef.of("giant_boogie_bot", "Giant Boogie Bot", "ジャイアント・ブギーボット").size(2.0f, 2.2f).hp(160).dmg(9).speed(0.32).kbRes(0.9).armor(4).egg(paint, trim).spawn(1)
                 .part("body", null, 0, 20, 0, 26, 10, 36, 0, 0, 0, paint).sway(0.03f, 0.3f, 0, 2)
                 .part("stripe", "body", 0, 5.2f, 0, 8, 0.5f, 36, 0, 0, 0, trim)
                 .part("cab", "body", 0, 5, 4, 20, 9, 16, 0, 4.5f, 0, paint)
@@ -248,7 +248,7 @@ public final class BatchG {
     // 4. Bootstrap Bert – wind-up tin "kick-me" toy: huge boot on a spring leg, sign on back, grinning face.
     static CreatureDef bootstrapBert() {
         int jacket = 0x3060b0, pants = 0xd0a030, skin = 0xf0c8a0, boot = 0x5a2a10, sign = 0xf4ecd0, hat = 0xc02020;
-        CreatureDef d = CreatureDef.of("gregg", "Gregg", "グレッグ").size(0.8f, 1.9f).hp(45).dmg(5).speed(0.34).kbRes(0.1).egg(jacket, boot).spawn(2)
+        CreatureDef d = CreatureDef.of("goober_gutz", "Goober Gutz", "グーバー・ガッツ").size(0.8f, 1.9f).hp(45).dmg(5).speed(0.34).kbRes(0.1).egg(jacket, boot).spawn(2)
                 .part("body", null, 0, 16, 0, 10, 10, 6, 0, 5, 0, jacket).sway(0.04f, 0.2f, 0, 2)
                 .part("btn1", "body", 0, 7, -3.2f, 1, 1, 0.4f, 0, 0, 0, pants).part("btn2", "body", 0, 4, -3.2f, 1, 1, 0.4f, 0, 0, 0, pants)
                 .part("sign", "body", 0, 5, 3.4f, 8, 6, 0.5f, 0, 0, 0, sign)
@@ -365,7 +365,7 @@ public final class BatchG {
     // 6. Pirouette – cracked music-box ballerina; tutu, rotating pedestal leg, glass eyes.
     static CreatureDef pirouette() {
         int porcelain = 0xf4ece6, tutu = 0xf0a0c0, bodice = 0xc04070, hair = 0xe0c070, base = 0x4a2a5a, gold = 0xd8b040;
-        CreatureDef d = CreatureDef.of("nightmare_ruby", "Nightmare Ruby", "ナイトメア・ルビー").size(0.8f, 2.3f).hp(60).dmg(6).speed(0.33).egg(tutu, base).spawn(1)
+        CreatureDef d = CreatureDef.of("rabie_baby", "Rabie Baby", "レイビー・ベイビー").size(0.8f, 2.3f).hp(60).dmg(6).speed(0.33).egg(tutu, base).spawn(1)
                 .part("body", null, 0, 20, 0, 7, 10, 5, 0, 5, 0, bodice).sway(0.04f, 0.15f, 0, 1)
                 .part("tutu", "body", 0, 0, 0, 18, 2, 16, 0, 0, 0, tutu).sway(0.06f, 0.3f, 0, 2)
                 .part("tutu2", "tutu", 0, -1.5f, 0, 15, 1.5f, 13, 0, 0, 0, 0xf8c8dc)
@@ -461,7 +461,7 @@ public final class BatchG {
     // 8. Hollow Hattie – antique porcelain doll; bonnet, lace dress, empty eye sockets with pinprick lights.
     static CreatureDef hollowHattie() {
         int face = 0xf2e6dc, dress = 0x2a2a50, lace = 0xf0eada, hair = 0x7a2a1a, bonnet = 0x8a7aa0, socket = 0x050505, pin = 0xe0f0ff;
-        CreatureDef d = CreatureDef.of("nightmare_poppy", "Nightmare Poppy", "ナイトメア・ポピー").size(0.7f, 1.6f).hp(70).dmg(6).speed(0.3).kbRes(0.2).egg(face, dress).spawn(1)
+        CreatureDef d = CreatureDef.of("poppy", "Poppy", "ポピー").size(0.7f, 1.6f).hp(70).dmg(6).speed(0.3).kbRes(0.2).egg(face, dress).spawn(1)
                 .part("body", null, 0, 10, 0, 8, 8, 5, 0, 4, 0, dress).sway(0.03f, 0.08f, 0, 2)
                 .part("skirt", "body", 0, 0, 0, 12, 7, 9, 0, -3, 0, dress)
                 .part("hem", "skirt", 0, -6.5f, 0, 12.6f, 1, 9.6f, 0, 0, 0, lace)
@@ -516,7 +516,7 @@ public final class BatchG {
     // 9. Stingwing – striped clockwork wasp toy; hovering, propeller wings, drill stinger.
     static CreatureDef stingwing() {
         int yel = 0xf0c020, blk = 0x181818, wing = 0xd0e8ff, steel = 0xa0a8b0, red = 0xe02020;
-        CreatureDef d = CreatureDef.of("stinger_flynn", "Stinger Flynn", "スティンガー・フリン").size(0.9f, 1.4f).hp(35).dmg(4).speed(0.36).egg(yel, blk).spawn(2)
+        CreatureDef d = CreatureDef.of("cat_bee", "Cat-Bee", "キャットビー").size(0.9f, 1.4f).hp(35).dmg(4).speed(0.36).egg(yel, blk).spawn(2)
                 .part("body", null, 0, 14, 0, 8, 7, 9, 0, 0, 0, yel).sway(0.08f, 0.25f, 0, 0)
                 .part("band1", "body", 0, 0, 1.5f, 8.4f, 7.4f, 1.5f, 0, 0, 0, blk)
                 .part("tail", "body", 0, -1, 4.5f, 6, 6, 8, 0, -1, 3, yel).sway(0.15f, 0.3f, 0, 0)
@@ -560,7 +560,7 @@ public final class BatchG {
     // 10. Cuddle Clump – sewn-together playhouse mascot plush; patchwork, mismatched button eyes, stitched grin.
     static CreatureDef cuddleClump() {
         int fur = 0xa070d0, patch = 0x60c0a0, patch2 = 0xf0a040, stitch = 0x201020, btn = 0x202020, btn2 = 0xe04040, belly = 0xf0e0f0;
-        CreatureDef d = CreatureDef.of("huggy_wuggy_plush", "Huggy Wuggy Plush", "ハギーワギー・プラッシュ").size(1.3f, 2.6f).hp(110).dmg(7).speed(0.29).kbRes(0.5).egg(fur, patch).spawn(1)
+        CreatureDef d = CreatureDef.of("mini_huggies", "Mini Huggies", "ミニ・ハギーズ").size(1.3f, 2.6f).hp(110).dmg(7).speed(0.29).kbRes(0.5).egg(fur, patch).spawn(1)
                 .part("body", null, 0, 14, 0, 18, 18, 14, 0, 9, 0, fur).sway(0.03f, 0.08f, 0, 2)
                 .part("belly", "body", 0, 8, -7.2f, 12, 12, 1, 0, 0, 0, belly)
                 .part("patchA", "body", -6, 13, -7.3f, 4, 4, 0.5f, 0, 0, 0, patch).part("patchB", "body", 7.3f, 6, 2, 0.5f, 5, 5, 0, 0, 0, patch2)
@@ -628,7 +628,7 @@ public final class BatchG {
     // 12. Static Sleeper – nightmare-era shadow plush: frayed black body, TV-static face, long dragging arms.
     static CreatureDef staticSleeper() {
         int shadow = 0x1a1420, fray = 0x2e2436, screen = 0xb0b8c0, glowc = 0x9060ff, mouth = 0x000000;
-        CreatureDef d = CreatureDef.of("nightmare_ollie", "Nightmare Ollie", "ナイトメア・オリー").size(1.1f, 3.0f).hp(130).dmg(8).speed(0.3).kbRes(0.4).egg(shadow, glowc).spawn(1)
+        CreatureDef d = CreatureDef.of("blanky_blankz", "Blanky Blankz", "ブランキー・ブランクス").size(1.1f, 3.0f).hp(130).dmg(8).speed(0.3).kbRes(0.4).egg(shadow, glowc).spawn(1)
                 .part("body", null, 0, 26, 0, 12, 18, 8, 0, 9, 0, shadow).sway(0.05f, 0.06f, 0, 2)
                 .part("ribL", "body", -3, 10, -4.2f, 4, 1, 0.5f, 0, 0, 0, fray).part("ribR", "body", 3, 10, -4.2f, 4, 1, 0.5f, 0, 0, 0, fray)
                 .part("ribL2", "body", -3, 7, -4.2f, 4, 1, 0.5f, 0, 0, 0, fray).part("ribR2", "body", 3, 7, -4.2f, 4, 1, 0.5f, 0, 0, 0, fray)

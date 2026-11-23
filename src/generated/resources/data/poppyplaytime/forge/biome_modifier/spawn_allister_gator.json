@@ -2,7 +2,7 @@
   "type": "forge:add_spawns",
   "biomes": "#minecraft:is_overworld",
   "spawners": {
-    "type": "poppyplaytime:nightmare_ruby",
+    "type": "poppyplaytime:allister_gator",
     "maxCount": 1,
     "minCount": 1,
     "weight": 1
