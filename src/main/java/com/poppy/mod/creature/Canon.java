@@ -55,7 +55,22 @@ final class Canon {
         B zipper(float bh, float bd, int col) { return p("zip", "body", 0, 0, -bd / 2 - 0.1f, 0.8f, bh, 0.5f, 0, bh / 2, 0, col); }
     }
 
+    /** Target heights (blocks) so the roster keeps canon-like proportions: toys small, bigger bodies tall. */
+    static final Map<String, Float> SIZE = new java.util.HashMap<>();
+    static {
+        Object[] t = {"bubba_bubbaphant", 1.8f, "dogday", 1.5f, "hoppy_hopscotch", 1.6f, "kickin_chicken", 1.3f, "craftycorn", 1.5f, "pickypiggy", 1.3f, "bobby_bearhug", 1.6f,
+            "nightmare_bubba", 2.1f, "nightmare_dogday", 1.8f, "nightmare_hoppy", 1.9f, "nightmare_kickin", 1.6f, "nightmare_craftycorn", 1.8f, "nightmare_pickypiggy", 1.6f, "nightmare_bobby", 1.9f,
+            "maggie_mako", 1.2f, "allister_gator", 1.3f, "poe", 1.2f, "rabie_baby", 1.3f, "simon_smoke", 1.3f, "icky_licky", 1.2f, "baba_chops", 1.3f, "touille", 1.2f,
+            "blanky_blankz", 1.1f, "bubby_chumz", 1.0f, "doodle_bones", 1.2f, "goober_gutz", 1.2f, "loopsy_noodle", 1.4f,
+            "glowby", 1.0f, "boogie_bot", 1.4f, "giant_boogie_bot", 3.0f, "cat_bee", 1.2f, "candy_cat", 1.0f, "lily_lovebraids", 1.8f, "poppy", 1.8f,
+            "doey_the_doughman", 2.6f, "mini_doey", 1.2f, "mini_doughman", 1.2f, "yarnaby", 1.8f, "mini_yarnaby", 0.9f, "mini_huggy", 1.1f, "mini_huggies", 1.1f, "mini_kissy", 1.1f, "mini_plush", 0.9f,
+            "mini_mommy", 1.4f, "mini_pj", 0.8f, "mini_boxy_boo", 0.9f, "mini_prototype", 1.6f, "mini_bubba", 0.9f, "boxy_boo", 1.8f, "nightmare_boxy_boo", 2.1f, "bunzo_bunny", 2.4f, "nightmare_bunzo", 2.8f};
+        for (int i = 0; i < t.length; i += 2) SIZE.put((String) t[i], (Float) t[i + 1]);
+    }
+
     static void apply(CreatureDef d) {
+        Float hs = SIZE.get(d.id);
+        if (hs != null) { float r = hs / d.h; d.size(Math.max(0.45f, d.w * r), hs); }
         Consumer<CreatureDef> f = Canon6.MAP.getOrDefault(d.id, Canon5.MAP.getOrDefault(d.id, Canon4.MAP.getOrDefault(d.id, MAP.getOrDefault(d.id, MAP2.getOrDefault(d.id, Canon2.MAP.get(d.id))))));
         if (f == null) { alive(d); detail(d); materials(d); Canon3.apply(d); dump(d); return; }
         d.parts.clear();
