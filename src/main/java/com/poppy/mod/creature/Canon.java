@@ -122,9 +122,26 @@ final class Canon {
         }
     }
 
+    static void dumpPoses(CreatureDef d, String dir) {
+        StringBuilder sb = new StringBuilder("[");
+        for (var a : d.attacks) {
+            if (a.anim() == null) continue;
+            for (float[] ph : new float[][]{{1, 0, 0}, {1, 1, 0}}) {
+                com.poppy.mod.client.Pose p = new com.poppy.mod.client.Pose();
+                try { a.anim().apply(p, null, ph[0], ph[1], ph[2], 5f); } catch (Throwable t) { continue; }
+                sb.append("{\"k\":\"").append(a.kind()).append(ph[1] > 0 ? "\",\"ph\":\"strike" : "\",\"ph\":\"wind").append("\",\"m\":{");
+                for (var en : p.m.entrySet()) { sb.append("\"").append(en.getKey()).append("\":["); for (float v : en.getValue()) sb.append(String.format(java.util.Locale.ROOT, "%.3f,", v)); sb.append("0],"); }
+                sb.append("\"_\":[]}},");
+            }
+        }
+        sb.append("{}]");
+        try { java.nio.file.Files.writeString(java.nio.file.Path.of(dir, d.id + ".pose"), sb.toString()); } catch (Exception e) { }
+    }
+
     static void dump(CreatureDef d) {
         String dir = System.getenv("POPPY_DUMP");
         if (dir == null) return;
+        dumpPoses(d, dir);
         StringBuilder sb = new StringBuilder("[");
         for (var q : d.parts) sb.append(String.format(java.util.Locale.ROOT, "%s[\"%s\",%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%d,%d],", sb.length() > 1 ? "" : "", q.name, q.parent == null ? "null" : "\"" + q.parent + "\"", q.px, q.py, q.pz, q.w, q.h, q.d, q.cx, q.cy, q.cz, q.color, q.glow ? 1 : 0));
         sb.append("[]]");

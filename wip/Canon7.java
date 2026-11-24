@@ -16,43 +16,43 @@ final class Canon7 {
         "huggy_wuggy", Map.of(
             Atk.GRAB, (p, e, w, s, r, a) -> { pr(p, "arm", -0.4f, 0, 1.3f, 1.6f, 0, -0.25f, w, s, r); pr(p, "fore", 0, 0, 0, 0.7f, 0, 0, w, s, r); r(p, "body", 0.2f, 0, 0, -0.4f, 0, 0, w, s, r); r(p, "head", 0.3f, 0, 0, -0.3f, 0, 0, w, s, r); r(p, "jaw", 0, 0, 0, 0.5f, 0, 0, w, s, r); },
             Atk.SWIPE, (p, e, w, s, r, a) -> { r(p, "armR", -0.5f, -0.6f, 1.4f, 1.5f, 0.9f, -0.2f, w, s, r); r(p, "foreR", 0, 0, 0, 0.5f, 0, 0, w, s, r); r(p, "body", 0, -0.5f, 0, -0.1f, 0.6f, 0, w, s, r); r(p, "armL", 0.3f, 0, -0.3f, -0.3f, 0, -0.5f, w, s, r); },
-            Atk.CHARGE, (p, e, w, s, r, a) -> { pr(p, "arm", -1.1f, 0, 0.3f, -1.5f, 0, 0.2f, w, s, r); r(p, "body", 0, 0, 0, -0.5f, 0, 0, w, s, r); r(p, "head", 0, 0, 0, 0.4f, 0, 0, w, s, r); }),
+            Atk.CHARGE, (p, e, w, s, r, a) -> { pr(p, "arm", -1.1f, 0, 0.3f, -1.5f, 0, 0.2f, w, s, r); r(p, "body", 0, 0, 0, -0.4f, 0, 0, w, s, r); r(p, "head", 0, 0, 0, -0.1f, 0, 0, w, s, r); }),
         "mommy_long_legs", Map.of(
-            Atk.WHIP, (p, e, w, s, r, a) -> { r(p, "armR", 0, -1.1f, 0.3f, 0, 1.2f, -0.1f, w, s, r); r(p, "foreR", 0, 0, 0, 0.9f, 0, 0, w, s, r); r(p, "body", 0, -0.5f, 0, 0, 0.6f, 0, w, s, r); r(p, "head", 0, 0, 0.2f, 0, 0, -0.3f, w, s, r); r(p, "armL", 0, 0.3f, 0, 0, 0, 0.2f, w, s, r); },
-            Atk.GRAB, (p, e, w, s, r, a) -> { pr(p, "arm", 0, -0.2f, 0.9f, 0, 0.9f, -0.2f, w, s, r); pr(p, "fore", 0, 0, 0, 1.0f, 0, 0, w, s, r); r(p, "body", 0.2f, 0, 0, -0.35f, 0, 0, w, s, r); },
-            Atk.SLAM, (p, e, w, s, r, a) -> { pr(p, "arm", 0, 0, 1.3f, 0, 0, -0.5f, w, s, r); r(p, "body", 0.3f, 0, 0, -0.5f, 0, 0, w, s, r); pr(p, "fore", 0, 0, 0, 0.6f, 0, 0, w, s, r); }),
+            Atk.WHIP, (p, e, w, s, r, a) -> { r(p, "armR", 0, -1.1f, 0.3f, 0, 1.2f, -0.1f, w, s, r); r(p, "foreR", 0, 0, 0, 0.9f, 0, 0, w, s, r); r(p, "body", 0, -0.2f, 0, 0, 0.25f, 0, w, s, r); r(p, "head", 0, 0, 0.2f, 0, 0, -0.3f, w, s, r); r(p, "armL", 0, 0.3f, 0, 0, 0, 0.2f, w, s, r); },
+            Atk.GRAB, (p, e, w, s, r, a) -> { pr(p, "arm", 0, -0.2f, 0.9f, 0, 0.9f, -0.2f, w, s, r); pr(p, "fore", 0, 0, 0, 1.0f, 0, 0, w, s, r); r(p, "body", 0.06f, 0, 0, -0.12f, 0, 0, w, s, r); },
+            Atk.SLAM, (p, e, w, s, r, a) -> { pr(p, "arm", 0, 0, 1.3f, 0, 0, -0.5f, w, s, r); r(p, "body", 0.08f, 0, 0, -0.15f, 0, 0, w, s, r); pr(p, "fore", 0, 0, 0, 0.6f, 0, 0, w, s, r); }),
         "the_prototype", Map.of(
-            Atk.SLAM, (p, e, w, s, r, a) -> { pr(p, "arm", 2.8f, 0, 0.3f, 0.2f, 0, 0.1f, w, s, r); r(p, "torso", 0.3f, 0, 0, -0.5f, 0, 0, w, s, r); r(p, "head", 0.3f, 0, 0, -0.3f, 0, 0, w, s, r); r(p, "body", 0.1f, 0, 0, -0.2f, 0, 0, w, s, r); },
+            Atk.SLAM, (p, e, w, s, r, a) -> { pr(p, "arm", 2.8f, 0, 0.3f, 0.2f, 0, 0.1f, w, s, r); r(p, "torso", 0.2f, 0, 0, -0.3f, 0, 0, w, s, r); r(p, "head", 0.15f, 0, 0, -0.2f, 0, 0, w, s, r); },
             Atk.WHIP, (p, e, w, s, r, a) -> { r(p, "armR", 0.4f, -0.8f, 0.6f, 1.6f, 0.7f, 0, w, s, r); r(p, "foreR", 0, 0, 0, 0.6f, 0, 0, w, s, r); r(p, "torso", 0, -0.5f, 0, 0, 0.5f, 0, w, s, r); },
             Atk.SHOOT, (p, e, w, s, r, a) -> { r(p, "head", 0.5f, 0, 0, -0.1f, 0, 0, w, s, r); pr(p, "arm", 1.0f, 0, 0.4f, 1.6f, 0, 0.1f, w, s, r); r(p, "torso", 0.2f, 0, 0, -0.2f, 0, 0, w, s, r); }),
         "catnap", Map.of(
-            Atk.POUNCE, (p, e, w, s, r, a) -> { r(p, "body", 0.35f, 0, 0, -0.3f, 0, 0, w, s, r); pr(p, "arm", -0.3f, 0, 0, 1.3f, 0, 0, w, s, r); pr(p, "leg", 0.5f, 0, 0, -0.5f, 0, 0, w, s, r); r(p, "head", 0.3f, 0, 0, -0.2f, 0, 0, w, s, r); },
+            Atk.POUNCE, (p, e, w, s, r, a) -> { r(p, "body", 0.12f, 0, 0, -0.12f, 0, 0, w, s, r); pr(p, "arm", -0.3f, 0, 0, 1.0f, 0, 0, w, s, r); pr(p, "leg", 0.4f, 0, 0, -0.4f, 0, 0, w, s, r); r(p, "head", 0.3f, 0, 0, -0.3f, 0, 0, w, s, r); },
             Atk.SWIPE, (p, e, w, s, r, a) -> { r(p, "armR", -0.6f, -0.7f, 0.5f, 1.2f, 0.8f, 0, w, s, r); r(p, "body", 0, -0.3f, 0, 0, 0.4f, 0, w, s, r); r(p, "head", 0, 0.3f, 0, 0, -0.3f, 0, w, s, r); },
-            Atk.GAS, (p, e, w, s, r, a) -> { r(p, "head", -0.5f, 0, 0, 0.4f, 0, 0, w, s, r); r(p, "body", -0.2f, 0, 0, 0.1f, 0, 0, w, s, r); r(p, "jaw", 0, 0, 0, 0.8f, 0, 0, w, s, r); }),
+            Atk.GAS, (p, e, w, s, r, a) -> { r(p, "head", -0.3f, 0, 0, 0.4f, 0, 0, w, s, r); r(p, "body", -0.05f, 0, 0, 0.05f, 0, 0, w, s, r); r(p, "jaw", 0, 0, 0, 0.8f, 0, 0, w, s, r); }),
         "yarnaby", Map.of(
             Atk.WHIP, (p, e, w, s, r, a) -> { r(p, "body", 0.3f, 0, 0, -0.35f, 0, 0, w, s, r); r(p, "head", -0.4f, 0.3f, 0, 0.5f, -0.4f, 0, w, s, r); },
-            Atk.POUNCE, (p, e, w, s, r, a) -> { r(p, "body", 0.4f, 0, 0, -0.5f, 0, 0, w, s, r); pr(p, "leg", 0.6f, 0, 0, -0.7f, 0, 0, w, s, r); r(p, "head", 0.2f, 0, 0, -0.3f, 0, 0, w, s, r); }),
+            Atk.POUNCE, (p, e, w, s, r, a) -> { r(p, "body", 0.2f, 0, 0, -0.25f, 0, 0, w, s, r); pr(p, "leg", 0.5f, 0, 0, -0.5f, 0, 0, w, s, r); r(p, "head", 0.2f, 0, 0, -0.3f, 0, 0, w, s, r); }),
         "boxy_boo", Map.of(
-            Atk.POUNCE, (p, e, w, s, r, a) -> { p.scl("legL", 1, 0.45f, 1, 1, 1.5f, 1, w, s, r); p.scl("legR", 1, 0.45f, 1, 1, 1.5f, 1, w, s, r); r(p, "body", 0.3f, 0, 0, -0.5f, 0, 0, w, s, r); pr(p, "arm", -0.5f, 0, 0.6f, 1.6f, 0, 0.1f, w, s, r); },
+            Atk.POUNCE, (p, e, w, s, r, a) -> { p.scl("legL", 1, 0.45f, 1, 1, 1.5f, 1, w, s, r); p.scl("legR", 1, 0.45f, 1, 1, 1.5f, 1, w, s, r); r(p, "body", 0.15f, 0, 0, -0.3f, 0, 0, w, s, r); pr(p, "arm", -0.5f, 0, 0.6f, 1.6f, 0, 0.1f, w, s, r); },
             Atk.SWIPE, (p, e, w, s, r, a) -> { r(p, "armR", -0.8f, -0.4f, 1.0f, 1.6f, 0.6f, -0.1f, w, s, r); r(p, "head", 0.2f, 0, 0, -0.3f, 0, 0, w, s, r); r(p, "body", 0, -0.4f, 0, 0, 0.5f, 0, w, s, r); }),
         "bunzo_bunny", Map.of(
             Atk.CLAP, (p, e, w, s, r, a) -> { pr(p, "arm", 0.3f, 0, 1.4f, 1.0f, 0, -0.1f, w, s, r); r(p, "head", 0.2f, 0, 0, -0.2f, 0, 0, w, s, r); }),
         "pianosaurus", Map.of(
-            Atk.BITE, (p, e, w, s, r, a) -> { r(p, "neck", -0.6f, 0, 0, 0.9f, 0, 0, w, s, r); r(p, "head", -0.4f, 0, 0, 0.5f, 0, 0, w, s, r); r(p, "jaw", 0, 0, 0, 0.6f, 0, 0, w, s, r); r(p, "body", 0.1f, 0, 0, -0.15f, 0, 0, w, s, r); },
-            Atk.SLAM, (p, e, w, s, r, a) -> { r(p, "neck", -1.0f, 0, 0, 1.2f, 0, 0, w, s, r); r(p, "head", -0.3f, 0, 0, 0.8f, 0, 0, w, s, r); r(p, "body", 0.15f, 0, 0, -0.25f, 0, 0, w, s, r); },
-            Atk.STOMP, (p, e, w, s, r, a) -> { r(p, "legR", -0.8f, 0, 0, 0.5f, 0, 0, w, s, r); r(p, "body", -0.15f, 0, 0, 0.15f, 0, 0, w, s, r); r(p, "neck", -0.2f, 0, 0, 0.3f, 0, 0, w, s, r); }),
+            Atk.BITE, (p, e, w, s, r, a) -> { r(p, "neck", 0.5f, 0, 0, -0.8f, 0, 0, w, s, r); r(p, "head", 0.4f, 0, 0, -0.5f, 0, 0, w, s, r); r(p, "jaw", 0, 0, 0, 0.6f, 0, 0, w, s, r); r(p, "body", 0.05f, 0, 0, -0.1f, 0, 0, w, s, r); },
+            Atk.SLAM, (p, e, w, s, r, a) -> { r(p, "neck", 0.8f, 0, 0, -0.9f, 0, 0, w, s, r); r(p, "head", 0.3f, 0, 0, -0.6f, 0, 0, w, s, r); r(p, "body", 0.08f, 0, 0, -0.12f, 0, 0, w, s, r); },
+            Atk.STOMP, (p, e, w, s, r, a) -> { r(p, "legR", -0.8f, 0, 0, 0.5f, 0, 0, w, s, r); r(p, "body", 0.08f, 0, 0, -0.08f, 0, 0, w, s, r); r(p, "neck", 0.15f, 0, 0, -0.2f, 0, 0, w, s, r); }),
         "bron", Map.of(
-            Atk.SLAM, (p, e, w, s, r, a) -> { r(p, "neck", -0.7f, 0, 0, 1.0f, 0, 0, w, s, r); r(p, "head", -0.3f, 0, 0, 0.6f, 0, 0, w, s, r); },
-            Atk.STOMP, (p, e, w, s, r, a) -> { r(p, "legR", -0.9f, 0, 0, 0.5f, 0, 0, w, s, r); r(p, "legBR", 0, 0, 0, 0, 0, 0, w, s, r); r(p, "body", -0.1f, 0, 0, 0.1f, 0, 0, w, s, r); }));
+            Atk.SLAM, (p, e, w, s, r, a) -> { r(p, "neck", 0.6f, 0, 0, -0.8f, 0, 0, w, s, r); r(p, "head", 0.3f, 0, 0, -0.5f, 0, 0, w, s, r); },
+            Atk.STOMP, (p, e, w, s, r, a) -> { r(p, "legR", -0.9f, 0, 0, 0.5f, 0, 0, w, s, r); r(p, "legBR", 0, 0, 0, 0, 0, 0, w, s, r); r(p, "body", 0.05f, 0, 0, -0.05f, 0, 0, w, s, r); }));
 
     static final Map<Atk, AnimHook> TOY = Map.of(
-        Atk.BITE, (p, e, w, s, r, a) -> { r(p, "head", -0.4f, 0, 0, 0.5f, 0, 0, w, s, r); r(p, "jaw", 0, 0, 0, 0.5f, 0, 0, w, s, r); r(p, "body", 0.2f, 0, 0, -0.35f, 0, 0, w, s, r); pr(p, "arm", -0.4f, 0, 0.5f, 0.6f, 0, 0.1f, w, s, r); },
-        Atk.SCREAM, (p, e, w, s, r, a) -> { r(p, "head", 0.1f, 0, 0, -0.55f, 0, 0, w, s, r); r(p, "body", 0.1f, 0, 0, -0.25f, 0, 0, w, s, r); pr(p, "arm", 0.3f, 0, 0.6f, 0.5f, 0, 1.0f, w, s, r); r(p, "jaw", 0, 0, 0, 0.6f, 0, 0, w, s, r); },
-        Atk.POUNCE, (p, e, w, s, r, a) -> { r(p, "body", 0.5f, 0, 0, -0.5f, 0, 0, w, s, r); pr(p, "leg", 0.6f, 0, 0, -0.5f, 0, 0, w, s, r); pr(p, "arm", -0.6f, 0, 0.4f, 1.7f, 0, 0.1f, w, s, r); r(p, "head", 0.3f, 0, 0, -0.3f, 0, 0, w, s, r); },
+        Atk.BITE, (p, e, w, s, r, a) -> { r(p, "head", 0.35f, 0, 0, -0.45f, 0, 0, w, s, r); r(p, "jaw", 0, 0, 0, 0.5f, 0, 0, w, s, r); r(p, "body", 0.1f, 0, 0, -0.3f, 0, 0, w, s, r); pr(p, "arm", -0.4f, 0, 0.5f, 0.6f, 0, 0.1f, w, s, r); },
+        Atk.SCREAM, (p, e, w, s, r, a) -> { r(p, "head", -0.1f, 0, 0, 0.5f, 0, 0, w, s, r); r(p, "body", -0.05f, 0, 0, 0.2f, 0, 0, w, s, r); pr(p, "arm", 0.3f, 0, 0.6f, 0.5f, 0, 1.0f, w, s, r); r(p, "jaw", 0, 0, 0, 0.6f, 0, 0, w, s, r); },
+        Atk.POUNCE, (p, e, w, s, r, a) -> { r(p, "body", 0.25f, 0, 0, -0.4f, 0, 0, w, s, r); pr(p, "leg", 0.6f, 0, 0, -0.5f, 0, 0, w, s, r); pr(p, "arm", -0.6f, 0, 0.4f, 1.7f, 0, 0.1f, w, s, r); r(p, "head", 0.2f, 0, 0, -0.3f, 0, 0, w, s, r); },
         Atk.SWIPE, (p, e, w, s, r, a) -> { r(p, "armR", -0.7f, -0.6f, 1.1f, 1.5f, 0.8f, -0.2f, w, s, r); r(p, "body", 0, -0.45f, 0, 0, 0.55f, 0, w, s, r); r(p, "head", 0, 0.3f, 0, 0, -0.35f, 0, w, s, r); r(p, "armL", 0.3f, 0, -0.4f, -0.2f, 0, -0.3f, w, s, r); },
-        Atk.SLAM, (p, e, w, s, r, a) -> { pr(p, "arm", 2.7f, 0, 0.3f, 0.2f, 0, 0.1f, w, s, r); r(p, "body", -0.25f, 0, 0, 0.45f, 0, 0, w, s, r); r(p, "head", -0.3f, 0, 0, 0.3f, 0, 0, w, s, r); },
+        Atk.SLAM, (p, e, w, s, r, a) -> { pr(p, "arm", 2.7f, 0, 0.3f, 0.2f, 0, 0.1f, w, s, r); r(p, "body", 0.15f, 0, 0, -0.3f, 0, 0, w, s, r); r(p, "head", 0.2f, 0, 0, -0.25f, 0, 0, w, s, r); },
         Atk.STOMP, (p, e, w, s, r, a) -> { r(p, "legR", -1.0f, 0, 0, 0.4f, 0, 0, w, s, r); r(p, "body", -0.2f, 0.2f, 0, 0.2f, 0, 0, w, s, r); pr(p, "arm", 0.6f, 0, 0.8f, -0.1f, 0, 0.3f, w, s, r); },
-        Atk.CHARGE, (p, e, w, s, r, a) -> { pr(p, "arm", -1.0f, 0, 0.3f, -1.4f, 0, 0.2f, w, s, r); r(p, "body", 0, 0, 0, -0.5f, 0, 0, w, s, r); r(p, "head", 0, 0, 0, 0.4f, 0, 0, w, s, r); },
+        Atk.CHARGE, (p, e, w, s, r, a) -> { pr(p, "arm", -1.0f, 0, 0.3f, -1.4f, 0, 0.2f, w, s, r); r(p, "body", 0, 0, 0, -0.5f, 0, 0, w, s, r); r(p, "head", 0, 0, 0, -0.1f, 0, 0, w, s, r); },
         Atk.GRAB, (p, e, w, s, r, a) -> { pr(p, "arm", -0.3f, 0, 1.3f, 1.5f, 0, -0.3f, w, s, r); r(p, "body", 0.2f, 0, 0, -0.35f, 0, 0, w, s, r); r(p, "head", 0.2f, 0, 0, -0.2f, 0, 0, w, s, r); });
 
     static final java.util.Set<String> TOYS = java.util.Set.of(
@@ -71,11 +71,11 @@ final class Canon7 {
         Atk.POUNCE, (p, e, w, s, r, a) -> { p.scl("body", 1, 0.8f, 1, 1, 1.15f, 1, w, s, r); r(p, "body", 0.4f, 0, 0, -0.4f, 0, 0, w, s, r); pr(p, "arm", -0.5f, 0, 0.4f, 1.7f, 0, 0.1f, w, s, r); });
 
     static final Map<Atk, AnimHook> PJ = Map.of(
-        Atk.BITE, (p, e, w, s, r, a) -> { r(p, "head", -0.4f, 0, 0, 0.5f, 0, 0, w, s, r); r(p, "jaw", 0, 0, 0, 0.5f, 0, 0, w, s, r); r(p, "seg0", 0.3f, 0, 0, -0.3f, 0, 0, w, s, r); },
+        Atk.BITE, (p, e, w, s, r, a) -> { r(p, "head", -0.4f, 0, 0, 0.5f, 0, 0, w, s, r); r(p, "jaw", 0, 0, 0, 0.5f, 0, 0, w, s, r); r(p, "seg0", 0.1f, 0, 0, -0.1f, 0, 0, w, s, r); },
         Atk.CHARGE, (p, e, w, s, r, a) -> { for (int i = 0; i < 7; i++) r(p, "seg" + i, 0, 0, 0.12f * (i % 2 == 0 ? 1 : -1), 0, 0, -0.12f * (i % 2 == 0 ? 1 : -1), w, s, r); r(p, "head", 0.1f, 0, 0, 0.3f, 0, 0, w, s, r); },
-        Atk.POUNCE, (p, e, w, s, r, a) -> { r(p, "seg0", -0.5f, 0, 0, 0.5f, 0, 0, w, s, r); r(p, "seg1", -0.3f, 0, 0, 0.3f, 0, 0, w, s, r); r(p, "head", -0.3f, 0, 0, 0.4f, 0, 0, w, s, r); },
-        Atk.SWIPE, (p, e, w, s, r, a) -> { r(p, "seg0", 0, -0.4f, 0, 0, 0.5f, 0, w, s, r); r(p, "head", 0, -0.5f, 0, 0, 0.6f, 0, w, s, r); },
-        Atk.SCREAM, (p, e, w, s, r, a) -> { r(p, "head", 0, 0, 0, -0.6f, 0, 0, w, s, r); r(p, "jaw", 0, 0, 0, 0.6f, 0, 0, w, s, r); r(p, "seg0", 0, 0, 0, -0.4f, 0, 0, w, s, r); });
+        Atk.POUNCE, (p, e, w, s, r, a) -> { r(p, "seg0", -0.15f, 0, 0, 0.15f, 0, 0, w, s, r); r(p, "seg1", -0.1f, 0, 0, 0.1f, 0, 0, w, s, r); r(p, "head", -0.3f, 0, 0, 0.4f, 0, 0, w, s, r); },
+        Atk.SWIPE, (p, e, w, s, r, a) -> { r(p, "seg0", 0, -0.15f, 0, 0, 0.2f, 0, w, s, r); r(p, "head", 0, -0.5f, 0, 0, 0.6f, 0, w, s, r); },
+        Atk.SCREAM, (p, e, w, s, r, a) -> { r(p, "head", 0, 0, 0, -0.6f, 0, 0, w, s, r); r(p, "jaw", 0, 0, 0, 0.6f, 0, 0, w, s, r); r(p, "seg0", 0, 0, 0, -0.1f, 0, 0, w, s, r); });
 
     static final Map<Atk, AnimHook> CANDY = Map.of(
         Atk.SHOOT, (p, e, w, s, r, a) -> { r(p, "head", 0.3f, 0, 0, -0.3f, 0, 0, w, s, r); r(p, "jaw", 0, 0, 0, 0.7f, 0, 0, w, s, r); r(p, "body", 0.1f, 0, 0, -0.2f, 0, 0, w, s, r); p.scl("tongue", 1, 1, 1, 1, 1, 1.8f, w, s, r); },
