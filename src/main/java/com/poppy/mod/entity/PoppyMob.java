@@ -9,6 +9,7 @@ import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.server.level.ServerBossEvent;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.BossEvent;
+import net.minecraft.util.Mth;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
@@ -63,6 +64,17 @@ public class PoppyMob extends Monster {
     @Override public Component getName() { return Component.literal(def.name); }
     @Override public boolean fireImmune() { return def.fireImmune || super.fireImmune(); }
     @Override public boolean removeWhenFarAway(double d) { return !def.boss && super.removeWhenFarAway(d); }
+
+    // Voices: pick a vanilla voice by size and pitch it so small toys squeak and bosses rumble.
+    private int voice() { return def.h >= 3.5f ? 2 : def.h >= 2f ? 1 : 0; }
+    @Override public float getVoicePitch() { return Mth.clamp(1.7f - def.h * 0.3f, 0.55f, 1.6f) + (random.nextFloat() - 0.5f) * 0.1f; }
+    @Override protected net.minecraft.sounds.SoundEvent getAmbientSound() { return switch (voice()) { case 2 -> net.minecraft.sounds.SoundEvents.RAVAGER_AMBIENT; case 1 -> net.minecraft.sounds.SoundEvents.HOGLIN_AMBIENT; default -> net.minecraft.sounds.SoundEvents.CAT_AMBIENT; }; }
+    @Override protected net.minecraft.sounds.SoundEvent getHurtSound(DamageSource d) { return switch (voice()) { case 2 -> net.minecraft.sounds.SoundEvents.RAVAGER_HURT; case 1 -> net.minecraft.sounds.SoundEvents.HOGLIN_HURT; default -> net.minecraft.sounds.SoundEvents.CAT_HURT; }; }
+    @Override protected net.minecraft.sounds.SoundEvent getDeathSound() { return switch (voice()) { case 2 -> net.minecraft.sounds.SoundEvents.RAVAGER_DEATH; case 1 -> net.minecraft.sounds.SoundEvents.HOGLIN_DEATH; default -> net.minecraft.sounds.SoundEvents.CAT_DEATH; }; }
+    @Override protected void playStepSound(net.minecraft.core.BlockPos pos, net.minecraft.world.level.block.state.BlockState st) {
+        super.playStepSound(pos, st);
+        if (def.h >= 2.5f) playSound(net.minecraft.sounds.SoundEvents.WOOL_STEP, 0.6f, 0.6f);
+    }
 
     public int atk() { return entityData.get(ATK); }
     public int atkTick() { return entityData.get(ATK_T); }
