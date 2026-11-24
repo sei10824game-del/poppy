@@ -74,8 +74,22 @@ public class PoppyMob extends Monster {
     }
     public void endAttack() { entityData.set(ATK, -1); entityData.set(ATK_T, 0); grabbed = null; holdTicks = 0; gcd = 12; }
 
+    /** Switch hostility: if a nearer foe (or whoever is hitting us) threatens us while the current target is far, turn on them. */
+    private void retarget() {
+        if (attacking() || tickCount % 10 != 0) return;
+        LivingEntity cur = getTarget(), best = null;
+        double curD = cur == null || !cur.isAlive() ? Double.MAX_VALUE : distanceTo(cur);
+        LivingEntity hurt = getLastHurtByMob();
+        if (hurt != null && hurt.isAlive() && tickCount - getLastHurtByMobTimestamp() < 100 && Fx.isFoe(this, hurt) && distanceTo(hurt) < 24 && hurt != cur && (curD > 6 || distanceTo(hurt) < curD)) best = hurt;
+        if (best == null && curD > 8)
+            for (LivingEntity e : level().getEntitiesOfClass(LivingEntity.class, getBoundingBox().inflate(6), e -> e != this && e.isAlive() && Fx.isFoe(this, e) && hasLineOfSight(e)))
+                if (distanceTo(e) + 3 < curD && (best == null || distanceTo(e) < distanceTo(best))) best = e;
+        if (best != null) setTarget(best);
+    }
+
     @Override public void aiStep() {
         super.aiStep();
+        if (!level().isClientSide) retarget();
         if (level().isClientSide) return;
         for (int i = 0; i < cd.length; i++) if (cd[i] > 0) cd[i]--;
         if (gcd > 0) gcd--;
