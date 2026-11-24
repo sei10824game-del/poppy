@@ -63,6 +63,7 @@ final class Canon3 {
         s("glowby", "SHOOT:0xf2c418:,CLAP,SWIPE");
         s("lily_lovebraids", "SWIPE,WHIP,GRAB");
         s("harley_sawyer", "SHOOT:0xffd820:slow,SWIPE,SLAM,GAS");
+        s("pianosaurus", "BITE,SLAM,STOMP,CHARGE,SWIPE,SCREAM");
         s("poppy", "SWIPE,POUNCE,WHIP");
     }
 
