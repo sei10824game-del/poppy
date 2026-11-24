@@ -57,9 +57,10 @@ final class Canon {
 
     static void apply(CreatureDef d) {
         Consumer<CreatureDef> f = MAP.getOrDefault(d.id, MAP2.getOrDefault(d.id, Canon2.MAP.get(d.id)));
-        if (f == null) { Canon3.apply(d); return; }
+        if (f == null) { Canon3.apply(d); dump(d); return; }
         d.parts.clear();
         f.accept(d);
+        alive(d);
         retarget(d);
         Canon3.apply(d);
         dump(d);
@@ -103,6 +104,24 @@ final class Canon {
     }
 
     /** Heuristic: armL2/armR_upper/handR... -> armL/armR, leg*, tail*, else none. */
+    /** Idle life for every canon rig: breathing, weight shift, loose arms/ears/hair/tails/wings. Never overrides hand-set sway. */
+    static void alive(CreatureDef d) {
+        int i = 0;
+        for (var q : d.parts) {
+            i++;
+            if (q.swayAmp != 0) continue;
+            String n = q.name; float ph = (i * 1.7f) % 6.28f;
+            boolean L = n.endsWith("L"), R = n.endsWith("R");
+            if (n.equals("body")) q.swayAmp = 0.03f;
+            else if (n.equals("head")) { q.swayAmp = 0.05f; q.swayAxis = 2; ph = 1.1f; }
+            else if (n.startsWith("arm") && !n.contains("2")) { q.swayAmp = 0.06f; q.swayAxis = 2; ph = R ? PI : 0; }
+            else if (n.startsWith("tail") || n.startsWith("ponytail") || n.startsWith("braid")) { q.swayAmp = 0.16f; q.swayAxis = 1; q.swaySpeed = 0.12f; q.swayPhase = ph; continue; }
+            else if (n.startsWith("ear") || n.startsWith("wing") || n.startsWith("anten") || n.startsWith("hair") || n.startsWith("mane") || n.startsWith("crown") || n.startsWith("tongue") || n.startsWith("fringe")) { q.swayAmp = 0.1f; q.swayAxis = 2; q.swaySpeed = 0.2f; q.swayPhase = ph; continue; }
+            else continue;
+            q.swaySpeed = 0.1f; q.swayPhase = ph;
+        }
+    }
+
     static void dump(CreatureDef d) {
         String dir = System.getenv("POPPY_DUMP");
         if (dir == null) return;
@@ -148,6 +167,10 @@ final class Canon {
         for (int i = 0; i < 3; i++) { b.pr("finger" + i + "#", "hand#", -1.4f + i * 1.4f, -3, -1.6f, 1, 1.6f, 1, 0, -0.8f, 0, claw); b.pr("toe" + i + "#", "foot#", -1.6f + i * 1.6f, 0, -3.6f, 1.2f, 1.2f, 1.2f, 0, 0.6f, 0, claw); }
         b.pr("cheek#", "head", 6.4f, 4, -3, 1.4f, 3, 4, 0, 0, 0, belly);
         b.p("brow", "head", 0, 12.2f, -1, 7, 1.4f, 5, 0, 0, 0, fur);
+        for (int i = 0; i < 4; i++) b.p("fluff" + i, "head", -4.5f + i * 3, 12, 0.5f, 2.4f, 2.6f + (i % 2), 2.4f, 0, 1, 0, fur);
+        b.p("chinFluff", "head", 0, 0.4f, -3, 6, 1.6f, 3, 0, 0, 0, belly);
+        b.pr("shoulderFluff#", "body", 6.6f, 11, 0, 4.6f, 2.6f, 5.6f, 0, 0, 0, fur);
+        b.pr("kneeFluff#", "leg#", 0, -5, 0, 6.2f, 2, 6.2f, 0, 0, 0, fur);
         b.pr("hip#", "body", 4, 1, 0, 5.4f, 3, 8.6f, 0, 0, 0, fur);
         return b;
     }

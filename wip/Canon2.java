@@ -43,12 +43,13 @@ final class Canon2 {
         }
         B b = new B(d, k);
         b.p("tongue", "jaw", 0, -2, -1, 6, 1, 8, 0, 0, -3, 0xe0506a);
-        if (nm) for (int i = 0; i < 7; i++) b.p("nfang" + i, "head", -9 + i * 3, 3.5f, -9.9f, 1.4f, 4.5f, 0.8f, 0, -2, 0, WHT);
+        if (nm) for (int i = 0; i < 8; i++) b.p("nfang" + i, "head", -5.6f + i * 1.6f, 4.2f, -6.4f, 0.9f, 4.6f, 0.5f, 0, -2.3f, 0, WHT);
         if (kissy) {
-            b.pr("lash#", "head", 6, 18.4f, -9.5f, 6, 1, 1, 0, 0, 0, BLK);
-            b.pr("lash2#", "head", 9, 15, -9.5f, 1, 4, 1, 0, 0, 0, BLK);
-            b.p("bow", "head", 0, 20, 2, 10, 4, 4, 0, 2, 0, 0x2a6ae0);
-            b.p("bowK", "bow", 0, 2, -2.2f, 3, 3, 2, 0, 0, 0, 0x1a4ab0);
+            b.pr("lash#", "head", 4, 11, -6.2f, 4.4f, 0.8f, 0.8f, 0, 0, 0, BLK);
+            b.pr("lash2#", "head", 6.4f, 9.6f, -6.2f, 0.8f, 3, 0.8f, 0, 0, 0, BLK);
+            b.pr("lash3#", "head", 2, 10.6f, -6.2f, 0.8f, 2.4f, 0.8f, 0, 0, 0, BLK);
+            b.pr("bowW#", "head", 2.4f, 13, 1, 4, 3.4f, 1.4f, 0, 1.4f, 0, 0x2a6ae0);
+            b.p("kbowK", "head", 0, 13, 1, 2, 2, 1.8f, 0, 1, 0, 0x1a4ab0);
         }
     }
 
