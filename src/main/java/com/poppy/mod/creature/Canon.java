@@ -57,10 +57,11 @@ final class Canon {
 
     static void apply(CreatureDef d) {
         Consumer<CreatureDef> f = Canon6.MAP.getOrDefault(d.id, Canon5.MAP.getOrDefault(d.id, Canon4.MAP.getOrDefault(d.id, MAP.getOrDefault(d.id, MAP2.getOrDefault(d.id, Canon2.MAP.get(d.id))))));
-        if (f == null) { Canon3.apply(d); dump(d); return; }
+        if (f == null) { alive(d); detail(d); Canon3.apply(d); dump(d); return; }
         d.parts.clear();
         f.accept(d);
         alive(d);
+        detail(d);
         retarget(d);
         Canon3.apply(d);
         dump(d);
@@ -136,6 +137,36 @@ final class Canon {
         }
         sb.append("{}]");
         try { java.nio.file.Files.writeString(java.nio.file.Path.of(dir, d.id + ".pose"), sb.toString()); } catch (Exception e) { }
+    }
+
+    static final java.util.regex.Pattern PLAIN = java.util.regex.Pattern.compile("^(eye|pupil|glint|iris|tooth|toothU|toothD|nf|jag|claw|cl\\d|toe|finger|fing|zip|lash|brow|btn|button|star|screen|key|lip|jaw|mouth|tongue|rim|grille|fang|nose|x[LR12]|spike|nsp|sqt|bell|pom|cable|kbow|bowK|dot|crack|hole|fluff|stitch).*");
+    static final java.util.Set<String> HARD = java.util.Set.of("the_prototype", "mini_prototype", "nightmare_prototype", "boogie_bot", "giant_boogie_bot", "glowby", "harley_sawyer", "lily_lovebraids", "poppy", "miss_delight", "nightmare_miss_delight", "boxy_boo", "mini_boxy_boo", "nightmare_boxy_boo", "pianosaurus", "bron", "giant_bron");
+
+    static int shade(int c, float f) { int r = Math.min(255, (int) (((c >> 16) & 255) * f)), g = Math.min(255, (int) (((c >> 8) & 255) * f)), b = Math.min(255, (int) ((c & 255) * f)); return (r << 16) | (g << 8) | b; }
+
+    /** Fine-detail pass: light top / dark underside bands on every sizeable box (hand-shaded look) plus fur tufts on plush bodies. */
+    static void detail(CreatureDef d) {
+        boolean fur = !HARD.contains(d.id);
+        java.util.Random rnd = new java.util.Random(d.id.hashCode());
+        java.util.List<CreatureDef.Part> src = new java.util.ArrayList<>(d.parts);
+        for (var q : src) {
+            if (q.glow || PLAIN.matcher(q.name).matches()) continue;
+            float m = Math.min(q.w, Math.min(q.h, q.d));
+            if (Math.max(q.w, Math.max(q.h, q.d)) < 3f || m < 0.9f) continue;
+            float t = Math.max(0.3f, Math.min(1.1f, 0.14f * q.h)), e = 0.06f;
+            d.part(q.name + "_hi", q.name, 0, 0, 0, q.w + e, t, q.d + e, q.cx, q.cy + q.h / 2 - t / 2, q.cz, shade(q.color, 1.18f));
+            d.part(q.name + "_lo", q.name, 0, 0, 0, q.w + e, t, q.d + e, q.cx, q.cy - q.h / 2 + t / 2, q.cz, shade(q.color, 0.72f));
+            if (fur && Math.min(q.w, q.d) >= 4f && q.h >= 4f) {
+                int n = Math.min(4, 1 + (int) (q.w * q.h * q.d / 400f));
+                for (int i = 0; i < n; i++) {
+                    float sz = Math.max(0.8f, Math.min(1.7f, 0.13f * Math.max(q.w, q.h)));
+                    int face = rnd.nextInt(5); // 0 +x 1 -x 2 +y 3 -y(skip lower often) 4 +z ; never -z (face side)
+                    float x = (rnd.nextFloat() - 0.5f) * q.w * 0.7f, y = (rnd.nextFloat() - 0.5f) * q.h * 0.8f, z = (rnd.nextFloat() - 0.5f) * q.d * 0.7f;
+                    switch (face) { case 0 -> x = q.w / 2; case 1 -> x = -q.w / 2; case 2 -> y = q.h / 2; case 3 -> y = -q.h / 2 + 0.5f; default -> z = q.d / 2; }
+                    d.part(q.name + "_f" + i, q.name, 0, 0, 0, sz, sz * 1.2f, sz, q.cx + x, q.cy + y, q.cz + z, shade(q.color, 0.88f + rnd.nextFloat() * 0.3f));
+                }
+            }
+        }
     }
 
     static void dump(CreatureDef d) {
