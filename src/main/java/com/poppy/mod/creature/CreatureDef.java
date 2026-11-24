@@ -12,7 +12,7 @@ public final class CreatureDef {
     public static final class Part {
         public final String name, parent;
         public final float px, py, pz, w, h, d, cx, cy, cz;
-        public final int color;
+        public int color;
         public boolean glow;
         public float walkAmp, walkPhase, swayAmp, swaySpeed, swayPhase;
         public int swayAxis; // 0=x 1=y 2=z

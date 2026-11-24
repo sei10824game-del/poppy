@@ -41,8 +41,23 @@ final class Canon4 {
         return b;
     }
 
+    static final Map<String, String> NM = Map.of("bubba_bubbaphant", "nightmare_bubba", "craftycorn", "nightmare_craftycorn", "kickin_chicken", "nightmare_kickin", "pickypiggy", "nightmare_pickypiggy",
+        "hoppy_hopscotch", "nightmare_hoppy", "dogday", "nightmare_dogday", "bobby_bearhug", "nightmare_bobby");
+
     static void toySpecies(String id, int fur, int belly, int claw, int pend, Consumer<B> extra) {
         MAP.put(id, d -> { B b = toy(d, fur, belly, claw, pend, belly); extra.accept(b); });
+        MAP.put(NM.get(id), d -> {
+            B b = toy(d, fur, belly, claw, pend, belly); extra.accept(b);
+            b.pr("brow#", "head", 5.4f, 14, -7.2f, 6.4f, 1.8f, 0.8f, 0, 0, 0, BLK);
+            for (int i = 0; i < 7; i++) { b.p("nfU" + i, "head", -4.8f + i * 1.6f, 9.4f, -7.7f, 1, 3, 0.5f, 0, -1.5f, 0, WHT); b.p("nfD" + i, "head", -4.8f + i * 1.6f, 1.8f, -7.7f, 1, 2.4f, 0.5f, 0, 1.2f, 0, WHT); }
+            for (int i = 0; i < 4; i++) b.p("nsp" + i, "body", 0, 9 - i * 2.4f, 4.8f, 1.6f, 2.2f, 1.8f, 0, 0, 1, 0x1a1016);
+            for (var q : d.parts) {
+                if (q.name.startsWith("glint")) { q.glow = true; continue; }
+                int c = q.color; if (c == WHT || c == BLK || c == 0x08030a || q.name.startsWith("nf") || q.name.startsWith("nsp")) continue;
+                q.color = Canon2.tint(c, 0.72f);
+            }
+            for (var q : d.parts) if (q.name.startsWith("glint")) q.color = 0xff2020;
+        });
     }
 
     static void bron(CreatureDef d) {
