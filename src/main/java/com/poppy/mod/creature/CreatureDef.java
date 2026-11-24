@@ -14,6 +14,8 @@ public final class CreatureDef {
         public final float px, py, pz, w, h, d, cx, cy, cz;
         public int color;
         public boolean glow;
+        /** Surface material: 0 plain, 1 fur, 2 cloth, 3 plastic, 4 metal (procedural grayscale textures tinted by colour). */
+        public int mat;
         public float walkAmp, walkPhase, swayAmp, swaySpeed, swayPhase;
         public int swayAxis; // 0=x 1=y 2=z
         Part(String n, String p, float px, float py, float pz, float w, float h, float d, float cx, float cy, float cz, int c) {

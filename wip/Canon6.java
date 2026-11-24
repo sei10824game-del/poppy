@@ -76,10 +76,10 @@ final class Canon6 {
         b.p("zipM", "body", 0, -4.2f, 0, 0.8f, 0.5f, 14, 0, 0, 0, BLK);
         b.p("collar", "body", 0, 1, -7.6f, 6, 6, 1, 0, 0, 0, BLK);
         b.p("head", "body", 0, 2, -9.4f, 11, 9, 9, 0, 0, -2, pu).sw(0.07f, 0.1f, 1, 2);
-        b.pr("ear#", "head", 4, 4.4f, 1, 3.6f, 8, 1.8f, 0, 4, 0, pu);
-        b.pr("earIn#", "ear#", 0, 0, -1, 2, 5.6f, 0.4f, 0, 3, 0, dk);
-        b.pr("eyeW#", "head", 3, 1.6f, -6.6f, 4, 4, 0.5f, 0, 0, 0, WHT);
-        b.pr("eye#", "head", 3, 1.6f, -6.9f, 1.8f, 2.4f, 0.4f, 0, 0, 0, nm ? 0xff2020 : BLK).g();
+        b.pr("ear#", "head", 4.6f, 4.4f, 1, 4.4f, 4.6f, 1.8f, 0, 2.3f, 0, pu); b.pr("earTip#", "ear#", 0, 4.6f, 0, 2.6f, 2.4f, 1.6f, 0, 1.2f, 0, pu);
+        b.pr("earIn#", "ear#", 0, 0, -1, 2.6f, 3.6f, 0.4f, 0, 2.2f, 0, dk);
+        b.pr("eyeW#", "head", 3.2f, 1.6f, -6.6f, 3, 3, 0.5f, 0, 0, 0, WHT);
+        b.pr("eye#", "head", 3.2f, 1.6f, -6.9f, 1.6f, 2, 0.4f, 0, 0, 0, nm ? 0xff2020 : BLK).g();
         b.p("muzzle", "head", 0, -2.4f, -6.6f, 6.4f, 3.6f, 0.8f, 0, 0, 0, lt);
         b.p("nose", "head", 0, -0.6f, -7f, 1.8f, 1.2f, 0.6f, 0, 0, 0, 0xd06a90);
         b.p("jaw", "head", 0, -3.6f, -6.7f, 8.6f, 2.2f, 0.6f, 0, 0, 0, 0x0a0208);

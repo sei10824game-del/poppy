@@ -29,8 +29,8 @@ final class Canon4 {
         b.p("belly", "body", 0, 1, -4.6f, 8, 8, 0.6f, 0, 4, 0, belly);
         b.p("zip", "body", 0, 0, -5f, 0.8f, 10, 0.4f, 0, 5, 0, BLK);
         b.p("head", "body", 0, 10, -0.5f, 19, 15, 14, 0, 7.5f, 0, fur).sw(0.05f, 0.1f, 1.2f, 2);
-        b.p("rim", "head", 0, 5.8f, -7.1f, 14.6f, 9.6f, 0.5f, 0, 0, 0, belly);
-        b.p("jaw", "head", 0, 5, -7.3f, 13, 8.4f, 0.6f, 0, 0, 0, 0x08030a);
+        b.p("rim", "head", 0, 5.2f, -7.1f, 14.6f, 8.4f, 0.5f, 0, 0, 0, belly);
+        b.p("jaw", "head", 0, 4.6f, -7.3f, 13, 7f, 0.6f, 0, 0, 0, 0x08030a);
         b.p("grille", "jaw", 0, 0, -0.4f, 5, 4, 0.3f, 0, 3, 0, 0x202028);
         b.pr("eyeB#", "head", 5.2f, 11, -7f, 5, 5, 0.8f, 0, 0, 0, BLK);
         b.pr("glint#", "head", 4.2f, 12.4f, -7.5f, 1.4f, 1.4f, 0.4f, 0, 0, 0, WHT).g();

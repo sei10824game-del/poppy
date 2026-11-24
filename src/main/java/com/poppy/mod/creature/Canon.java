@@ -57,11 +57,12 @@ final class Canon {
 
     static void apply(CreatureDef d) {
         Consumer<CreatureDef> f = Canon6.MAP.getOrDefault(d.id, Canon5.MAP.getOrDefault(d.id, Canon4.MAP.getOrDefault(d.id, MAP.getOrDefault(d.id, MAP2.getOrDefault(d.id, Canon2.MAP.get(d.id))))));
-        if (f == null) { alive(d); detail(d); Canon3.apply(d); dump(d); return; }
+        if (f == null) { alive(d); detail(d); materials(d); Canon3.apply(d); dump(d); return; }
         d.parts.clear();
         f.accept(d);
         alive(d);
         detail(d);
+        materials(d);
         retarget(d);
         Canon3.apply(d);
         dump(d);
@@ -166,6 +167,21 @@ final class Canon {
                     d.part(q.name + "_f" + i, q.name, 0, 0, 0, sz, sz * 1.2f, sz, q.cx + x, q.cy + y, q.cz + z, shade(q.color, 0.88f + rnd.nextFloat() * 0.3f));
                 }
             }
+        }
+    }
+
+    static final java.util.Set<String> METAL = java.util.Set.of("the_prototype", "mini_prototype", "nightmare_prototype", "boogie_bot", "giant_boogie_bot", "harley_sawyer");
+    static final java.util.Set<String> PLASTIC = java.util.Set.of("glowby", "lily_lovebraids", "poppy", "miss_delight", "nightmare_miss_delight", "boxy_boo", "mini_boxy_boo", "nightmare_boxy_boo",
+        "pianosaurus", "bron", "giant_bron", "doey_the_doughman", "mini_doey", "mini_doughman", "mommy_long_legs", "mama_long_legs", "mini_mommy", "nightmare_mommy", "daddy_long_legs", "candy_cat");
+    static final java.util.Set<String> CLOTH = java.util.Set.of("blanky_blankz", "bubby_chumz", "doodle_bones", "goober_gutz", "loopsy_noodle");
+
+    /** Assign each box a surface material by creature and part role; eyes/teeth/mouths stay plain. */
+    static void materials(CreatureDef d) {
+        int def = METAL.contains(d.id) ? 4 : PLASTIC.contains(d.id) ? 3 : CLOTH.contains(d.id) ? 2 : 1;
+        for (var q : d.parts) {
+            String n = q.name.endsWith("_hi") || q.name.endsWith("_lo") ? q.name.substring(0, q.name.length() - 3) : q.name;
+            q.mat = q.glow || PLAIN.matcher(n).matches() ? 0 : def;
+            if (n.startsWith("tuft") || n.matches(".*_f\\d")) q.mat = 1;
         }
     }
 

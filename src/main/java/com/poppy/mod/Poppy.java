@@ -74,6 +74,7 @@ public class Poppy {
 
     @Mod.EventBusSubscriber(modid = ID, bus = Mod.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
     public static class Client {
+        static { if (System.getProperty("poppy.shot") != null) MinecraftForge.EVENT_BUS.register(new com.poppy.mod.client.DevShot()); }
         @SubscribeEvent public static void renderers(EntityRenderersEvent.RegisterRenderers e) {
             for (var t : TYPES.values()) e.registerEntityRenderer(t.get(), PoppyRenderer::new);
             e.registerEntityRenderer(BOLT.get(), BoltRenderer::new);
