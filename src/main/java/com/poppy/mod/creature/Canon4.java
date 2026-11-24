@@ -233,12 +233,13 @@ final class Canon4 {
         float f = nm ? 0.8f : 1f; int rs = Canon2.tint(0x6a3a2a, f), dk = Canon2.tint(0x2a2a30, f), mt = Canon2.tint(0x8a6a50, f), por = Canon2.tint(0xf0ece0, f), rd = Canon2.tint(0xc82020, f), gold = Canon2.tint(0xd8b040, f), co = Canon2.tint(0x3a5aa0, f);
         B b = plush(d, 60);
         float[] zs = {-12, -4, 4, 12};
-        for (int i = 0; i < 4; i++) {
-            String sx = i == 0 ? "leg#" : "leg" + (char) ('B' + i - 1) + "#";
-            b.pr(sx, null, 6, 16, zs[i], 12, 2.8f, 2.8f, 6, 0, 0, rs, 0.6f);
-            String lo = i == 0 ? "shin#" : "shin" + i + "#";
-            b.pr(lo, sx, 12, 0, 0, 2.6f, 16, 2.6f, 0, -8, 0, i % 2 == 0 ? mt : rs);
-            b.pr("tip" + i + "#", lo, 0, -16, 0, 1.4f, 3, 1.4f, 0, -1.5f, 0, 0xc8c8d0);
+        for (int i = 0; i < 4; i++) for (int sd = 0; sd < 2; sd++) {
+            float sg = sd == 0 ? -1 : 1; String S = sd == 0 ? "L" : "R";
+            String sx = (i == 0 ? "leg" : "leg" + (char) ('B' + i - 1)) + S, lo = (i == 0 ? "shin" : "shin" + i) + S;
+            b.p(sx, null, sg * 6, 16, zs[i] * 1.25f, 22, 3.2f, 3.2f, sg * 11, 0, 0, rs); d.walk(0.6f, (i + sd) % 2 == 0 ? 0 : PI);
+            b.p(lo, sx, sg * 22, 0, 0, 3f, 16, 3f, 0, -8, 0, i % 2 == 0 ? mt : rs);
+            b.p("knee" + i + S, sx, sg * 22, 0, 0, 4.4f, 4.4f, 4.4f, 0, 0, 0, dk);
+            b.p("tip" + i + S, lo, 0, -16, 0, 1.4f, 3, 1.4f, 0, -1.5f, 0, 0xc8c8d0);
         }
         b.p("body", null, 0, 16, 0, 16, 10, 34, 0, 5, 0, dk).sw(0.02f, 0.1f, 0, 2);
         b.p("ribs", "body", 0, 10, -2, 10, 1, 14, 0, 0, 0, 0xe8e0c8);
