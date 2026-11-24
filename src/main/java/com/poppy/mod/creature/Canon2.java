@@ -267,7 +267,30 @@ final class Canon2 {
         for (int i = 0; i < 5; i++) b.p("tooth" + i, "head", -2.4f + i * 1.2f, 2, -7.4f, 0.8f, nm ? 2.6f : 1.4f, 0.4f, 0, 0, 0, WHT);
     }
 
+    /** The Doctor (Harley Sawyer): organs kept alive in a vital system centre; yellow eye with fingers on a static screen; mechanical vessel limbs. */
+    static void doctor(CreatureDef d) {
+        int gl = 0x9ad8e8, br = 0xe89aa8, lu = 0xd86a7a, lv = 0x8a2a2a, mt = 0x5a5a62, ye = 0xffd820;
+        B b = plush(d, 40);
+        b.pr("leg#", null, 6, 6, 0, 4, 6, 4, 0, -3, 0, mt, 0.7f);
+        b.p("body", null, 0, 6, 0, 18, 6, 14, 0, 3, 0, mt).sw(0.02f, 0.1f, 0, 2);
+        b.p("tank", "body", 0, 6, 0, 16, 22, 12, 0, 11, 0, gl);
+        b.p("fluid", "tank", 0, 0, 0, 14, 18, 10, 0, 10, 0, 0xb8f0d0);
+        b.p("head", "tank", 0, 20, 0, 9, 7, 8, 0, 3, 0, br);
+        b.p("lungL", "tank", -4, 10, 0, 5, 8, 5, 0, 0, 0, lu); b.p("lungR", "tank", 4, 10, 0, 5, 8, 5, 0, 0, 0, lu);
+        b.p("liver", "tank", 0, 3, -1, 8, 4, 5, 0, 0, 0, lv);
+        for (int i = 0; i < 3; i++) b.p("tube" + i, "tank", -4 + i * 4, 22, 0, 1, 8, 1, 0, 4, 0, mt);
+        b.p("screen", "body", 0, 12, -7.4f, 12, 9, 0.8f, 0, 0, 0, 0x2a2a30);
+        b.p("static", "screen", 0, 0, -0.5f, 11, 8, 0.3f, 0, 0, 0, 0xb8b8c0);
+        b.p("eye", "screen", 0, 0, -0.9f, 4, 4, 0.4f, 0, 0, 0, ye).g();
+        b.p("pupil", "eye", 0, 0, -0.3f, 1.4f, 1.4f, 0.3f, 0, 0, 0, BLK);
+        for (int i = 0; i < 4; i++) b.p("finger" + i, "screen", -3 + i * 2, 4.4f, -1, 0.8f, 3, 0.8f, 0, 1.5f, 0, mt);
+        b.p("jaw", "head", 0, 0, 0, 1, 1, 1, 0, 0, 0, br);
+        b.pr("arm#", "body", 10, 14, 0, 2, 16, 2, 0, -8, 0, mt);
+        b.pr("hand#", "arm#", 0, -16, 0, 4, 3, 4, 0, -1, 0, ye);
+    }
+
     static {
+        MAP.put("harley_sawyer", Canon2::doctor);
         MAP.put("giant_boogie_bot", d -> Canon.MAP2.get("boogie_bot").accept(d));
         crit("catnap", 0x8a50b8, 0xc9a0e6, 0x5a3080, 0xf2d24a, b -> {
             b.pr("ear#", "head", 4.6f, 12, 0, 3.6f, 5.4f, 1.8f, 0, 2.4f, 0, b.d.parts.get(0).color);

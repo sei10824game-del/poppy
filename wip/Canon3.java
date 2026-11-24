@@ -62,6 +62,7 @@ final class Canon3 {
         s("giant_boogie_bot", "SLAM,STOMP,SHOOT:0x7cf5ff:slow,SWIPE");
         s("glowby", "SHOOT:0xf2c418:,CLAP,SWIPE");
         s("lily_lovebraids", "SWIPE,WHIP,GRAB");
+        s("harley_sawyer", "SHOOT:0xffd820:slow,SWIPE,SLAM,GAS");
         s("poppy", "SWIPE,POUNCE,WHIP");
     }
 
