@@ -69,7 +69,7 @@ final class Canon3 {
 
     static void apply(CreatureDef d) {
         String set = SETS.get(d.id);
-        if (set == null) return;
+        if (set == null) { Canon7.apply(d); return; }
         d.attacks.clear();
         float dm = (float) d.dmg, r = Math.max(2.8f, d.w * 1.6f + 1.4f);
         for (String tok : set.split(",")) {
@@ -91,6 +91,7 @@ final class Canon3 {
                 default -> { }
             }
         }
+        Canon7.apply(d);
     }
     private Canon3() {}
 }
