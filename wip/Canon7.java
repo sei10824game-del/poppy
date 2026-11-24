@@ -63,8 +63,31 @@ final class Canon7 {
     static final java.util.Set<String> HUGGYS = java.util.Set.of("kissy_missy", "nightmare_kissy_missy", "giant_kissy", "mini_kissy", "mini_huggy", "mini_huggies", "mini_plush", "nightmare_huggy");
     static final java.util.Set<String> LONGS = java.util.Set.of("mama_long_legs", "nightmare_mommy", "mini_mommy", "daddy_long_legs");
 
+    static final Map<Atk, AnimHook> DOEY = Map.of(
+        Atk.SWIPE, (p, e, w, s, r, a) -> { r(p, "armR", -0.6f, -0.5f, 1.2f, 1.5f, 0.7f, -0.2f, w, s, r); p.scl("armR", 1, 1, 1, 1, 1.7f, 1, w, s, r); r(p, "body", 0, -0.4f, 0, 0, 0.5f, 0, w, s, r); r(p, "head", 0, 0.3f, 0, 0, -0.3f, 0, w, s, r); },
+        Atk.WHIP, (p, e, w, s, r, a) -> { pr(p, "arm", -0.4f, 0, 0.9f, 1.5f, 0, -0.1f, w, s, r); p.scl("armR", 1, 1, 1, 1, 2.6f, 1, w, s, r); p.scl("armL", 1, 1, 1, 1, 2.6f, 1, w, s, r); r(p, "body", 0.2f, 0, 0, -0.3f, 0, 0, w, s, r); },
+        Atk.GRAB, (p, e, w, s, r, a) -> { pr(p, "arm", -0.3f, 0, 1.2f, 1.4f, 0, -0.4f, w, s, r); p.scl("armR", 1, 1, 1, 1, 1.9f, 1, w, s, r); p.scl("armL", 1, 1, 1, 1, 1.9f, 1, w, s, r); r(p, "body", 0.2f, 0, 0, -0.35f, 0, 0, w, s, r); },
+        Atk.SLAM, (p, e, w, s, r, a) -> { pr(p, "arm", 2.7f, 0, 0.2f, 0.1f, 0, 0.1f, w, s, r); p.scl("armR", 1, 1, 1, 1, 1.8f, 1, w, s, r); p.scl("armL", 1, 1, 1, 1, 1.8f, 1, w, s, r); r(p, "body", -0.2f, 0, 0, 0.4f, 0, 0, w, s, r); },
+        Atk.POUNCE, (p, e, w, s, r, a) -> { p.scl("body", 1, 0.8f, 1, 1, 1.15f, 1, w, s, r); r(p, "body", 0.4f, 0, 0, -0.4f, 0, 0, w, s, r); pr(p, "arm", -0.5f, 0, 0.4f, 1.7f, 0, 0.1f, w, s, r); });
+
+    static final Map<Atk, AnimHook> PJ = Map.of(
+        Atk.BITE, (p, e, w, s, r, a) -> { r(p, "head", -0.4f, 0, 0, 0.5f, 0, 0, w, s, r); r(p, "jaw", 0, 0, 0, 0.5f, 0, 0, w, s, r); r(p, "seg0", 0.3f, 0, 0, -0.3f, 0, 0, w, s, r); },
+        Atk.CHARGE, (p, e, w, s, r, a) -> { for (int i = 0; i < 7; i++) r(p, "seg" + i, 0, 0, 0.12f * (i % 2 == 0 ? 1 : -1), 0, 0, -0.12f * (i % 2 == 0 ? 1 : -1), w, s, r); r(p, "head", 0.1f, 0, 0, 0.3f, 0, 0, w, s, r); },
+        Atk.POUNCE, (p, e, w, s, r, a) -> { r(p, "seg0", -0.5f, 0, 0, 0.5f, 0, 0, w, s, r); r(p, "seg1", -0.3f, 0, 0, 0.3f, 0, 0, w, s, r); r(p, "head", -0.3f, 0, 0, 0.4f, 0, 0, w, s, r); },
+        Atk.SWIPE, (p, e, w, s, r, a) -> { r(p, "seg0", 0, -0.4f, 0, 0, 0.5f, 0, w, s, r); r(p, "head", 0, -0.5f, 0, 0, 0.6f, 0, w, s, r); },
+        Atk.SCREAM, (p, e, w, s, r, a) -> { r(p, "head", 0, 0, 0, -0.6f, 0, 0, w, s, r); r(p, "jaw", 0, 0, 0, 0.6f, 0, 0, w, s, r); r(p, "seg0", 0, 0, 0, -0.4f, 0, 0, w, s, r); });
+
+    static final Map<Atk, AnimHook> CANDY = Map.of(
+        Atk.SHOOT, (p, e, w, s, r, a) -> { r(p, "head", 0.3f, 0, 0, -0.3f, 0, 0, w, s, r); r(p, "jaw", 0, 0, 0, 0.7f, 0, 0, w, s, r); r(p, "body", 0.1f, 0, 0, -0.2f, 0, 0, w, s, r); p.scl("tongue", 1, 1, 1, 1, 1, 1.8f, w, s, r); },
+        Atk.SWIPE, (p, e, w, s, r, a) -> { r(p, "armR", -0.6f, -0.5f, 0.8f, 1.4f, 0.6f, 0, w, s, r); r(p, "body", 0, -0.3f, 0, 0, 0.4f, 0, w, s, r); r(p, "head", 0, 0.3f, 0, 0, -0.3f, 0, w, s, r); },
+        Atk.POUNCE, (p, e, w, s, r, a) -> { r(p, "body", 0.3f, 0, 0, -0.4f, 0, 0, w, s, r); pr(p, "leg", 0.5f, 0, 0, -0.5f, 0, 0, w, s, r); pr(p, "legB", 0.5f, 0, 0, -0.6f, 0, 0, w, s, r); r(p, "head", 0.2f, 0, 0, -0.3f, 0, 0, w, s, r); r(p, "tail", 0, 0, 0, 0.4f, 0, 0, w, s, r); });
+
     static Map<Atk, AnimHook> mapFor(String id) {
         if (A.containsKey(id)) return A.get(id);
+        if (id.equals("doey_the_doughman") || id.equals("mini_doey") || id.equals("mini_doughman")) return DOEY;
+        if (id.equals("pj_pug_a_pillar") || id.equals("mini_pj") || id.equals("nightmare_pj")) return PJ;
+        if (id.equals("candy_cat")) return CANDY;
+        if (id.equals("cat_bee") || id.equals("glowby") || id.equals("bubby_chumz") || id.equals("harley_sawyer")) return TOY;
         if (TOYS.contains(id)) return TOY;
         if (HUGGYS.contains(id)) return A.get("huggy_wuggy");
         if (LONGS.contains(id)) return A.get("mommy_long_legs");
