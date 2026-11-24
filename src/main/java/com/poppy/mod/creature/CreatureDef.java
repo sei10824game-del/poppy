@@ -16,6 +16,8 @@ public final class CreatureDef {
         public boolean glow;
         /** Surface material: 0 plain, 1 fur, 2 cloth, 3 plastic, 4 metal (procedural grayscale textures tinted by colour). */
         public int mat;
+        /** Optional hand-drawn overlay texture (decal/NAME.png) painted on this box's front face. */
+        public String decal;
         public float walkAmp, walkPhase, swayAmp, swaySpeed, swayPhase;
         public int swayAxis; // 0=x 1=y 2=z
         Part(String n, String p, float px, float py, float pz, float w, float h, float d, float cx, float cy, float cz, int c) {
@@ -50,6 +52,7 @@ public final class CreatureDef {
         parts.add(new Part(name, parent, px, py, pz, w, h, d, cx, cy, cz, color)); return this;
     }
     private Part last() { return parts.get(parts.size() - 1); }
+    public CreatureDef decal(String n) { last().decal = n; return this; }
     public CreatureDef glow() { last().glow = true; return this; }
     /** Walk-cycle swing on last part (radians amp, phase offset e.g. PI for opposite leg). */
     public CreatureDef walk(float amp, float phase) { last().walkAmp = amp; last().walkPhase = phase; return this; }

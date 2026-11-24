@@ -37,6 +37,7 @@ final class Canon4 {
         b.pr("arm#", "body", 7.4f, 9, 0, 3.6f, 8, 4, 0, -3.4f, 0, fur);
         b.pr("hand#", "arm#", 0, -8, 0, 4.4f, 3.4f, 4.6f, 0, -1, 0, claw);
         b.p("tail", "body", 0, 2, 4.5f, 2.4f, 2.4f, 5, 0, 0, 2.5f, fur).sw(0.2f, 0.12f, 0, 1);
+        b.p("decalFace", "head", 0, 7.5f, -7.65f, 19, 15, 0.05f, 0, 0, 0, WHT); d.decal("toy");
         b.pendant(12, 10, pend);
         return b;
     }
@@ -51,9 +52,10 @@ final class Canon4 {
             b.pr("brow#", "head", 5.4f, 14, -7.2f, 6.4f, 1.8f, 0.8f, 0, 0, 0, BLK);
             for (int i = 0; i < 7; i++) { b.p("nfU" + i, "head", -4.8f + i * 1.6f, 9.4f, -7.7f, 1, 3, 0.5f, 0, -1.5f, 0, WHT); b.p("nfD" + i, "head", -4.8f + i * 1.6f, 1.8f, -7.7f, 1, 2.4f, 0.5f, 0, 1.2f, 0, WHT); }
             for (int i = 0; i < 4; i++) b.p("nsp" + i, "body", 0, 9 - i * 2.4f, 4.8f, 1.6f, 2.2f, 1.8f, 0, 0, 1, 0x1a1016);
+            for (var q : d.parts) if (q.name.equals("decalFace")) q.decal = "toy_nm";
             for (var q : d.parts) {
                 if (q.name.startsWith("glint")) { q.glow = true; continue; }
-                int c = q.color; if (c == WHT || c == BLK || c == 0x08030a || q.name.startsWith("nf") || q.name.startsWith("nsp")) continue;
+                int c = q.color; if (q.decal != null || c == WHT || c == BLK || c == 0x08030a || q.name.startsWith("nf") || q.name.startsWith("nsp")) continue;
                 q.color = Canon2.tint(c, 0.72f);
             }
             for (var q : d.parts) if (q.name.startsWith("glint")) q.color = 0xff2020;

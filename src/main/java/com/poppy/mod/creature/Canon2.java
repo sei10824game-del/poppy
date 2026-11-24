@@ -39,7 +39,7 @@ final class Canon2 {
             if (nm && pt.glow) c = RED;
             d.part(pt.name, pt.parent, pt.px * k, pt.py * k, pt.pz * k, pt.w * k, pt.h * k, pt.d * k, pt.cx * k, pt.cy * k, pt.cz * k, c);
             var n = d.parts.get(d.parts.size() - 1);
-            n.glow = pt.glow; n.walkAmp = pt.walkAmp; n.walkPhase = pt.walkPhase; n.swayAmp = pt.swayAmp; n.swaySpeed = pt.swaySpeed; n.swayPhase = pt.swayPhase; n.swayAxis = pt.swayAxis;
+            n.glow = pt.glow; n.decal = kissy && "decalFace".equals(pt.name) ? "kissy" : pt.decal; n.walkAmp = pt.walkAmp; n.walkPhase = pt.walkPhase; n.swayAmp = pt.swayAmp; n.swaySpeed = pt.swaySpeed; n.swayPhase = pt.swayPhase; n.swayAxis = pt.swayAxis;
         }
         B b = new B(d, k);
         b.p("tongue", "jaw", 0, -2, -1, 6, 1, 8, 0, 0, -3, 0xe0506a);

@@ -155,7 +155,7 @@ final class Canon {
         try { java.nio.file.Files.writeString(java.nio.file.Path.of(dir, d.id + ".pose"), sb.toString()); } catch (Exception e) { }
     }
 
-    static final java.util.regex.Pattern PLAIN = java.util.regex.Pattern.compile("^(eye|pupil|glint|iris|tooth|toothU|toothD|nf|jag|claw|cl\\d|toe|finger|fing|zip|lash|brow|btn|button|star|screen|key|lip|jaw|mouth|tongue|rim|grille|fang|nose|x[LR12]|spike|nsp|sqt|bell|pom|cable|kbow|bowK|dot|crack|hole|fluff|stitch).*");
+    static final java.util.regex.Pattern PLAIN = java.util.regex.Pattern.compile("^(decal|eye|pupil|glint|iris|tooth|toothU|toothD|nf|jag|claw|cl\\d|toe|finger|fing|zip|lash|brow|btn|button|star|screen|key|lip|jaw|mouth|tongue|rim|grille|fang|nose|x[LR12]|spike|nsp|sqt|bell|pom|cable|kbow|bowK|dot|crack|hole|fluff|stitch).*");
     static final java.util.Set<String> HARD = java.util.Set.of("the_prototype", "mini_prototype", "nightmare_prototype", "boogie_bot", "giant_boogie_bot", "glowby", "harley_sawyer", "lily_lovebraids", "poppy", "miss_delight", "nightmare_miss_delight", "boxy_boo", "mini_boxy_boo", "nightmare_boxy_boo", "pianosaurus", "bron", "giant_bron");
 
     static int shade(int c, float f) { int r = Math.min(255, (int) (((c >> 16) & 255) * f)), g = Math.min(255, (int) (((c >> 8) & 255) * f)), b = Math.min(255, (int) ((c & 255) * f)); return (r << 16) | (g << 8) | b; }

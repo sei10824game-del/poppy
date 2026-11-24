@@ -54,6 +54,7 @@ final class HuggyWuggy {
                 .part("toothD1", "jaw", -1.4f, -3.6f, -0.1f, 1.4f, 2.8f, 0.5f, 0, 1.4f, 0, teeth)
                 .part("toothD2", "jaw", 1.4f, -3.6f, -0.1f, 1.4f, 2.8f, 0.5f, 0, 1.4f, 0, teeth)
                 .part("toothD3", "jaw", 4.2f, -3.6f, -0.1f, 1.4f, 2.2f, 0.5f, 0, 1.1f, 0, teeth)
+                .part("decalFace", "head", 0, 0, -6.4f, 14, 13, 0.05f, 0, 6.5f, 0, 0xffffff).decal("huggy")
                 // very long arms, yellow clawed hands hanging near the knees
                 .part("armL", "body", -9.4f, 14, 0, 3.2f, 17, 3.2f, 0, -8.5f, 0, blue).sway(0.07f, 0.1f, 0, 2)
                 .part("shoulderFuzzL", "armL", 0, 0, 0, 4.4f, 3.4f, 4.4f, 0, 0, 0, blue)
