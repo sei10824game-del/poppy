@@ -45,8 +45,41 @@ final class Canon7 {
             Atk.SLAM, (p, e, w, s, r, a) -> { r(p, "neck", -0.7f, 0, 0, 1.0f, 0, 0, w, s, r); r(p, "head", -0.3f, 0, 0, 0.6f, 0, 0, w, s, r); },
             Atk.STOMP, (p, e, w, s, r, a) -> { r(p, "legR", -0.9f, 0, 0, 0.5f, 0, 0, w, s, r); r(p, "legBR", 0, 0, 0, 0, 0, 0, w, s, r); r(p, "body", -0.1f, 0, 0, 0.1f, 0, 0, w, s, r); }));
 
+    static final Map<Atk, AnimHook> TOY = Map.of(
+        Atk.BITE, (p, e, w, s, r, a) -> { r(p, "head", -0.4f, 0, 0, 0.5f, 0, 0, w, s, r); r(p, "jaw", 0, 0, 0, 0.5f, 0, 0, w, s, r); r(p, "body", 0.2f, 0, 0, -0.35f, 0, 0, w, s, r); pr(p, "arm", -0.4f, 0, 0.5f, 0.6f, 0, 0.1f, w, s, r); },
+        Atk.SCREAM, (p, e, w, s, r, a) -> { r(p, "head", 0.1f, 0, 0, -0.55f, 0, 0, w, s, r); r(p, "body", 0.1f, 0, 0, -0.25f, 0, 0, w, s, r); pr(p, "arm", 0.3f, 0, 0.6f, 0.5f, 0, 1.0f, w, s, r); r(p, "jaw", 0, 0, 0, 0.6f, 0, 0, w, s, r); },
+        Atk.POUNCE, (p, e, w, s, r, a) -> { r(p, "body", 0.5f, 0, 0, -0.5f, 0, 0, w, s, r); pr(p, "leg", 0.6f, 0, 0, -0.5f, 0, 0, w, s, r); pr(p, "arm", -0.6f, 0, 0.4f, 1.7f, 0, 0.1f, w, s, r); r(p, "head", 0.3f, 0, 0, -0.3f, 0, 0, w, s, r); },
+        Atk.SWIPE, (p, e, w, s, r, a) -> { r(p, "armR", -0.7f, -0.6f, 1.1f, 1.5f, 0.8f, -0.2f, w, s, r); r(p, "body", 0, -0.45f, 0, 0, 0.55f, 0, w, s, r); r(p, "head", 0, 0.3f, 0, 0, -0.35f, 0, w, s, r); r(p, "armL", 0.3f, 0, -0.4f, -0.2f, 0, -0.3f, w, s, r); },
+        Atk.SLAM, (p, e, w, s, r, a) -> { pr(p, "arm", 2.7f, 0, 0.3f, 0.2f, 0, 0.1f, w, s, r); r(p, "body", -0.25f, 0, 0, 0.45f, 0, 0, w, s, r); r(p, "head", -0.3f, 0, 0, 0.3f, 0, 0, w, s, r); },
+        Atk.STOMP, (p, e, w, s, r, a) -> { r(p, "legR", -1.0f, 0, 0, 0.4f, 0, 0, w, s, r); r(p, "body", -0.2f, 0.2f, 0, 0.2f, 0, 0, w, s, r); pr(p, "arm", 0.6f, 0, 0.8f, -0.1f, 0, 0.3f, w, s, r); },
+        Atk.CHARGE, (p, e, w, s, r, a) -> { pr(p, "arm", -1.0f, 0, 0.3f, -1.4f, 0, 0.2f, w, s, r); r(p, "body", 0, 0, 0, -0.5f, 0, 0, w, s, r); r(p, "head", 0, 0, 0, 0.4f, 0, 0, w, s, r); },
+        Atk.GRAB, (p, e, w, s, r, a) -> { pr(p, "arm", -0.3f, 0, 1.3f, 1.5f, 0, -0.3f, w, s, r); r(p, "body", 0.2f, 0, 0, -0.35f, 0, 0, w, s, r); r(p, "head", 0.2f, 0, 0, -0.2f, 0, 0, w, s, r); });
+
+    static final java.util.Set<String> TOYS = java.util.Set.of(
+        "bubba_bubbaphant", "craftycorn", "kickin_chicken", "pickypiggy", "hoppy_hopscotch", "dogday", "bobby_bearhug", "mini_bubba",
+        "nightmare_bubba", "nightmare_craftycorn", "nightmare_kickin", "nightmare_pickypiggy", "nightmare_hoppy", "nightmare_dogday", "nightmare_bobby",
+        "maggie_mako", "allister_gator", "poe", "rabie_baby", "simon_smoke", "icky_licky", "baba_chops", "touille",
+        "blanky_blankz", "doodle_bones", "goober_gutz", "loopsy_noodle", "boogie_bot", "giant_boogie_bot", "bunzo_bunny", "nightmare_bunzo", "miss_delight", "nightmare_miss_delight", "lily_lovebraids", "poppy");
+    static final java.util.Set<String> HUGGYS = java.util.Set.of("kissy_missy", "nightmare_kissy_missy", "giant_kissy", "mini_kissy", "mini_huggy", "mini_huggies", "mini_plush", "nightmare_huggy");
+    static final java.util.Set<String> LONGS = java.util.Set.of("mama_long_legs", "nightmare_mommy", "mini_mommy", "daddy_long_legs");
+
+    static Map<Atk, AnimHook> mapFor(String id) {
+        if (A.containsKey(id)) return A.get(id);
+        if (TOYS.contains(id)) return TOY;
+        if (HUGGYS.contains(id)) return A.get("huggy_wuggy");
+        if (LONGS.contains(id)) return A.get("mommy_long_legs");
+        return switch (id) {
+            case "mini_prototype", "nightmare_prototype" -> A.get("the_prototype");
+            case "nightmare_catnap" -> A.get("catnap");
+            case "giant_bron" -> A.get("bron");
+            case "mini_boxy_boo", "nightmare_boxy_boo" -> A.get("boxy_boo");
+            case "mini_yarnaby" -> A.get("yarnaby");
+            default -> null;
+        };
+    }
+
     static void apply(CreatureDef d) {
-        Map<Atk, AnimHook> m = A.get(d.id);
+        Map<Atk, AnimHook> m = mapFor(d.id);
         if (m == null) return;
         for (int i = 0; i < d.attacks.size(); i++) {
             AttackSpec a = d.attacks.get(i);
