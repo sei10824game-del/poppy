@@ -27,6 +27,7 @@ public final class BatchH {
         b.p("head", "neck", 0, 15, -2, 9, 8, 13, 0, 4, -4, gr).sw(0.05f, 0.1f, 0, 2);
         b.p("snout", "head", 0, 2, -12, 6, 4.4f, 3, 0, 0, 0, gr);
         b.p("snoutSpike", "head", 0, 5, -13.6f, 1.4f, 2, 1.4f, 0, 0, 0, 0xf2c82a);
+        b.p("decalFace", "snout", 0, 0, -1.75f, 6, 4.4f, 0.05f, 0, 0, 0, 0xffffff); d.decal("piano");
         b.p("hornR", "head", 3, 8, -3, 1.8f, 5, 1.8f, 0, 2.5f, 0, 0xe8503a);
         b.p("hornM", "head", 0, 8, -3, 1.8f, 6, 1.8f, 0, 3, 0, 0xf08a30);
         b.p("hornL", "head", -3, 8, -3, 1.8f, 5, 1.8f, 0, 2.5f, 0, 0xf2c82a);

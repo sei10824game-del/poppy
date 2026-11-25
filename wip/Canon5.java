@@ -114,6 +114,7 @@ final class Canon5 {
             b.p("jaw", "ball", 0, -3.4f, -8.1f, 12, 1.8f, 0.5f, 0, 0, 0, 0x6a6a72);
             b.p("zipH", "ball", 0, -3.4f, -8.4f, 14, 1, 0.4f, 0, 0, 0, 0xc8c8d0);
             b.p("pull", "ball", 7, -3.4f, -8.5f, 2.4f, 3.4f, 0.4f, 0, -1, 0, 0x9a9aa4);
+            b.p("decalFace", "ball", 0, 0, -8.75f, 16, 14, 0.05f, 0, 0, 0, WHT); d.decal("blanky");
         });
         MAP.put("bubby_chumz", d -> {
             int rd = 0xd02a30, ye = 0xf0c020, tl = 0x30c0a8;
@@ -126,6 +127,7 @@ final class Canon5 {
             ball(b, "dome", "body", 0, 7, 0, 8.6f, rd);
             b.p("zipBand", "dome", 0, -0.4f, -8.4f, 15.6f, 1, 0.5f, 0, 0, 0, 0xd8d8e0);
             b.p("pull", "dome", 7, -1.2f, -8.6f, 2.4f, 3.4f, 0.4f, 0, 0, 0, 0x9a9aa4);
+            b.p("decalFace", "dome", 0, 0, -9f, 17, 15, 0.05f, 0, 0, 0, WHT); d.decal("bubby");
             b.p("head", "dome", 0, 3, 0, 1, 1, 1, 0, 0, 0, rd);
             xeye(b, "xL", "dome", -3.4f, 3, -8.4f, 2.6f, 0xc8c8d0, 0xc8c8d0); xeye(b, "xR", "dome", 3.4f, 3, -8.4f, 2.6f, 0xc8c8d0, 0xc8c8d0);
             b.p("jaw", "dome", 0, -3.6f, -8.3f, 6, 1.4f, 0.4f, 0, 0, 0, 0x6a0a14);
@@ -141,6 +143,7 @@ final class Canon5 {
             xeye(b, "xL", "ball", -4, 2, -7.2f, 4.6f, 0xe8e8ee, 0xe8e8ee); xeye(b, "xR", "ball", 4, 2, -7.2f, 4.6f, 0xe8e8ee, 0xe8e8ee);
             b.p("trunk", "ball", 0, -1, -7.6f, 4.6f, 9, 2, 0, -3, 0, pk);
             b.p("jaw", "ball", 0, -6, -7.2f, 5, 1, 0.4f, 0, 0, 0, 0x3a1a3a);
+            b.p("decalFace", "ball", 0, 0, -8.95f, 16, 16, 0.05f, 0, 0, 0, WHT); d.decal("doodle");
             b.pr("ear#", "ball", 9.4f, 1, 0, 1.8f, 9, 9, 0, 0, 0, pk);
             b.pr("earIn#", "ear#", 0, 0, -1, 0.6f, 6, 6, 0, 0, 0, 0xf8c8de);
         });
@@ -154,6 +157,7 @@ final class Canon5 {
             b.pr("ear#", "ball", 5.2f, 8.4f, 0, 4, 5, 2, 0, 2, 0, pu);
             xeye(b, "xL", "ball", -4.2f, 1.2f, -7.4f, 5.2f, 0xe8e8ee, 0xe8e8ee); xeye(b, "xR", "ball", 4.2f, 1.2f, -7.4f, 5.2f, 0xe8e8ee, 0xe8e8ee);
             b.p("jaw", "ball", 0, -4.4f, -7.4f, 5.6f, 1.8f, 0.6f, 0, 0, 0, 0xd8709c);
+            b.p("decalFace", "ball", 0, 0, -8.15f, 16, 16, 0.05f, 0, 0, 0, WHT); d.decal("goober");
         });
         MAP.put("loopsy_noodle", d -> {
             int pk = 0xf08ac0, dk = 0xd0609a;
@@ -167,6 +171,7 @@ final class Canon5 {
             b.p("snout", "ball", 0, -2.6f, -8f, 3.4f, 2.4f, 1, 0, 0, 0, dk);
             b.p("jaw", "ball", 0, -3.6f, -8.1f, 2, 1.2f, 0.5f, 0, 0, 0, 0x3a1a2a);
             b.p("zipT", "ball", 0, 8, -0.4f, 1.6f, 2.4f, 0.5f, 0, 0, 0, 0xc8c8d0);
+            b.p("decalFace", "ball", 0, 0, -8.75f, 16, 16, 0.05f, 0, 0, 0, WHT); d.decal("loopsy");
         });
         MAP.put("glowby", d -> {
             int ye = 0xe8bc28, dk = 0xb8901c;
@@ -184,6 +189,7 @@ final class Canon5 {
             b.p("antenna", "body", 5, 14, 0, 0.8f, 7, 0.8f, 0, 3.5f, 0, 0xd8d0b0);
             b.p("btnR", "body", 9, 11, -2.6f, 1.6f, 1.6f, 0.8f, 0, 0, 0, 0xd83a3a); b.p("btnG", "body", 11, 12.4f, -2.6f, 1.6f, 1.6f, 0.8f, 0, 0, 0, 0x3a9a5a);
             b.p("speaker", "body", -5, 2, -2.8f, 4, 4, 0.6f, 0, 0, 0, dk);
+            b.p("decalFace", "body", 0, 8.5f, -4.2f, 11, 11, 0.05f, 0, 0, 0, WHT); d.decal("glowby"); d.glow();
             b.pr("arm#", "body", 8, 6, 0, 2.2f, 6, 2.6f, 0, -2.5f, 0, dk);
         });
         MAP.put("boogie_bot", d -> {
@@ -200,6 +206,7 @@ final class Canon5 {
             b.pr("arm#", "body", 8.4f, 6.4f, 0, 5, 3.4f, 4.4f, 2.4f, 0, 0, gr);
             b.pr("hand#", "arm#", 3.6f, 0, 0, 4.4f, 4.4f, 4.4f, 0, 0, 0, dg);
             b.pr("tread#", "leg#", 0, -4, 0, 6.4f, 1.2f, 16.4f, 0, 0, 0, 0x4a4a52);
+            b.p("decalFace", "head", 0, 6.5f, -6.95f, 15, 13, 0.05f, 0, 0, 0, WHT); d.decal("boogie"); d.glow();
         });
         MAP.put("giant_boogie_bot", MAP.get("boogie_bot"));
         MAP.put("cat_bee", d -> {
