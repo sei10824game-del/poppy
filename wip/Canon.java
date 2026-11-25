@@ -161,8 +161,27 @@ final class Canon {
     static int shade(int c, float f) { int r = Math.min(255, (int) (((c >> 16) & 255) * f)), g = Math.min(255, (int) (((c >> 8) & 255) * f)), b = Math.min(255, (int) ((c & 255) * f)); return (r << 16) | (g << 8) | b; }
 
     /** Fine-detail pass: light top / dark underside bands on every sizeable box (hand-shaded look) plus fur tufts on plush bodies. */
+    /** Fingers on hands and toes on feet/paws that have none. */
+    static void digits(CreatureDef d) {
+        java.util.Set<String> haveKids = new java.util.HashSet<>();
+        for (var q : d.parts) if (q.parent != null && q.name.matches("^(claw|finger|fing|toe|cl\\d|fclaw|c\\d|thumb|paw).*")) haveKids.add(q.parent);
+        java.util.List<CreatureDef.Part> src = new java.util.ArrayList<>(d.parts);
+        for (var q : src) {
+            if (!q.name.matches("^(hand|foot|paw)[LR]$") || haveKids.contains(q.name) || q.glow) continue;
+            boolean hand = q.name.startsWith("hand");
+            float len = Math.max(0.9f, 0.55f * q.h), fw = Math.max(0.6f, q.w * 0.24f);
+            int col = shade(q.color, hand ? 0.78f : 0.7f);
+            for (int i = 0; i < 3; i++) {
+                float x = q.cx + (i - 1) * q.w * 0.3f;
+                if (hand) d.part(q.name + "_d" + i, q.name, 0, 0, 0, fw, len, fw, x, q.cy - q.h / 2 - len / 2 + 0.2f, q.cz - q.d * 0.18f, col);
+                else d.part(q.name + "_d" + i, q.name, 0, 0, 0, fw, Math.max(0.8f, q.h * 0.8f), len, x, q.cy, q.cz - q.d / 2 - len / 2 + 0.2f, col);
+            }
+        }
+    }
+
     static void detail(CreatureDef d) {
         boolean fur = !HARD.contains(d.id);
+        digits(d);
         java.util.Random rnd = new java.util.Random(d.id.hashCode());
         java.util.List<CreatureDef.Part> src = new java.util.ArrayList<>(d.parts);
         for (var q : src) {
@@ -173,13 +192,17 @@ final class Canon {
             d.part(q.name + "_hi", q.name, 0, 0, 0, q.w + e, t, q.d + e, q.cx, q.cy + q.h / 2 - t / 2, q.cz, shade(q.color, 1.18f));
             d.part(q.name + "_lo", q.name, 0, 0, 0, q.w + e, t, q.d + e, q.cx, q.cy - q.h / 2 + t / 2, q.cz, shade(q.color, 0.72f));
             if (fur && Math.min(q.w, q.d) >= 4f && q.h >= 4f) {
+                for (int i = 0; i < 3; i++) { // drooping hem: strands hanging below the lower edge
+                    float hw = q.w / 4.2f, hx = (i - 1) * q.w * 0.32f, hh = Math.max(0.9f, 0.16f * q.h);
+                    d.part(q.name + "_h" + i, q.name, 0, 0, 0, hw, hh, Math.min(hw, q.d * 0.5f), q.cx + hx, q.cy - q.h / 2 - hh / 2 + 0.25f, q.cz + (rnd.nextFloat() - 0.5f) * q.d * 0.6f, shade(q.color, 0.8f + rnd.nextFloat() * 0.18f));
+                }
                 int n = Math.min(4, 1 + (int) (q.w * q.h * q.d / 400f));
                 for (int i = 0; i < n; i++) {
                     float sz = Math.max(0.8f, Math.min(1.7f, 0.13f * Math.max(q.w, q.h)));
                     int face = rnd.nextInt(5); // 0 +x 1 -x 2 +y 3 -y(skip lower often) 4 +z ; never -z (face side)
                     float x = (rnd.nextFloat() - 0.5f) * q.w * 0.7f, y = (rnd.nextFloat() - 0.5f) * q.h * 0.8f, z = (rnd.nextFloat() - 0.5f) * q.d * 0.7f;
                     switch (face) { case 0 -> x = q.w / 2; case 1 -> x = -q.w / 2; case 2 -> y = q.h / 2; case 3 -> y = -q.h / 2 + 0.5f; default -> z = q.d / 2; }
-                    d.part(q.name + "_f" + i, q.name, 0, 0, 0, sz, sz * 1.2f, sz, q.cx + x, q.cy + y, q.cz + z, shade(q.color, 0.88f + rnd.nextFloat() * 0.3f));
+                    d.part(q.name + "_f" + i, q.name, 0, 0, 0, sz, sz * 1.8f, sz, q.cx + x, q.cy + y, q.cz + z, shade(q.color, 0.88f + rnd.nextFloat() * 0.3f));
                 }
             }
         }
@@ -196,7 +219,7 @@ final class Canon {
         for (var q : d.parts) {
             String n = q.name.endsWith("_hi") || q.name.endsWith("_lo") ? q.name.substring(0, q.name.length() - 3) : q.name;
             q.mat = q.glow || PLAIN.matcher(n).matches() ? 0 : def;
-            if (n.startsWith("tuft") || n.matches(".*_f\\d")) q.mat = 1;
+            if (n.startsWith("tuft") || n.matches(".*_[fh]\\d")) q.mat = 1;
         }
     }
 
