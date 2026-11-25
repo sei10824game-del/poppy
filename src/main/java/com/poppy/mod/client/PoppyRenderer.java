@@ -25,7 +25,8 @@ import java.util.Map;
 public class PoppyRenderer extends EntityRenderer<PoppyMob> {
     static final ResourceLocation WHITE = new ResourceLocation("poppyplaytime", "textures/entity/white.png");
     static final ResourceLocation[] MATS = {WHITE, new ResourceLocation("poppyplaytime", "textures/entity/mat_fur.png"), new ResourceLocation("poppyplaytime", "textures/entity/mat_cloth.png"),
-        new ResourceLocation("poppyplaytime", "textures/entity/mat_plastic.png"), new ResourceLocation("poppyplaytime", "textures/entity/mat_metal.png")};
+        new ResourceLocation("poppyplaytime", "textures/entity/mat_plastic.png"), new ResourceLocation("poppyplaytime", "textures/entity/mat_metal.png"),
+        new ResourceLocation("poppyplaytime", "textures/entity/mat_fur2.png"), new ResourceLocation("poppyplaytime", "textures/entity/mat_yarn.png")};
     static final Map<String, ResourceLocation> DECALS = new HashMap<>();
     private final Map<CreatureDef, Map<String, List<CreatureDef.Part>>> kids = new HashMap<>();
 
@@ -59,7 +60,7 @@ public class PoppyRenderer extends EntityRenderer<PoppyMob> {
             ps.scale(a[6], a[7], a[8]);
             PoseStack.Pose pp = ps.last();
             if (p.decal != null) {
-                VertexConsumer dv = buf.getBuffer(RenderType.entityCutoutNoCull(DECALS.computeIfAbsent(p.decal, k -> new ResourceLocation("poppyplaytime", "textures/entity/decal/" + k + ".png"))));
+                VertexConsumer dv = buf.getBuffer(RenderType.entityTranslucent(DECALS.computeIfAbsent(p.decal, k -> new ResourceLocation("poppyplaytime", "textures/entity/decal/" + k + ".png"))));
                 float x0 = p.cx - p.w / 2, x1 = p.cx + p.w / 2, y0 = p.cy - p.h / 2, y1 = p.cy + p.h / 2, z = p.cz - p.d / 2;
                 float[][] v = {{x1, y0, 0, 1}, {x0, y0, 1, 1}, {x0, y1, 1, 0}, {x1, y1, 0, 0}};
                 for (float[] q : v) dv.vertex(pp.pose(), q[0], q[1], z).color(1f, 1f, 1f, 1f).uv(q[2], q[3]).overlayCoords(ov).uv2(light).normal(pp.normal(), 0, 0, -1).endVertex();

@@ -192,7 +192,7 @@ final class Canon {
 
     /** Assign each box a surface material by creature and part role; eyes/teeth/mouths stay plain. */
     static void materials(CreatureDef d) {
-        int def = METAL.contains(d.id) ? 4 : PLASTIC.contains(d.id) ? 3 : CLOTH.contains(d.id) ? 2 : 1;
+        int def = d.id.contains("huggy") || d.id.contains("kissy") ? 5 : d.id.contains("yarnaby") ? 6 : METAL.contains(d.id) ? 4 : PLASTIC.contains(d.id) ? 3 : CLOTH.contains(d.id) ? 2 : 1;
         for (var q : d.parts) {
             String n = q.name.endsWith("_hi") || q.name.endsWith("_lo") ? q.name.substring(0, q.name.length() - 3) : q.name;
             q.mat = q.glow || PLAIN.matcher(n).matches() ? 0 : def;

@@ -38,6 +38,7 @@ final class Canon4 {
         b.pr("hand#", "arm#", 0, -8, 0, 4.4f, 3.4f, 4.6f, 0, -1, 0, claw);
         b.p("tail", "body", 0, 2, 4.5f, 2.4f, 2.4f, 5, 0, 0, 2.5f, fur).sw(0.2f, 0.12f, 0, 1);
         b.p("decalFace", "head", 0, 7.5f, -7.65f, 19, 15, 0.05f, 0, 0, 0, WHT); d.decal("toy");
+        b.p("decalBody", "body", 0, 5, -5.3f, 12, 10, 0.05f, 0, 0, 0, WHT); d.decal("toybody");
         b.pendant(12, 10, pend);
         return b;
     }
