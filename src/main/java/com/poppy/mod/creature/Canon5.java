@@ -220,6 +220,7 @@ final class Canon5 {
             b.p("muzzle", "head", 0, 2, -4.6f, 5, 3, 0.6f, 0, 0, 0, 0xf4ecd8);
             b.p("nose", "head", 0, 4, -5f, 1.6f, 1.2f, 0.5f, 0, 0, 0, 0xc86a5a);
             b.p("jaw", "head", 0, 1.6f, -4.8f, 3, 1.6f, 0.5f, 0, 0, 0, 0x5a2a20);
+            b.p("decalFace", "head", 0, 5, -4.85f, 12, 10, 0.05f, 0, 0, 0, WHT); d.decal("catbee");
             b.pr("wing#", "body", 4, 8, 3.6f, 0.6f, 8, 5, 0, 2, 1, wing).sw(0.15f, 0.7f, 0, 2);
             b.pr("arm#", "body", 5, 8, -1, 2.4f, 6, 2.4f, 0, -2.4f, 0, or);
             b.p("tail", "body", 0, 2, 3.6f, 1.8f, 1.8f, 9, 0, 0, 4.5f, or).sw(0.2f, 0.1f, 0, 1);
@@ -244,6 +245,7 @@ final class Canon5 {
             b.pr("pupil#", "head", 2.4f, 5.4f, -4.6f, 1.6f, 1.8f, 0.4f, 0, 0, 0, BLK);
             b.p("jaw", "head", 0, 2, -4.3f, 4.6f, 2, 0.5f, 0, 0, 0, 0x5a1a20);
             b.p("teeth", "head", 0, 3, -4.55f, 4.2f, 0.8f, 0.3f, 0, 0, 0, WHT);
+            b.p("decalFace", "head", 0, 5, -4.8f, 10, 10, 0.05f, 0, 0, 0, WHT); d.decal("lily");
             b.pr("arm#", "body", 4.6f, 7, 0, 2, 9, 2, 0, -4, 0, sk);
             b.pr("hand#", "arm#", 0, -9, 0, 2.6f, 2.4f, 2.6f, 0, -0.6f, 0, sk);
         });

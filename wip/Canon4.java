@@ -83,6 +83,7 @@ final class Canon4 {
         b.pr("lid#", "head", 3.6f, 6.4f, -7.7f, 3.4f, 1.4f, 0.5f, 0, 0, 0, 0xb83a1a);
         b.pr("brow#", "head", 3.6f, 8, -7.4f, 3.6f, 0.6f, 0.4f, 0, 0, 0, 0x3a1a10);
         b.p("jaw", "head", 0, 0.4f, -7.4f, 5, 0.8f, 3, 0, 0, 0, 0x40080c);
+        b.p("decalFace", "head", 0, 4, -7.95f, 10, 9, 0.05f, 0, 0, 0, WHT); d.decal("bron");
         b.p("tail", "body", 0, 6, 13, 6, 4, 18, 0, 0, 9, or).sw(0.12f, 0.08f, 0, 1);
         b.p("tailTip", "tail", 0, 0, 18, 3, 2.4f, 10, 0, 0, 5, or);
         b.pr("arm#", "body", 8, 8, -9, 2, 2, 2, 0, 0, 0, or);
@@ -102,6 +103,7 @@ final class Canon4 {
         b.p("head", "body", 0, 15, 0, 13, 14, 12, 0, 7, 0, rd).sw(0.05f, 0.12f, 0, 2);
         b.p("jaw", "head", 0, 7, -6.1f, 10.4f, 8.4f, 0.8f, 0, -3, 0, nm ? 0x14020a : 0x2a0a10);
         b.p("tongue", "jaw", 0, -6, -0.3f, 6, 1.4f, 0.5f, 0, 0, 0, 0xe0506a);
+        b.p("decalFace", "head", 0, 7, -6.45f, 13, 14, 0.05f, 0, 0, 0, WHT); d.decal("boxy");
         for (int i = 0; i < 6; i++) { b.p("tU" + i, "head", -4.4f + i * 1.76f, 6.8f, -6.4f, 1.2f, 3.2f, 0.5f, 0, -1.6f, 0, 0xf4e4b0); b.p("tD" + i, "jaw", -4.2f + i * 1.7f, -5.4f, -0.3f, 1.2f, 3f, 0.5f, 0, 1.5f, 0, 0xf4e4b0); }
         b.pr("eye#", "head", 3.4f, 11, -6.2f, 2.4f, 2.4f, 0.5f, 0, 0, 0, nm ? 0xff2020 : 0xfff0a0).g();
         b.p("armL", "body", -8, 11, 0, 1.2f, 13, 1.2f, 0, -6.5f, 0, sp);
@@ -152,6 +154,7 @@ final class Canon4 {
         b.pr("eyeB#", "head", 3.2f, 6.4f, -7f, 4.2f, 4.2f, 0.8f, 0, 0, 0, BLK);
         b.pr("glint#", "head", 2.6f, 7.4f, -7.5f, 1.2f, 1.2f, 0.4f, 0, 0, 0, WHT).g();
         b.p("jaw", "head", 0, 2, -7.1f, 7.6f, 2, 0.6f, 0, 0, 0, 0x2a0a10);
+        b.p("decalFace", "head", 0, 4, -7.55f, 11, 11, 0.05f, 0, 0, 0, WHT); d.decal("yarnaby");
         b.p("tooth0", "head", -2.4f, 3, -7.4f, 1, 2, 0.4f, 0, -1, 0, WHT); b.p("tooth1", "head", 0.6f, 3, -7.4f, 1.2f, 2.6f, 0.4f, 0, -1.3f, 0, WHT); b.p("tooth2", "head", 2.8f, 3, -7.4f, 1, 1.8f, 0.4f, 0, -0.9f, 0, WHT);
         for (int i = 0; i < 10; i++) { double a = i * Math.PI / 5; b.p("mane" + i, "head", (float) Math.cos(a) * 7f, 4 + (float) Math.sin(a) * 6.6f, 3, 4.6f, 4.6f, 5, 0, 0, 0, yarn[(i * 5) % 6]).sw(0.05f, 0.2f, i, 2); }
         b.pr("arm#", "body", 8, 9, -8, 2, 2, 2, 0, 0, 0, am);
@@ -168,6 +171,7 @@ final class Canon4 {
         b.p("neck", "body", 0, 19, 0, 6, 8, 6, 0, 3, 0, lb);
         b.p("head", "neck", 0, 8, 0, 13, 13, 11, 0, 6.5f, 0, lb).sw(0.05f, 0.1f, 0, 2);
         b.p("mouth", "head", 0, 1.4f, -5.6f, 9.6f, 6.4f, 0.6f, 0, 0, 0, 0x061018);
+        b.p("decalFace", "head", 0, 6.5f, -5.95f, 13, 13, 0.05f, 0, 0, 0, WHT); d.decal("doey");
         b.p("jaw", "head", 0, 3.6f, -5.7f, 8, 3.4f, 0.5f, 0, 0, 0, 0x061018);
         b.pr("eye#", "head", 3.2f, 10, -5.6f, 2, 2.4f, 0.5f, 0, 0, 0, 0x061018);
         b.p("bowlerBrim", "head", 0, 13, 0, 8, 0.8f, 8, 0, 0, 0, hat); b.p("bowler", "head", 0, 13.2f, 0, 5, 3, 5, 0, 1.5f, 0, hat);
@@ -203,6 +207,7 @@ final class Canon4 {
         b.p("hairTop", "head", 0, 13, -1, 8, 3, 6, 0, 1, 0, sg[1]);
         b.p("jaw", "head", 0, 2, -6.6f, 7, 1.6f, 3, 0, 0, 0, 0x2a0a10);
         b.p("tongue", "jaw", 1.4f, -1, -2.6f, 3, 0.8f, 3.6f, 0, 0, 0, 0xf06a90);
+        b.p("decalFace", "head", 0, 7, -6.55f, 14, 13, 0.05f, 0, 0, 0, WHT); d.decal("pj");
         for (int i = 0; i < 5; i++) b.p("tooth" + i, "head", -3 + i * 1.5f, 2.2f, -8.2f, 1, nm ? 2.8f : 1.6f, 0.5f, 0, 0, 0, WHT);
     }
 
@@ -223,6 +228,7 @@ final class Canon4 {
         b.pr("glint#", "head", 3, 8, -5.6f, 1, 1, 0.3f, 0, 0, 0, nm ? 0xff2020 : WHT).g();
         b.p("jaw", "head", 0, 1.6f, -5.2f, 7, 3.4f, 0.6f, 0, 0, 0, 0x2a0a10);
         b.pr("buck#", "head", 0.9f, 3.2f, -5.5f, 1.6f, 3, 0.5f, 0, 0, 0, WHT);
+        b.p("decalFace", "head", 0, 5.5f, -5.6f, 13, 11, 0.05f, 0, 0, 0, WHT); d.decal(nm ? "bunzo_nm" : "bunzo");
         b.p("hat", "head", 0, 11, 0, 6.6f, 4, 6.6f, 0, 2, 0, gr); b.p("hatTop", "hat", 0, 4, 0, 3.4f, 4, 3.4f, 0, 2, 0, gr); b.p("pom", "hatTop", 0, 4, 0, 1.8f, 1.8f, 1.8f, 0, 0.6f, 0, gold);
         b.pr("arm#", "body", 6, 9, 0, 2.2f, 12, 2.2f, 0, -5.5f, 0, ye);
         b.pr("hand#", "arm#", 0, -12, 0, 3.4f, 3.4f, 3.4f, 0, -1, 0, ye);
@@ -252,6 +258,7 @@ final class Canon4 {
         b.p("eyeHollow", "head", -2.4f, 8, -4.6f, 3, 3, 0.5f, 0, 0, 0, BLK);
         b.p("eyeY", "head", 2.4f, 8, -4.7f, 2, 2, 0.5f, 0, 0, 0, nm ? 0xff2020 : 0xffd820).g();
         b.p("jaw", "head", 0, 2.4f, -4.6f, 7.6f, 3, 0.6f, 0, 0, 0, 0x14080a);
+        b.p("decalFace", "head", 0, 6, -4.95f, 10, 12, 0.05f, 0, 0, 0, WHT); d.decal("proto");
         for (int i = 0; i < 6; i++) b.p("sqt" + i, "head", -3.2f + i * 1.3f, 3.6f, -5f, 1.1f, 1.8f, 0.4f, 0, 0, 0, WHT);
         b.p("hatBase", "head", 0, 12, 0, 10, 2, 9, 0, 1, 0, rd);
         for (int i = -1; i <= 1; i++) { b.p("prong" + i, "hatBase", i * 3.4f, 1, 0, 2.6f, 8 - Math.abs(i), 2.6f, 0, 4, 0, i == 0 ? gold : co); b.p("bell" + i, "prong" + i, 0, 8 - Math.abs(i), 0, 2.2f, 2.2f, 2.2f, 0, 0.6f, 0, gold); }

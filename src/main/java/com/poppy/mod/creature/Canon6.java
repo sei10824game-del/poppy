@@ -26,15 +26,16 @@ final class Canon6 {
         b.p("collar", "neck", 0, 0, 0, 3.4f, 1.2f, 3.4f, 0, 0, 0, cuff);
         b.p("head", "neck", 0, 7, -1.4f, 1, 1, 1, 0, 0, 0, face).sw(0.07f, 0.1f, 1, 2);
         Canon5.ball(b, "skull", "head", 0, 4.6f, 0, 5.4f, face);
-        b.pr("eyeW#", "head", 2.6f, 5.8f, -9f, 4.2f, 4.2f, 0.6f, 0, 0, 0, BLK);
-        b.pr("eyeR#", "head", 2.6f, 5.8f, -9.4f, 3.4f, 3.4f, 0.5f, 0, 0, 0, WHT);
-        b.pr("iris#", "head", 2.6f, 5.8f, -9.8f, 2.4f, 2.4f, 0.4f, 0, 0, 0, nm ? 0xff2020 : (daddy ? 0xe020a0 : 0x38d038)).g();
-        b.pr("lash#", "head", 3.6f, 8.6f, -9.4f, 3, 0.5f, 0.4f, 0, 0, 0, BLK);
-        b.p("jaw", "head", 0, 1.8f, -9.2f, 5.6f, 1.6f, 0.6f, 0, 0, 0, nm ? 0x200408 : 0x1a0810);
-        b.p("lips", "head", 0, 3, -9.3f, 5.8f, 0.6f, 0.4f, 0, 0, 0, daddy ? face : 0xe02060);
-        if (nm) for (int i = 0; i < 5; i++) b.p("nfang" + i, "head", -2 + i, 2.6f, -9.5f, 0.6f, 1.8f, 0.4f, 0, -0.9f, 0, WHT);
+        b.pr("eyeW#", "head", 2.6f, 5.8f, -5.2f, 4.2f, 4.2f, 0.6f, 0, 0, 0, BLK);
+        b.pr("eyeR#", "head", 2.6f, 5.8f, -5.5f, 3.4f, 3.4f, 0.5f, 0, 0, 0, WHT);
+        b.pr("iris#", "head", 2.6f, 5.8f, -5.8f, 2.4f, 2.4f, 0.4f, 0, 0, 0, nm ? 0xff2020 : (daddy ? 0xe020a0 : 0x38d038)).g();
+        b.pr("lash#", "head", 3.6f, 8.6f, -5.5f, 3, 0.5f, 0.4f, 0, 0, 0, BLK);
+        b.p("jaw", "head", 0, 1.8f, -5.3f, 5.6f, 1.6f, 0.6f, 0, 0, 0, nm ? 0x200408 : 0x1a0810);
+        b.p("lips", "head", 0, 3, -5.4f, 5.8f, 0.6f, 0.4f, 0, 0, 0, daddy ? face : 0xe02060);
+        b.p("decalFace", "head", 0, 5.4f, -5.95f, 10.5f, 9.6f, 0.05f, 0, 0, 0, WHT); d.decal(daddy ? "daddy" : nm ? "longlegs_nm" : "longlegs");
+        if (nm) for (int i = 0; i < 5; i++) b.p("nfang" + i, "head", -2 + i, 2.6f, -5.6f, 0.6f, 1.8f, 0.4f, 0, -0.9f, 0, WHT);
         if (daddy) {
-            b.p("mustache", "head", 0, 3.8f, -9.4f, 7, 1.4f, 0.6f, 0, 0, 0, hair);
+            b.p("mustache", "head", 0, 3.8f, -5.5f, 7, 1.4f, 0.6f, 0, 0, 0, hair);
             b.p("brim", "head", 0, 9.6f, -1, 11, 0.8f, 10, 0, 0, 0, 0x808088); b.p("fedora", "head", 0, 10, -1, 7.4f, 4.4f, 7, 0, 2.2f, 0, 0x6a6a72);
         } else {
             Canon5.ball(b, "bun", "head", -3.6f, 9, -0.6f, 2.8f, hair);

@@ -369,6 +369,7 @@ final class Canon {
             b.pr("whisk#", "head", 3.8f, 3.4f, -4.4f, 1, 1, 0.5f, 0, 0, 0, ce);
             b.p("jaw", "head", 0, 1.4f, -4.4f, 4.6f, 1.4f, 3, 0, 0, 0, wh);
             b.p("tongue", "jaw", 0, 0.8f, -0.4f, 3, 0.8f, 3, 0, 0, 0, 0xf08aa0);
+            b.p("decalFace", "head", 0, 4, -4.85f, 9, 8, 0.05f, 0, 0, 0, WHT); d.decal("candy");
             b.pr("arm#", "body", 4.6f, 6, -5.5f, 2.2f, 5, 2.2f, 0, -2, 0, bl);
             b.p("tail", "body", 0, 5, 7, 2, 2, 10, 0, 1, 5, bl).sw(0.3f, 0.1f, 0, 1);
             b.p("tailTip", "tail", 0, 1, 10, 3.4f, 3.4f, 3.4f, 0, 0, 0, ce);
@@ -543,6 +544,7 @@ final class Canon {
             b.pr("pupil#", "head", 2.4f, 5.6f, -5f, 1.2f, 1.2f, 0.3f, 0, 0, 0, BLK);
             b.pr("blush#", "head", 3.8f, 3.2f, -4.7f, 2, 1.2f, 0.3f, 0, 0, 0, 0xf0a0a0);
             b.p("jaw", "head", 0, 1.8f, -4.7f, 3, 1.2f, 0.5f, 0, 0, 0, 0xc0102a);
+            b.p("decalFace", "head", 0, 5, -5.0f, 10, 10, 0.05f, 0, 0, 0, WHT); d.decal("poppy");
             b.pr("hand#", "arm#", 0, -8, 0, 2.4f, 2, 2.4f, 0, 0, 0, sk);
         })
     );
