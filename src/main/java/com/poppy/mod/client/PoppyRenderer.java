@@ -27,6 +27,7 @@ public class PoppyRenderer extends EntityRenderer<PoppyMob> {
     static final ResourceLocation[] MATS = {WHITE, new ResourceLocation("poppyplaytime", "textures/entity/mat_fur.png"), new ResourceLocation("poppyplaytime", "textures/entity/mat_cloth.png"),
         new ResourceLocation("poppyplaytime", "textures/entity/mat_plastic.png"), new ResourceLocation("poppyplaytime", "textures/entity/mat_metal.png"),
         new ResourceLocation("poppyplaytime", "textures/entity/mat_fur2.png"), new ResourceLocation("poppyplaytime", "textures/entity/mat_yarn.png")};
+    private boolean far;
     static final Map<String, ResourceLocation> DECALS = new HashMap<>();
     private final Map<CreatureDef, Map<String, List<CreatureDef.Part>>> kids = new HashMap<>();
 
@@ -46,6 +47,7 @@ public class PoppyRenderer extends EntityRenderer<PoppyMob> {
         Pose pose = Anim.compute(e, pt, ls, lsa, age, Mth.clamp(hy, -75, 75), Mth.lerp(pt, e.xRotO, e.getXRot()));
         int ov = LivingEntityRenderer.getOverlayCoords(e, 0f);
         Map<String, List<CreatureDef.Part>> tree = kids.computeIfAbsent(d, x -> { Map<String, List<CreatureDef.Part>> m = new HashMap<>(); for (var p : x.parts) m.computeIfAbsent(p.parent == null ? "" : p.parent, k -> new java.util.ArrayList<>()).add(p); return m; });
+        far = e.distanceToSqr(net.minecraft.client.Minecraft.getInstance().gameRenderer.getMainCamera().getPosition()) > 22 * 22;
         draw("", tree, pose, ps, buf, light, ov);
         ps.popPose();
         super.render(e, yaw, pt, ps, buf, light);
@@ -53,6 +55,7 @@ public class PoppyRenderer extends EntityRenderer<PoppyMob> {
 
     private void draw(String parent, Map<String, List<CreatureDef.Part>> tree, Pose pose, PoseStack ps, MultiBufferSource buf, int light, int ov) {
         for (CreatureDef.Part p : tree.getOrDefault(parent, List.of())) {
+            if (far && p.detail) continue;
             float[] a = pose.m.getOrDefault(p.name, new float[]{0, 0, 0, 0, 0, 0, 1, 1, 1});
             ps.pushPose();
             ps.translate(p.px + a[3], p.py + a[4], p.pz + a[5]);

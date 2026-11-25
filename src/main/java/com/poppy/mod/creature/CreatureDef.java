@@ -18,6 +18,8 @@ public final class CreatureDef {
         public int mat;
         /** Optional hand-drawn overlay texture (decal/NAME.png) painted on this box's front face. */
         public String decal;
+        /** Fine-detail extra (shading band, tuft, digit): skipped for distant mobs. */
+        public boolean detail;
         public float walkAmp, walkPhase, swayAmp, swaySpeed, swayPhase;
         public int swayAxis; // 0=x 1=y 2=z
         Part(String n, String p, float px, float py, float pz, float w, float h, float d, float cx, float cy, float cz, int c) {

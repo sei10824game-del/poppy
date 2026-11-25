@@ -17,6 +17,15 @@ public final class Anim {
             if (n.walkAmp != 0) a[0] += Mth.cos(ls * 0.6662f + n.walkPhase) * n.walkAmp * lsa;
             if (n.swayAmp != 0) a[n.swayAxis] += Mth.sin(age * n.swaySpeed + n.swayPhase) * n.swayAmp;
         }
+        // locomotion polish: arms counter-swing the legs, body bobs per step and leans into the run, subtle breathing, flinch when hurt
+        for (CreatureDef.Part n : d.parts) {
+            if (n.walkAmp == 0 && n.swayAmp == 0 && (n.name.equals("armL") || n.name.equals("armR"))) p.g(n.name)[0] += Mth.cos(ls * 0.6662f + (n.name.equals("armL") ? P : 0)) * 0.55f * lsa;
+        }
+        if (p.has("body")) {
+            float[] b = p.g("body");
+            b[4] += Math.abs(Mth.sin(ls * 0.6662f)) * lsa * 1.4f; b[0] -= Math.min(lsa, 1f) * 0.07f; b[7] += Mth.sin(age * 0.09f) * 0.012f;
+            if (e.hurtTime > 0) { b[0] += e.hurtTime * 0.025f; if (p.has("head")) p.g("head")[0] += e.hurtTime * 0.03f; }
+        }
         if (p.has("head")) { float[] h = p.g("head"); h[1] += -headYaw * Mth.DEG_TO_RAD; h[0] += -headPitch * Mth.DEG_TO_RAD; }
         if (p.has("body")) p.g("body")[4] += Mth.sin(age * 0.1f) * 0.35f;
         int a = e.atk();

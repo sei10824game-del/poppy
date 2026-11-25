@@ -181,6 +181,7 @@ final class Canon {
 
     static void detail(CreatureDef d) {
         boolean fur = !HARD.contains(d.id);
+        int n0 = d.parts.size();
         digits(d);
         java.util.Random rnd = new java.util.Random(d.id.hashCode());
         java.util.List<CreatureDef.Part> src = new java.util.ArrayList<>(d.parts);
@@ -206,6 +207,7 @@ final class Canon {
                 }
             }
         }
+        for (int i = n0; i < d.parts.size(); i++) d.parts.get(i).detail = true;
     }
 
     static final java.util.Set<String> METAL = java.util.Set.of("the_prototype", "mini_prototype", "nightmare_prototype", "boogie_bot", "giant_boogie_bot", "harley_sawyer");
