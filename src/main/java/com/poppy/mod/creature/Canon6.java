@@ -17,14 +17,14 @@ final class Canon6 {
         int skin = Canon2.tint(daddy ? 0x5aa8e0 : 0xf0508c, f), face = Canon2.tint(daddy ? 0x8ac8f0 : 0xf47ab4, f), dk = Canon2.tint(daddy ? 0x2a58a0 : 0xb82060, f);
         int cuff = Canon2.tint(0x4a9a9a, f), shoe = Canon2.tint(daddy ? 0xf2c82a : 0xd82030, f), hand = Canon2.tint(daddy ? 0xf2c82a : 0xf0508c, f), bod = Canon2.tint(daddy ? 0x3a78c8 : 0xe0407a, f);
         int hair = Canon2.tint(daddy ? 0x2a3a8a : 0xf0508c, f);
-        B b = new B(d, d.h * 16f / 44);
-        b.p("body", null, 0, 22, 2, 7, 6, 6, 0, 0, 0, bod).sw(0.03f, 0.1f, 0, 2);
+        B b = new B(d, d.h * 16f / 62);
+        b.p("body", null, 0, 33, 2, 7, 6, 6, 0, 0, 0, bod).sw(0.03f, 0.1f, 0, 2);
         Canon5.ball(b, "abd", "body", 0, 0, 7.4f, 7.2f, dk);
         Canon5.ball(b, "chest", "body", 0, 1, -3.4f, 3.8f, daddy ? bod : Canon2.tint(0xf04c80, f));
         if (daddy) b.p("tieB", "body", 0, 4, -6.6f, 5, 2, 1, 0, 0, 0, 0xf2c82a);
         b.p("neck", "body", 0, 3, -5, 1.8f, 7, 1.8f, 0, 3.5f, 0, face);
         b.p("collar", "neck", 0, 0, 0, 3.4f, 1.2f, 3.4f, 0, 0, 0, cuff);
-        b.p("head", "neck", 0, 7, -1.4f, 1, 1, 1, 0, 0, 0, face).sw(0.07f, 0.1f, 1, 2);
+        b.p("head", "neck", 0, 7, -1.4f, 1, 1, 1, 0, 0, 0, face).sw(0.07f, 0.1f, 1, 2); d.parts.get(d.parts.size() - 1).scl = 1.3f;
         Canon5.ball(b, "skull", "head", 0, 4.6f, 0, 5.4f, face);
         b.pr("eyeW#", "head", 2.6f, 5.8f, -5.2f, 4.2f, 4.2f, 0.6f, 0, 0, 0, BLK);
         b.pr("eyeR#", "head", 2.6f, 5.8f, -5.5f, 3.4f, 3.4f, 0.5f, 0, 0, 0, WHT);
@@ -47,23 +47,23 @@ final class Canon6 {
         // arms: out, then down to splayed floor hands
         for (int s = 0; s < 2; s++) {
             String sd = s == 0 ? "L" : "R"; float sg = s == 0 ? -1 : 1;
-            b.p("arm" + sd, "body", sg * 3.4f, 2, -3.6f, 12, 2, 2, sg * 6, 0, 0, skin).sw(0.05f, 0.1f, s * PI, 2);
-            b.p("fore" + sd, "arm" + sd, sg * 12, 0, 0, 2, 21, 2, 0, -10.5f, 0, skin);
-            b.p("elbow" + sd, "arm" + sd, sg * 12, 0, 0, 3, 3, 3, 0, 0, 0, dk);
-            b.p("cuffA" + sd, "fore" + sd, 0, -18.4f, 0, 3.4f, 1.6f, 3.4f, 0, 0, 0, cuff);
-            b.p("hand" + sd, "fore" + sd, 0, -21, 0, 4, 1.4f, 4, 0, 0, -1, hand);
+            b.p("arm" + sd, "body", sg * 3.4f, 2, -3.6f, 16, 1.8f, 1.8f, sg * 8, 0, 0, skin).sw(0.05f, 0.1f, s * PI, 2);
+            b.p("fore" + sd, "arm" + sd, sg * 16, 0, 0, 1.8f, 32, 1.8f, 0, -16, 0, skin);
+            b.p("elbow" + sd, "arm" + sd, sg * 16, 0, 0, 2.8f, 2.8f, 2.8f, 0, 0, 0, dk);
+            b.p("cuffA" + sd, "fore" + sd, 0, -29.4f, 0, 3.2f, 1.6f, 3.2f, 0, 0, 0, cuff);
+            b.p("hand" + sd, "fore" + sd, 0, -32, 0, 4, 1.4f, 4, 0, 0, -1, hand);
             for (int i = 0; i < 4; i++) b.p("fing" + sd + i, "hand" + sd, -1.5f + i, 0, -2.4f, 0.9f, 0.9f, 6, 0, 0, -3, hand);
             b.p("thumb" + sd, "hand" + sd, sg * 2, 0, -0.6f, 4, 0.9f, 0.9f, sg * 2, 0, 0, hand);
         }
         // legs: out, then down, red shoes with teal cuff
         for (int s = 0; s < 2; s++) {
             String sd = s == 0 ? "L" : "R"; float sg = s == 0 ? -1 : 1;
-            b.p("leg" + sd, "body", sg * 3, -1, 5.4f, 13, 2.4f, 2.4f, sg * 6.5f, 0, 0, skin);
+            b.p("leg" + sd, "body", sg * 3, -1, 5.4f, 16, 2.2f, 2.2f, sg * 8, 0, 0, skin);
             d.walk(0.5f, s == 0 ? 0 : PI);
-            b.p("shin" + sd, "leg" + sd, sg * 13, 0, 0, 2.4f, 21, 2.4f, 0, -10.5f, 0, skin);
-            b.p("knee" + sd, "leg" + sd, sg * 13, 0, 0, 3.2f, 3.2f, 3.2f, 0, 0, 0, dk);
-            b.p("cuffL" + sd, "shin" + sd, 0, -17.6f, 0, 3.6f, 2, 3.6f, 0, 0, 0, cuff);
-            b.p("shoe" + sd, "shin" + sd, 0, -21, -1.6f, 4.6f, 3.4f, 8, 0, 1.7f, 0, shoe);
+            b.p("shin" + sd, "leg" + sd, sg * 16, 0, 0, 2.2f, 32, 2.2f, 0, -16, 0, skin);
+            b.p("knee" + sd, "leg" + sd, sg * 16, 0, 0, 3f, 3f, 3f, 0, 0, 0, dk);
+            b.p("cuffL" + sd, "shin" + sd, 0, -28.6f, 0, 3.4f, 2, 3.4f, 0, 0, 0, cuff);
+            b.p("shoe" + sd, "shin" + sd, 0, -32, -1.6f, 4.6f, 3.4f, 8, 0, 1.7f, 0, shoe);
             b.p("toeCap" + sd, "shoe" + sd, 0, 2, -4, 4.8f, 2, 1, 0, 0, 0, Canon2.tint(0xa01824, f));
         }
     }
@@ -71,8 +71,8 @@ final class Canon6 {
     /** CatNap on all fours: hunched, long arms planted ahead, hind legs folded. */
     static void catnap(CreatureDef d, boolean nm) {
         float f = nm ? 0.8f : 1f; int pu = Canon2.tint(0x7a3aa8, f), dk = Canon2.tint(0x4a2070, f), lt = Canon2.tint(0xb888d8, f);
-        B b = new B(d, d.h * 16f / 34);
-        b.p("body", null, 0, 17, 0, 8, 8, 15, 0, 0, 0, pu).sw(0.03f, 0.1f, 0, 2);
+        B b = new B(d, d.h * 16f / 44);
+        b.p("body", null, 0, 26, 0, 8, 8, 15, 0, 0, 0, pu).sw(0.03f, 0.1f, 0, 2);
         b.p("ribs", "body", 0, -1, -4, 6.4f, 5, 0.5f, 0, 0, 0, dk);
         for (int i = 0; i < 4; i++) b.p("spine" + i, "body", 0, 4.4f, -5 + i * 3.4f, 1.4f, 1.4f, 1.4f, 0, 0, 0, dk);
         b.p("zipM", "body", 0, -4.2f, 0, 0.8f, 0.5f, 14, 0, 0, 0, BLK);
@@ -90,11 +90,11 @@ final class Canon6 {
         if (nm) { b.p("decalGrime", "head", 0, 0, -6.96f, 11, 9, 0.05f, 0, 0, 0, WHT); d.decal("grime_catnap"); }
         for (int s = 0; s < 2; s++) {
             String sd = s == 0 ? "L" : "R"; float sg = s == 0 ? -1 : 1;
-            b.p("arm" + sd, "body", sg * 4.4f, 1, -5.6f, 2.6f, 18, 2.6f, 0, -9, 0, pu); d.walk(0.55f, s == 0 ? 0 : PI);
-            b.p("hand" + sd, "arm" + sd, 0, -18, 0, 3.6f, 1.6f, 6, 0, 0.8f, -2, dk);
+            b.p("arm" + sd, "body", sg * 4.4f, 1, -5.6f, 2.6f, 27, 2.6f, 0, -13.5f, 0, pu); d.walk(0.55f, s == 0 ? 0 : PI);
+            b.p("hand" + sd, "arm" + sd, 0, -27, 0, 3.6f, 1.6f, 6, 0, 0.8f, -2, dk);
             for (int i = 0; i < 4; i++) b.p("claw" + sd + i, "hand" + sd, -1.4f + i * 0.95f, 0, -5, 0.6f, 0.8f, 3, 0, 0, -1.5f, BLK);
-            b.p("leg" + sd, "body", sg * 3.6f, -1, 6.4f, 3, 13, 3, 0, -6, 0, pu); d.walk(0.55f, s == 0 ? PI : 0);
-            b.p("foot" + sd, "leg" + sd, 0, -12, 0, 4, 1.8f, 7, 0, 0.9f, -1.4f, dk);
+            b.p("leg" + sd, "body", sg * 3.6f, -1, 6.4f, 3, 22, 3, 0, -10.5f, 0, pu); d.walk(0.55f, s == 0 ? PI : 0);
+            b.p("foot" + sd, "leg" + sd, 0, -21, 0, 4, 1.8f, 7, 0, 0.9f, -1.4f, dk);
         }
         b.p("tail", "body", 0, 1, 7.4f, 1.6f, 1.6f, 9, 0, 0, 4.5f, pu).sw(0.15f, 0.1f, 0, 1);
         b.p("tail2", "tail", 0, 0, 9, 1.6f, 10, 1.6f, 0, 5, 0, pu);
