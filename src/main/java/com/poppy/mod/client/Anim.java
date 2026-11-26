@@ -21,6 +21,8 @@ public final class Anim {
         for (CreatureDef.Part n : d.parts) {
             if (n.walkAmp == 0 && n.swayAmp == 0 && (n.name.equals("armL") || n.name.equals("armR"))) p.g(n.name)[0] += Mth.cos(ls * 0.6662f + (n.name.equals("armL") ? P : 0)) * 0.55f * lsa;
         }
+        if (((e.tickCount + e.getId() * 13) % 90 < 4 || System.getProperty("poppy.blink") != null) && e.getHealth() > 0)
+            for (CreatureDef.Part n : d.parts) if (n.name.matches("^(eye[WRBLR]?|iris|pupil|glint)[LR]?$")) p.g(n.name)[7] *= 0.12f;
         if (p.has("body")) {
             float[] b = p.g("body");
             b[4] += Math.abs(Mth.sin(ls * 0.6662f)) * lsa * 1.4f; b[0] -= Math.min(lsa, 1f) * 0.07f; b[7] += Mth.sin(age * 0.09f) * 0.012f;

@@ -27,7 +27,8 @@ public class PoppyRenderer extends EntityRenderer<PoppyMob> {
     static final ResourceLocation[] MATS = {WHITE, new ResourceLocation("poppyplaytime", "textures/entity/mat_fur.png"), new ResourceLocation("poppyplaytime", "textures/entity/mat_cloth.png"),
         new ResourceLocation("poppyplaytime", "textures/entity/mat_plastic.png"), new ResourceLocation("poppyplaytime", "textures/entity/mat_metal.png"),
         new ResourceLocation("poppyplaytime", "textures/entity/mat_fur2.png"), new ResourceLocation("poppyplaytime", "textures/entity/mat_yarn.png")};
-    private boolean far;
+    private boolean far, blink;
+    static final java.util.Set<String> BLINK = java.util.Set.of("toy","toy_nm","toy_nm_eyes","huggy","kissy","longlegs","daddy","longlegs_nm","delight","delight_nm","bunzo","bunzo_nm","doey","yarnaby","boxy","poppy","lily","catbee","candy","bron","pj");
     static final Map<String, ResourceLocation> DECALS = new HashMap<>();
     private final Map<CreatureDef, Map<String, List<CreatureDef.Part>>> kids = new HashMap<>();
 
@@ -47,6 +48,7 @@ public class PoppyRenderer extends EntityRenderer<PoppyMob> {
         Pose pose = Anim.compute(e, pt, ls, lsa, age, Mth.clamp(hy, -75, 75), Mth.lerp(pt, e.xRotO, e.getXRot()));
         int ov = LivingEntityRenderer.getOverlayCoords(e, 0f);
         Map<String, List<CreatureDef.Part>> tree = kids.computeIfAbsent(d, x -> { Map<String, List<CreatureDef.Part>> m = new HashMap<>(); for (var p : x.parts) m.computeIfAbsent(p.parent == null ? "" : p.parent, k -> new java.util.ArrayList<>()).add(p); return m; });
+        blink = ((e.tickCount + e.getId() * 13) % 90 < 4 || System.getProperty("poppy.blink") != null) && e.getHealth() > 0;
         far = e.distanceToSqr(net.minecraft.client.Minecraft.getInstance().gameRenderer.getMainCamera().getPosition()) > 22 * 22;
         draw("", tree, pose, ps, buf, light, ov);
         ps.popPose();
@@ -63,7 +65,7 @@ public class PoppyRenderer extends EntityRenderer<PoppyMob> {
             ps.scale(a[6], a[7], a[8]);
             PoseStack.Pose pp = ps.last();
             if (p.decal != null) {
-                VertexConsumer dv = buf.getBuffer(RenderType.entityTranslucent(DECALS.computeIfAbsent(p.decal, k -> new ResourceLocation("poppyplaytime", "textures/entity/decal/" + k + ".png"))));
+                VertexConsumer dv = buf.getBuffer(RenderType.entityTranslucent(DECALS.computeIfAbsent(blink && BLINK.contains(p.decal) ? p.decal + "_blink" : p.decal, k -> new ResourceLocation("poppyplaytime", "textures/entity/decal/" + k + ".png"))));
                 float x0 = p.cx - p.w / 2, x1 = p.cx + p.w / 2, y0 = p.cy - p.h / 2, y1 = p.cy + p.h / 2, z = p.cz - p.d / 2;
                 float[][] v = {{x1, y0, 0, 1}, {x0, y0, 1, 1}, {x0, y1, 1, 0}, {x1, y1, 0, 0}};
                 for (float[] q : v) dv.vertex(pp.pose(), q[0], q[1], z).color(1f, 1f, 1f, 1f).uv(q[2], q[3]).overlayCoords(ov).uv2(p.glow ? 0xF000F0 : light).normal(pp.normal(), 0, 0, -1).endVertex();
