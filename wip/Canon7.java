@@ -24,7 +24,7 @@ final class Canon7 {
         "the_prototype", Map.of(
             Atk.SLAM, (p, e, w, s, r, a) -> { pr(p, "arm", 2.8f, 0, 0.3f, 0.2f, 0, 0.1f, w, s, r); r(p, "torso", 0.2f, 0, 0, -0.3f, 0, 0, w, s, r); r(p, "head", 0.15f, 0, 0, -0.2f, 0, 0, w, s, r); },
             Atk.WHIP, (p, e, w, s, r, a) -> { r(p, "armR", 0.4f, -0.8f, 0.6f, 1.6f, 0.7f, 0, w, s, r); r(p, "foreR", 0, 0, 0, 0.6f, 0, 0, w, s, r); r(p, "torso", 0, -0.5f, 0, 0, 0.5f, 0, w, s, r); },
-            Atk.SHOOT, (p, e, w, s, r, a) -> { r(p, "head", 0.5f, 0, 0, -0.1f, 0, 0, w, s, r); pr(p, "arm", 1.0f, 0, 0.4f, 1.6f, 0, 0.1f, w, s, r); r(p, "torso", 0.2f, 0, 0, -0.2f, 0, 0, w, s, r); }),
+            Atk.SHOOT, (p, e, w, s, r, a) -> { r(p, "head", 0.3f, 0, 0, -0.1f, 0, 0, w, s, r); pr(p, "arm", 1.0f, 0, 0.4f, 1.6f, 0, 0.1f, w, s, r); r(p, "torso", 0.05f, 0, 0, -0.15f, 0, 0, w, s, r); }),
         "catnap", Map.of(
             Atk.POUNCE, (p, e, w, s, r, a) -> { r(p, "body", 0.12f, 0, 0, -0.12f, 0, 0, w, s, r); pr(p, "arm", -0.3f, 0, 0, 1.0f, 0, 0, w, s, r); pr(p, "leg", 0.4f, 0, 0, -0.4f, 0, 0, w, s, r); r(p, "head", 0.3f, 0, 0, -0.3f, 0, 0, w, s, r); },
             Atk.SWIPE, (p, e, w, s, r, a) -> { r(p, "armR", -0.6f, -0.7f, 0.5f, 1.2f, 0.8f, 0, w, s, r); r(p, "body", 0, -0.3f, 0, 0, 0.4f, 0, w, s, r); r(p, "head", 0, 0.3f, 0, 0, -0.3f, 0, w, s, r); },
