@@ -33,7 +33,7 @@ final class Canon2 {
     }
 
     static void huggy(CreatureDef d, int blue, int dark, int red, int yel, boolean nm, boolean kissy) {
-        CreatureDef h = HuggyWuggy.def(); float k = d.h / 3.7f;
+        CreatureDef h = HuggyWuggy.def(); float k = d.h / 4.9f;
         for (var pt : h.parts) {
             int c = pt.color == 0x2f6fe0 ? blue : pt.color == 0x1c3f94 ? dark : pt.color == 0xd8262b ? red : pt.color == 0xf4d12a ? yel : pt.color;
             if (nm && pt.glow) c = RED;

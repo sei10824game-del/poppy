@@ -64,7 +64,9 @@ final class Canon {
             "blanky_blankz", 1.1f, "bubby_chumz", 1.0f, "doodle_bones", 1.2f, "goober_gutz", 1.2f, "loopsy_noodle", 1.4f,
             "glowby", 1.0f, "boogie_bot", 1.4f, "giant_boogie_bot", 3.0f, "cat_bee", 1.2f, "candy_cat", 1.0f, "lily_lovebraids", 1.8f, "poppy", 1.8f,
             "doey_the_doughman", 2.6f, "mini_doey", 1.2f, "mini_doughman", 1.2f, "yarnaby", 1.8f, "mini_yarnaby", 0.9f, "mini_huggy", 1.1f, "mini_huggies", 1.1f, "mini_kissy", 1.1f, "mini_plush", 0.9f,
-            "mini_mommy", 1.4f, "mini_pj", 0.8f, "mini_boxy_boo", 0.9f, "mini_prototype", 1.6f, "mini_bubba", 0.9f, "boxy_boo", 1.8f, "nightmare_boxy_boo", 2.1f, "bunzo_bunny", 2.4f, "nightmare_bunzo", 2.8f, "miss_delight", 2.4f, "nightmare_miss_delight", 2.8f, "nightmare_mommy", 3.6f};
+            "mini_mommy", 1.4f, "mini_pj", 0.8f, "mini_boxy_boo", 0.9f, "mini_prototype", 1.6f, "mini_bubba", 0.9f, "boxy_boo", 1.8f, "nightmare_boxy_boo", 2.1f, "bunzo_bunny", 2.4f, "nightmare_bunzo", 2.8f, "miss_delight", 2.4f, "nightmare_miss_delight", 2.8f, "nightmare_mommy", 5.2f,
+            "huggy_wuggy", 4.9f, "kissy_missy", 5.0f, "nightmare_huggy", 5.4f, "nightmare_kissy_missy", 5.2f, "giant_kissy", 6.6f, "mommy_long_legs", 5.2f, "daddy_long_legs", 4.6f, "mama_long_legs", 6.6f,
+            "the_prototype", 7.0f, "nightmare_prototype", 7.6f, "catnap", 4.0f, "nightmare_catnap", 4.6f, "giant_bron", 6.0f, "bron", 3.4f, "pianosaurus", 4.6f, "giant_boogie_bot", 3.6f};
         for (int i = 0; i < t.length; i += 2) SIZE.put((String) t[i], (Float) t[i + 1]);
     }
 
