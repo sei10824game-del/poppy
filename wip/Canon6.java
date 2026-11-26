@@ -33,6 +33,7 @@ final class Canon6 {
         b.p("jaw", "head", 0, 1.8f, -5.3f, 5.6f, 1.6f, 0.6f, 0, 0, 0, nm ? 0x200408 : 0x1a0810);
         b.p("lips", "head", 0, 3, -5.4f, 5.8f, 0.6f, 0.4f, 0, 0, 0, daddy ? face : 0xe02060);
         b.p("decalFace", "head", 0, 5.4f, -5.95f, 10.5f, 9.6f, 0.05f, 0, 0, 0, WHT); d.decal(daddy ? "daddy" : nm ? "longlegs_nm" : "longlegs");
+        if (nm) { b.p("decalGrime", "head", 0, 5.4f, -6.0f, 10.5f, 9.6f, 0.05f, 0, 0, 0, WHT); d.decal("grime_longlegs"); }
         if (nm) for (int i = 0; i < 5; i++) b.p("nfang" + i, "head", -2 + i, 2.6f, -5.6f, 0.6f, 1.8f, 0.4f, 0, -0.9f, 0, WHT);
         if (daddy) {
             b.p("mustache", "head", 0, 3.8f, -5.5f, 7, 1.4f, 0.6f, 0, 0, 0, hair);

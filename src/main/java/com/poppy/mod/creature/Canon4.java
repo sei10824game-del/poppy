@@ -108,6 +108,7 @@ final class Canon4 {
         b.p("jaw", "head", 0, 7, -6.1f, 10.4f, 8.4f, 0.8f, 0, -3, 0, nm ? 0x14020a : 0x2a0a10);
         b.p("tongue", "jaw", 0, -6, -0.3f, 6, 1.4f, 0.5f, 0, 0, 0, 0xe0506a);
         b.p("decalFace", "head", 0, 7, -6.45f, 13, 14, 0.05f, 0, 0, 0, WHT); d.decal("boxy");
+        if (nm) { b.p("decalGrime", "head", 0, 7, -6.5f, 13, 14, 0.05f, 0, 0, 0, WHT); d.decal("grime_boxy"); }
         for (int i = 0; i < 6; i++) { b.p("tU" + i, "head", -4.4f + i * 1.76f, 6.8f, -6.4f, 1.2f, 3.2f, 0.5f, 0, -1.6f, 0, 0xf4e4b0); b.p("tD" + i, "jaw", -4.2f + i * 1.7f, -5.4f, -0.3f, 1.2f, 3f, 0.5f, 0, 1.5f, 0, 0xf4e4b0); }
         b.pr("eye#", "head", 3.4f, 11, -6.2f, 2.4f, 2.4f, 0.5f, 0, 0, 0, nm ? 0xff2020 : 0xfff0a0).g();
         b.p("armL", "body", -8, 11, 0, 1.2f, 13, 1.2f, 0, -6.5f, 0, sp);
@@ -212,6 +213,7 @@ final class Canon4 {
         b.p("jaw", "head", 0, 2, -6.6f, 7, 1.6f, 3, 0, 0, 0, 0x2a0a10);
         b.p("tongue", "jaw", 1.4f, -1, -2.6f, 3, 0.8f, 3.6f, 0, 0, 0, 0xf06a90);
         b.p("decalFace", "head", 0, 7, -6.55f, 14, 13, 0.05f, 0, 0, 0, WHT); d.decal("pj");
+        if (nm) { b.p("decalGrime", "head", 0, 7, -6.6f, 14, 13, 0.05f, 0, 0, 0, WHT); d.decal("grime_pj"); }
         for (int i = 0; i < 5; i++) b.p("tooth" + i, "head", -3 + i * 1.5f, 2.2f, -8.2f, 1, nm ? 2.8f : 1.6f, 0.5f, 0, 0, 0, WHT);
     }
 
@@ -233,6 +235,7 @@ final class Canon4 {
         b.p("jaw", "head", 0, 1.6f, -5.2f, 7, 3.4f, 0.6f, 0, 0, 0, 0x2a0a10);
         b.pr("buck#", "head", 0.9f, 3.2f, -5.5f, 1.6f, 3, 0.5f, 0, 0, 0, WHT);
         b.p("decalFace", "head", 0, 5.5f, -5.6f, 13, 11, 0.05f, 0, 0, 0, WHT); d.decal(nm ? "bunzo_nm" : "bunzo");
+        if (nm) { b.p("decalGrime", "head", 0, 5.5f, -5.66f, 13, 11, 0.05f, 0, 0, 0, WHT); d.decal("grime_bunzo"); }
         b.p("hat", "head", 0, 11, 0, 6.6f, 4, 6.6f, 0, 2, 0, gr); b.p("hatTop", "hat", 0, 4, 0, 3.4f, 4, 3.4f, 0, 2, 0, gr); b.p("pom", "hatTop", 0, 4, 0, 1.8f, 1.8f, 1.8f, 0, 0.6f, 0, gold);
         b.pr("arm#", "body", 6, 9, 0, 2.2f, 12, 2.2f, 0, -5.5f, 0, ye);
         b.pr("hand#", "arm#", 0, -12, 0, 3.4f, 3.4f, 3.4f, 0, -1, 0, ye);

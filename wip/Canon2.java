@@ -246,6 +246,7 @@ final class Canon2 {
         b.p("jaw", "head", 0, 2, -4.7f, 6, 2.4f, 0.6f, 0, 0, 0, 0x1a0408);
         b.p("teeth", "head", 0, 3.4f, -4.9f, 5.4f, 0.8f, 0.3f, 0, 0, 0, WHT);
         b.p("decalFace", "head", 0, 5, -4.95f, 11, 11, 0.05f, 0, 0, 0, WHT); d.decal(nm ? "delight_nm" : "delight");
+        if (nm) { b.p("decalGrime", "head", 0, 5, -5.0f, 11, 11, 0.05f, 0, 0, 0, WHT); d.decal("grime_delight"); }
         if (nm) for (int i = 0; i < 6; i++) b.p("nfang" + i, "head", -2.5f + i, 3, -5.1f, 0.7f, 2.6f, 0.3f, 0, -1, 0, WHT);
     }
 
