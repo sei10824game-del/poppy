@@ -12,9 +12,14 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 /** Dev-only visual check (-Dpoppy.shot=id,id,... [-Dpoppy.yaw=180]): lines the creatures up in front of the player, takes one screenshot, quits. */
 public class DevShot {
     private boolean spawned;
+    private final java.util.List<PoppyMob> mobs = new java.util.ArrayList<>();
     private int ticks;
 
     @SubscribeEvent public void server(TickEvent.PlayerTickEvent e) {
+        if (e.phase == TickEvent.Phase.END && e.player instanceof ServerPlayer q && spawned && System.getProperty("poppy.atk") != null) {
+            String[] a = System.getProperty("poppy.atk").split(":");
+            if (q.tickCount == 130 - Integer.parseInt(a[1])) for (PoppyMob m : mobs) if (m.def.attacks.size() > Integer.parseInt(a[0])) m.startAttack(Integer.parseInt(a[0]));
+        }
         if (e.phase != TickEvent.Phase.END || !(e.player instanceof ServerPlayer p) || spawned || p.tickCount < 40) return;
         spawned = true;
         var lv = p.serverLevel();
@@ -32,7 +37,7 @@ public class DevShot {
             double x = x0 + i * gap;
             m.moveTo(x, by + 1, z, yaw, 0);
             m.setNoAi(true); m.setYHeadRot(yaw); m.setYBodyRot(yaw);
-            lv.addFreshEntity(m);
+            lv.addFreshEntity(m); mobs.add(m);
         }
         p.teleportTo(bx + 0.5, by + 1, bz + 0.5);
         p.setYRot(0); p.setXRot(Float.parseFloat(System.getProperty("poppy.pitch", "3")));
