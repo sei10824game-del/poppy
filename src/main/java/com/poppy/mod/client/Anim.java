@@ -15,6 +15,7 @@ public final class Anim {
         for (CreatureDef.Part n : d.parts) {
             float[] a = p.g(n.name);
             a[0] += n.rx; a[1] += n.ry; a[2] += n.rz;
+            if (n.scl != 0) { a[6] *= n.scl; a[7] *= n.scl; a[8] *= n.scl; }
             if (n.walkAmp != 0) a[0] += Mth.cos(ls * 0.6662f + n.walkPhase) * n.walkAmp * lsa;
             if (n.swayAmp != 0) a[n.swayAxis] += Mth.sin(age * n.swaySpeed + n.swayPhase) * n.swayAmp;
         }

@@ -101,7 +101,7 @@ final class Canon5 {
         MAP.put("blanky_blankz", d -> {
             int w = 0xd8d4cc, lt = 0xece8e0;
             B b = plush(d, 28); outimalBody(b, w, w, w, 8);
-            b.p("head", "body", 0, 7, 0, 1, 1, 1, 0, 0, 0, w);
+            b.p("head", "body", 0, 7, 0, 1, 1, 1, 0, 0, 0, w); d.parts.get(d.parts.size() - 1).scl = 1.35f;
             ball(b, "ball", "head", 0, 7, 0, 8.4f, lt);
             xeye(b, "xL", "ball", -4.6f, 3.4f, -7.8f, 5.2f, 0xe8e4dc, 0xc8c4bc); xeye(b, "xR", "ball", 4.6f, 3.4f, -7.8f, 5.2f, 0xe8e4dc, 0xc8c4bc);
             b.p("jaw", "ball", 0, -3.4f, -8.1f, 12, 1.8f, 0.5f, 0, 0, 0, 0x6a6a72);
@@ -117,7 +117,7 @@ final class Canon5 {
                 b.p(n, null, x, 7, z, 4.4f, 8, 4.4f, 0, -4, 0, rd); d.walk(0.7f, i % 2 == 0 ? 0 : PI);
                 b.p(n + "b", n, 0, -5, 0, 4.8f, 1, 4.8f, 0, 0, 0, i % 2 == 0 ? ye : tl); }
             b.p("body", null, 0, 7, 0, 5, 3, 5, 0, 0, 0, rd).sw(0.03f, 0.1f, 0, 2);
-            ball(b, "dome", "body", 0, 7, 0, 8.6f, rd);
+            ball(b, "dome", "body", 0, 7, 0, 8.6f, rd); d.parts.get(d.parts.size() - 4).scl = 1.25f;
             b.p("zipBand", "dome", 0, -0.4f, -8.4f, 15.6f, 1, 0.5f, 0, 0, 0, 0xd8d8e0);
             b.p("pull", "dome", 7, -1.2f, -8.6f, 2.4f, 3.4f, 0.4f, 0, 0, 0, 0x9a9aa4);
             b.p("decalFace", "dome", 0, 0, -9f, 17, 15, 0.05f, 0, 0, 0, WHT); d.decal("bubby");
@@ -130,7 +130,7 @@ final class Canon5 {
         MAP.put("doodle_bones", d -> {
             int bl = 0x7ab0d8, pk = 0xf0a0c8, tl = 0x4ab8b0;
             B b = plush(d, 30); outimalBody(b, bl, bl, pk, 8);
-            b.p("head", "body", 0, 7, 0, 1, 1, 1, 0, 0, 0, bl);
+            b.p("head", "body", 0, 7, 0, 1, 1, 1, 0, 0, 0, bl); d.parts.get(d.parts.size() - 1).scl = 1.35f;
             ball(b, "ball", "head", 0, 7.4f, 0, 7.6f, bl);
             b.p("zipCap", "ball", 0, 7, 0, 5, 1.6f, 4, 0, 0, 0, tl); b.p("zipTab", "ball", 0, 8, -0.4f, 1.4f, 2.6f, 0.4f, 0, 0, 0, 0xc8c8d0);
             xeye(b, "xL", "ball", -4, 2, -7.2f, 4.6f, 0xe8e8ee, 0xe8e8ee); xeye(b, "xR", "ball", 4, 2, -7.2f, 4.6f, 0xe8e8ee, 0xe8e8ee);
@@ -143,7 +143,7 @@ final class Canon5 {
         MAP.put("goober_gutz", d -> {
             int pu = 0x9a58c0, lil = 0xc890e0, pk = 0xf0a0c8;
             B b = plush(d, 30); outimalBody(b, pu, pu, 0xb070d0, 8);
-            b.p("head", "body", 0, 7, 0, 1, 1, 1, 0, 0, 0, pu);
+            b.p("head", "body", 0, 7, 0, 1, 1, 1, 0, 0, 0, pu); d.parts.get(d.parts.size() - 1).scl = 1.35f;
             ball(b, "ball", "head", 0, 7.4f, 0, 7.6f, pu);
             b.p("band", "ball", 0, 3.4f, -0.3f, 16.4f, 4, 15.8f, 0, 0, 0, lil); b.p("knot", "ball", 7, 3.4f, 5, 4, 4, 3, 0, 0, 0, lil);
             b.p("zipB", "ball", 0, 5, -7.9f, 1, 4, 0.5f, 0, 0, 0, 0xc8c8d0);
@@ -156,7 +156,7 @@ final class Canon5 {
             int pk = 0xf08ac0, dk = 0xd0609a;
             B b = plush(d, 30); outimalBody(b, pk, pk, pk, 8);
             b.p("scarf", "body", 0, 7, 0, 7, 1.6f, 5, 0, 0, 0, 0x4a6ad0);
-            b.p("head", "body", 0, 7, 0, 1, 1, 1, 0, 0, 0, pk);
+            b.p("head", "body", 0, 7, 0, 1, 1, 1, 0, 0, 0, pk); d.parts.get(d.parts.size() - 1).scl = 1.35f;
             ball(b, "ball", "head", 0, 7.6f, 0, 7.8f, pk);
             b.pr("ear#", "ball", 3.6f, 7, 0, 3.6f, 13, 2, 0, 6.5f, 0, pk);
             b.pr("earIn#", "ear#", 0, 0, -1.1f, 2, 10, 0.4f, 0, 5.5f, 0, dk);

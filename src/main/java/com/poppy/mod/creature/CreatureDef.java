@@ -22,6 +22,8 @@ public final class CreatureDef {
         public boolean detail;
         /** Rest rotation (radians) applied every frame under animation, so ears/limbs can sit splayed. */
         public float rx, ry, rz;
+        /** Uniform static scale (0 = none). */
+        public float scl;
         public float walkAmp, walkPhase, swayAmp, swaySpeed, swayPhase;
         public int swayAxis; // 0=x 1=y 2=z
         Part(String n, String p, float px, float py, float pz, float w, float h, float d, float cx, float cy, float cz, int c) {
