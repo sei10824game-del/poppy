@@ -229,17 +229,21 @@ final class Canon2 {
         float f = nm ? 0.78f : 1f; int sk = tint(0xf0d0b0, f), hair = tint(0xe8c040, f), sh = tint(0xf2d84a, f), ov = tint(0x8ac0e8, f), sk2 = tint(0xb81c2c, f);
         B b = plush(d, 41);
         b.biped(14, 3.4f, 9, 12, 6, 11, 11, 9, 2.6f, 12, sh, sk, sk);
-        b.p("skirt", "body", 0, 0, 0, 13, 7, 9, 0, -1, 0, sk2);
-        for (int i = 0; i < 4; i++) b.p("dot" + i, "skirt", -4.5f + i * 3, -3, -4.6f, 1.4f, 1.4f, 0.4f, 0, 0, 0, WHT);
+        b.p("skirt", "body", 0, 0, 0, 12, 5, 9, 0, -1.5f, 0, sk2);
+        b.p("skirt2", "skirt", 0, -4, 0, 14.4f, 5, 11, 0, -1.5f, 0, sk2);
+        b.p("skirt3", "skirt", 0, -8.6f, 0, 17, 5, 13, 0, -1.5f, 0, sk2);
+        for (int i = 0; i < 7; i++) b.p("hem" + i, "skirt3", -7.2f + i * 2.4f, -4.4f, 0, 2.4f, 1.6f + (i * 7 % 3) * 0.7f, 13.2f, 0, -0.8f, 0, sk2);
+        for (int i = 0; i < 7; i++) b.p("dotS" + i, "skirt3", -6 + (i % 4) * 4, -3 - (i / 4) * 4, -6.6f, 1.4f, 1.4f, 0.4f, 0, 0, 0, WHT);
         b.p("overall", "body", 0, 0, -0.2f, 8, 8, 6.4f, 0, 4, 0, ov);
         b.pr("strap#", "body", 2.6f, 12, -3.2f, 1.4f, 5, 0.5f, 0, -2, 0, ov);
         b.p("apple", "body", 0, 4, -3.4f, 2.6f, 2.6f, 0.4f, 0, 0, 0, 0xd02020);
         b.p("collar", "body", 0, 12, -0.2f, 8, 1.4f, 6.4f, 0, 0, 0, WHT);
         b.p("tie", "body", 0, 11, -3.3f, 1.6f, 6, 0.5f, 0, -3, 0, sk2);
         b.pr("puff#", "arm#", 0, 0, 0, 3.6f, 3, 3.6f, 0, 0, 0, WHT);
-        b.p("hairTop", "head", 0, 11, 0, 11.6f, 3, 9.6f, 0, 0.4f, 0, hair);
+        b.p("hairTop", "head", 0, 11, 0, 13.4f, 4, 10.6f, 0, 0.8f, 0, hair);
         b.p("hairBack", "head", 0, 0, 4.4f, 11.6f, 11, 2, 0, 5.5f, 0, hair);
-        b.pr("hairSide#", "head", 5.6f, 6, 0, 1.6f, 9, 8, 0, 0, 0, hair);
+        b.pr("hairSide#", "head", 6.4f, 5, 0, 3.4f, 11, 9, 0, 0, 0, hair);
+        for (int i = 0; i < 3; i++) { b.pr("curl" + i + "#", "head", 7 + (i % 2) * 0.6f, 9 - i * 3.4f, 0.4f, 2.8f, 2.8f, 2.8f, 0, 0, 0, hair); }
         b.p("bow", "head", 0, 12, -1, 7, 3, 2, 0, 1.4f, 0, sk2);
         b.pr("blush#", "head", 4, 4, -4.7f, 2.2f, 1.6f, 0.3f, 0, 0, 0, 0xe88a80);
         b.pr("eye#", "head", 2.4f, 6.4f, -4.7f, 2.6f, 3, 0.5f, 0, 0, 0, nm ? RED : 0x3a2a20).g();

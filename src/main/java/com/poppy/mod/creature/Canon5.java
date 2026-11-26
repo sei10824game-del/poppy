@@ -239,8 +239,8 @@ final class Canon5 {
             b.p("hairTop", "head", 0, 10, 0, 11, 3, 9.6f, 0, 0.4f, 0, hr);
             b.p("hairBack", "head", 0, 0, 4.6f, 11, 11, 2, 0, 5.5f, 0, hr);
             b.p("bang", "head", -2, 9.6f, -4.3f, 5, 2, 1, 0, 0, 0, hr);
-            b.pr("braid#", "head", 5.6f, 7, 1, 2.8f, 22, 2.8f, 0, -11, 1, hr).sw(0.1f, 0.12f, 0, 2);
-            b.pr("braidB#", "braid#", 0, -22, 1, 2.4f, 9, 2.4f, 0, -4.5f, 0, hd);
+            b.pr("braid#", "head", 5.6f, 7, 1, 3.2f, 26, 3.2f, 0, -13, 1, hr).sw(0.1f, 0.12f, 0, 2);
+            b.pr("braidB#", "braid#", 0, -26, 1, 2.6f, 4, 2.6f, 0, -2, 0, hd);
             b.pr("eyeW#", "head", 2.4f, 5.6f, -4.3f, 3.2f, 3.6f, 0.5f, 0, 0, 0, WHT);
             b.pr("pupil#", "head", 2.4f, 5.4f, -4.6f, 1.6f, 1.8f, 0.4f, 0, 0, 0, BLK);
             b.p("jaw", "head", 0, 2, -4.3f, 4.6f, 2, 0.5f, 0, 0, 0, 0x5a1a20);
