@@ -115,7 +115,7 @@ final class Canon4 {
         for (int i = 0; i < 4; i++) b.p("spike" + i, "body", i % 2 == 0 ? -7.2f : 7.2f, 2 + (i / 2) * 7, -2, 1, 1, 1, 0, 0, 0, 0xc8c8d0);
         b.p("crank", "body", -7, 11, 3, 3, 0.8f, 0.8f, -1.5f, 0, 0, 0xb04020).sw(0.4f, 0.25f, 0, 0);
         b.p("head", "body", 0, 15, 0, 13, 14, 12, 0, 7, 0, rd).sw(0.05f, 0.12f, 0, 2);
-        b.p("jaw", "head", 0, 7, -6.1f, 10.4f, 8.4f, 0.8f, 0, -3, 0, nm ? 0x14020a : 0x2a0a10);
+        b.p("jaw", "head", 0, 7, -6.1f, 12f, 10.5f, 0.8f, 0, -3.4f, 0, nm ? 0x14020a : 0x2a0a10);
         b.p("tongue", "jaw", 0, -6, -0.3f, 6, 1.4f, 0.5f, 0, 0, 0, 0xe0506a);
         b.p("decalFace", "head", 0, 7, -6.45f, 13, 14, 0.05f, 0, 0, 0, WHT); d.decal("boxy");
         if (nm) { b.p("decalGrime", "head", 0, 7, -6.5f, 13, 14, 0.05f, 0, 0, 0, WHT); d.decal("grime_boxy"); }
@@ -249,8 +249,8 @@ final class Canon4 {
         b.p("hat", "head", 0, 11, 0, 6.6f, 4, 6.6f, 0, 2, 0, gr); b.p("hatTop", "hat", 0, 4, 0, 3.4f, 4, 3.4f, 0, 2, 0, gr); b.p("pom", "hatTop", 0, 4, 0, 1.8f, 1.8f, 1.8f, 0, 0.6f, 0, gold);
         b.pr("arm#", "body", 6, 9, 0, 2.2f, 12, 2.2f, 0, -5.5f, 0, ye);
         b.pr("hand#", "arm#", 0, -12, 0, 3.4f, 3.4f, 3.4f, 0, -1, 0, ye);
-        b.pr("cymbal#", "hand#", 0, -1, -3, 1, 14, 14, 0, 0, 0, gold);
-        b.pr("cymbalC#", "hand#", 0, -1, -3.6f, 1, 4, 4, 0, 0, 0, 0x6a5018);
+        b.pr("cymbal#", "hand#", 0, -1, -4, 1, 19, 19, 0, 0, 0, gold);
+        b.pr("cymbalC#", "hand#", 0, -1, -4.6f, 1, 5, 5, 0, 0, 0, 0x6a5018);
         if (nm) Canon2.nm(b, 13, 11, 10);
     }
 

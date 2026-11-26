@@ -54,7 +54,7 @@ final class Canon2 {
         }
     }
 
-    static void kissy(String id, boolean nm) { MAP.put(id, d -> huggy(d, nm ? 0x8a2a58 : 0xf06aa8, nm ? 0x5a1a38 : 0xb83a80, 0xd8262b, 0xf4d12a, nm, true)); }
+    static void kissy(String id, boolean nm) { MAP.put(id, d -> huggy(d, nm ? 0x8a2a58 : 0xf28bc4, nm ? 0x5a1a38 : 0xe073ae, 0xd8262b, 0xf4d12a, nm, true)); }
 
     static B plush(CreatureDef d, float totalPx) { return new B(d, d.h * 16f / totalPx); }
 
