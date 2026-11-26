@@ -28,7 +28,7 @@ public class PoppyRenderer extends EntityRenderer<PoppyMob> {
         new ResourceLocation("poppyplaytime", "textures/entity/mat_plastic.png"), new ResourceLocation("poppyplaytime", "textures/entity/mat_metal.png"),
         new ResourceLocation("poppyplaytime", "textures/entity/mat_fur2.png"), new ResourceLocation("poppyplaytime", "textures/entity/mat_yarn.png")};
     private boolean far, blink;
-    static final java.util.Set<String> BLINK = java.util.Set.of("catnap","catnap_nm","proto_nm_eyes","toy","toy_nm","toy_nm_eyes","huggy","kissy","longlegs","daddy","longlegs_nm","delight","delight_nm","bunzo","bunzo_nm","doey","yarnaby","boxy","poppy","lily","catbee","candy","bron","pj");
+    static final java.util.Set<String> BLINK = java.util.Set.of("glare_maggie_mako","glare_allister_gator","glare_poe","glare_rabie_baby","glare_simon_smoke","glare_icky_licky","glare_baba_chops","glare_touille","catnap","catnap_nm","proto_nm_eyes","toy","toy_nm","toy_nm_eyes","huggy","kissy","longlegs","daddy","longlegs_nm","delight","delight_nm","bunzo","bunzo_nm","doey","yarnaby","boxy","poppy","lily","catbee","candy","bron","pj");
     static final Map<String, ResourceLocation> DECALS = new HashMap<>();
     private final Map<CreatureDef, Map<String, List<CreatureDef.Part>>> kids = new HashMap<>();
 

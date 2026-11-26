@@ -21,6 +21,16 @@ final class Canon4 {
     }
 
     /** Toy-style Smiling Critter: huge round head, giant black open mouth, shiny eyes, stubby plush body. */
+    /** Ear pair as a broad face-on slab; rest tilt splays it outward (rz = outward tilt, radians). */
+    static void ear(B b, String name, float x, float y, float w, float h, float d, float cx, float cy, int col, int inner, float rz) {
+        for (int s = 0; s < 2; s++) {
+            float sg = s == 0 ? -1 : 1; String S = s == 0 ? "L" : "R";
+            b.p(name + S, "head", sg * x, y, 0, w, h, d, sg * cx, cy, 0, col);
+            b.d.parts.get(b.d.parts.size() - 1).rz = sg * rz * (cy < 0 ? 1 : -1);
+            if (inner != 0) b.p(name + "In" + S, name + S, 0, 0, 0, w * 0.64f, h * 0.7f, d + 0.35f, sg * cx, cy, 0, inner);
+        }
+    }
+
     static B toy(CreatureDef d, int fur, int belly, int claw, int pend, int inner) {
         B b = plush(d, 32);
         b.pr("leg#", null, 3.4f, 7, 0, 4.6f, 7, 5, 0, -3.5f, 0, fur, 0.8f);
@@ -29,11 +39,11 @@ final class Canon4 {
         b.p("belly", "body", 0, 1, -4.6f, 8, 8, 0.6f, 0, 4, 0, belly);
         b.p("zip", "body", 0, 0, -5f, 0.8f, 10, 0.4f, 0, 5, 0, BLK);
         b.p("head", "body", 0, 10, -0.5f, 19, 15, 14, 0, 7.5f, 0, fur).sw(0.05f, 0.1f, 1.2f, 2);
-        b.p("rim", "head", 0, 5.2f, -7.1f, 14.6f, 8.4f, 0.5f, 0, 0, 0, belly);
-        b.p("jaw", "head", 0, 4.6f, -7.3f, 13, 7f, 0.6f, 0, 0, 0, 0x08030a);
+        b.p("rim", "head", 0, 5.9f, -7.1f, 16.4f, 10.6f, 0.5f, 0, 0, 0, belly);
+        b.p("jaw", "head", 0, 5.6f, -7.3f, 15, 9.4f, 0.6f, 0, 0, 0, 0x08030a);
         b.p("grille", "jaw", 0, 0, -0.4f, 5, 4, 0.3f, 0, 3, 0, 0x202028);
-        b.pr("eyeB#", "head", 5.2f, 11, -7f, 5, 5, 0.8f, 0, 0, 0, BLK);
-        b.pr("glint#", "head", 4.2f, 12.4f, -7.5f, 1.4f, 1.4f, 0.4f, 0, 0, 0, WHT).g();
+        b.pr("eyeB#", "head", 5.4f, 12.6f, -7f, 5.4f, 5.4f, 0.8f, 0, 0, 0, BLK);
+        b.pr("glint#", "head", 4.4f, 14f, -7.5f, 1.4f, 1.4f, 0.4f, 0, 0, 0, WHT).g();
         b.pr("arm#", "body", 7.4f, 9, 0, 3.6f, 8, 4, 0, -3.4f, 0, fur);
         b.pr("hand#", "arm#", 0, -8, 0, 4.4f, 3.4f, 4.6f, 0, -1, 0, claw);
         b.p("tail", "body", 0, 2, 4.5f, 2.4f, 2.4f, 5, 0, 0, 2.5f, fur).sw(0.2f, 0.12f, 0, 1);
@@ -279,14 +289,12 @@ final class Canon4 {
 
     static {
         toySpecies("bubba_bubbaphant", 0x4aa8c0, 0x6cc0d4, 0x2a7898, 0xf2d24a, b -> {
-            b.pr("ear#", "head", 10, 12, 0, 1.8f, 12, 10, 0, -2, 0, 0x4aa8c0);
-            b.pr("earIn#", "ear#", 0, 0, -1, 0.6f, 9, 7, 0, -2, 0, 0x2a7898);
+            ear(b, "ear", 8.4f, 12.5f, 10, 12, 1.6f, 4.5f, -4.5f, 0x4aa8c0, 0x2a7898, -0.3f);
             b.p("trunk", "head", 0, 5, -7.3f, 5, 6, 3, 0, 0, -1.5f, 0x4aa8c0); b.p("trunk2", "trunk", 0, -5, -2, 4, 4, 3.4f, 0, -1, 0, 0x4aa8c0);
             b.p("tailTuft", "tail", 0, 0, 5, 3, 3, 3, 0, 0, 0, 0x2a7898);
         });
         toySpecies("craftycorn", 0xf4f4f8, 0xe4eef0, 0x6ad0c8, 0xf06ab0, b -> {
-            b.pr("ear#", "head", 7, 15, 0, 4.4f, 6, 2, 0, 3, 0, 0xf4f4f8);
-            b.pr("earIn#", "ear#", 0, 0, -1.1f, 2.4f, 4, 0.4f, 0, 2.4f, 0, 0x6ad0c8);
+            ear(b, "ear", 6.6f, 14.5f, 5, 6.4f, 2, 0, 3.2f, 0xf4f4f8, 0x6ad0c8, 0.4f);
             b.p("horn", "head", 0, 15, -1, 3, 4, 3, 0, 2, 0, 0xc8ccd8); b.p("horn2", "horn", 0, 4, 0, 2, 3, 2, 0, 1.5f, 0, 0xc8ccd8);
             b.p("mane", "head", 0, 15, 3, 12, 3, 5, 0, 0, 0, 0x6ad0c8);
         });
@@ -296,23 +304,20 @@ final class Canon4 {
         });
         toySpecies("pickypiggy", 0xf6a8c0, 0xfbd0dc, 0xd87898, 0xe02828, b -> {
             b.p("snout", "head", 0, 10.4f, -7.4f, 6, 4, 1.6f, 0, 0, 0, 0xd87898);
-            b.pr("ear#", "head", 7.8f, 15, 0, 5.4f, 5, 2, 0, 2, 0, 0xf6a8c0);
-            b.pr("earIn#", "ear#", 0, 0, -1.1f, 3.4f, 3.4f, 0.4f, 0, 2, 0, 0xd87898);
+            ear(b, "ear", 7.2f, 14.6f, 5.6f, 5.6f, 1.8f, 1.6f, 2.8f, 0xf6a8c0, 0xd87898, 0.6f);
             b.p("curl", "tail", 0, 0, 5, 2, 2, 2, 0, 1, 1, 0xf6a8c0);
         });
         toySpecies("hoppy_hopscotch", 0x8ad84a, 0xc8f090, 0x5ab030, 0xf2c020, b -> {
-            b.pr("ear#", "head", 5, 15, 0, 3.4f, 13, 1.8f, 0, 6.5f, 0, 0x8ad84a);
-            b.pr("earT#", "ear#", 0, 5, -1, 1.4f, 6, 0.4f, 0, 0, 0, 0x5ab030);
+            ear(b, "ear", 5, 14.8f, 4.2f, 14, 1.8f, 0, 7, 0x8ad84a, 0x5ab030, 0.22f);
             b.p("nose", "head", 0, 10.4f, -7.4f, 2.2f, 1.6f, 0.6f, 0, 0, 0, BLK);
             b.p("cotton", "tail", 0, 0, 5, 4.4f, 4.4f, 4.4f, 0, 0, 0, 0xc8f090);
         });
         toySpecies("dogday", 0xe8982a, 0xfbe2a8, 0x9a5a18, 0xffe040, b -> {
-            b.pr("ear#", "head", 9.8f, 12, 0, 2.4f, 9, 5, 0, -4, 0, 0xb06a1c);
+            ear(b, "ear", 9.2f, 12.6f, 5.4f, 10, 1.8f, 2.4f, -5, 0xb06a1c, 0, 0.18f);
             b.p("nose", "head", 0, 11.2f, -7.4f, 3.4f, 2.2f, 0.8f, 0, 0, 0, BLK);
         });
         toySpecies("bobby_bearhug", 0xc83a3a, 0xf0a0b8, 0xf0a0b8, 0xd01040, b -> {
-            b.pr("ear#", "head", 7.6f, 15, 0, 4.6f, 4.6f, 3, 0, 1.6f, 0, 0xc83a3a);
-            b.pr("earIn#", "ear#", 0, 0, -1.6f, 2.6f, 2.6f, 0.4f, 0, 1.6f, 0, 0xf0a0b8);
+            ear(b, "ear", 7, 14.6f, 5.2f, 5.2f, 2.4f, 1.4f, 2.6f, 0xc83a3a, 0xf0a0b8, 0.5f);
             b.p("nose", "head", 0, 11.2f, -7.4f, 3, 2, 0.8f, 0, 0, 0, BLK);
         });
         MAP.put("bron", Canon4::bron); MAP.put("giant_bron", Canon4::bron);

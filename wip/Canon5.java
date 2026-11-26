@@ -32,12 +32,7 @@ final class Canon5 {
     static void crit(String id, int fur, int rim, int claw, int pend, Consumer<B> extra) {
         MAP.put(id, d -> {
             B b = Canon4.toy(d, fur, rim, claw, pend, rim);
-            for (var q : d.parts) if (q.name.equals("decalFace")) q.decal = "toy_nm";
-            b.p("decalEyes", "head", 0, 7.5f, -7.72f, 19, 15, 0.05f, 0, 0, 0, WHT); d.decal("toy_nm_eyes"); d.glow();
-            b.p("decalGrime", "head", 0, 7.5f, -7.78f, 19, 15, 0.05f, 0, 0, 0, WHT); d.decal("grime_toy");
-            b.p("decalGrimeBody", "body", 0, 5, -5.36f, 12, 10, 0.05f, 0, 0, 0, WHT); d.decal("grime_toybody");
-            b.pr("brow#", "head", 5.4f, 14, -7.2f, 6, 1.6f, 0.8f, 0, 0, 0, BLK);
-            b.pr("fangU#", "head", 3.6f, 9.6f, -7.6f, 1.2f, 2.6f, 0.5f, 0, -1.3f, 0, WHT);
+            for (var q : d.parts) if (q.name.equals("decalFace")) q.decal = "glare_" + id;
             extra.accept(b);
         });
     }
@@ -53,17 +48,14 @@ final class Canon5 {
     static {
         crit("maggie_mako", 0x3ab8c8, 0xf4f4f4, 0x1e8aa0, 0xf4e8c0, b -> {
             b.p("finTop", "head", 0, 15, 0, 1.6f, 6, 7, 0, 3, 0, 0x1e8aa0);
-            b.pr("tooth#", "head", 3.4f, 5.4f, -7.6f, 1.4f, 2.4f, 0.5f, 0, -1.2f, 0, WHT);
             b.pr("fin#", "body", 6.6f, 4, 1, 0.8f, 6, 4, 0, 0, 0, 0x1e8aa0);
             b.p("tailFin", "tail", 0, 0, 5, 1.2f, 7, 4, 0, 2, 2, 0x1e8aa0);
-            for (int i = 0; i < 5; i++) b.p("jag" + i, "head", -4.8f + i * 2.4f, 5.8f, -7.6f, 1.6f, 2.2f, 0.5f, 0, -1.1f, 0, WHT);
         });
         crit("allister_gator", 0x8ab42a, 0x5a7a1a, 0x5a7a1a, 0xe8c0d0, b -> {
             b.p("snoutTop", "head", 0, 12.6f, -7.6f, 14, 3, 1.4f, 0, 0, 0, 0x8ab42a);
             b.pr("eyeBump#", "head", 5.2f, 15.4f, -4, 5, 2, 5, 0, 0, 0, 0x8ab42a);
             for (int i = 0; i < 4; i++) b.p("back" + i, "body", 0, 9 - i * 2.2f, 4.8f, 1.6f, 2.2f, 1.6f, 0, 0, 0, 0x5a7a1a);
             b.p("tailG", "tail", 0, 0, 5, 3, 3, 9, 0, 0, 4, 0x8ab42a);
-            for (int i = 0; i < 4; i++) b.p("spk" + i, "head", -4.5f + i * 3, 5.8f, -7.6f, 1, 2.2f, 0.5f, 0, -1.1f, 0, WHT);
         });
         crit("poe", 0x5a5a78, 0x2a2a3c, 0x3a3a52, 0xf2d24a, b -> {
             b.p("horn", "head", 0, 15, -3, 2.4f, 5, 2.4f, 0, 2.5f, 0, 0x2a2a3c);
@@ -75,7 +67,6 @@ final class Canon5 {
             b.pr("ear#", "head", 6.8f, 15, 0, 3, 11, 1.8f, 0, 5.5f, 0, 0xf0a8d8);
             b.pr("earIn#", "ear#", 0, 0, -1, 1.8f, 8.6f, 0.4f, 0, 4.4f, 0, 0xf8d8ee);
             b.pr("eyeRing#", "head", 5.2f, 11, -7.3f, 6.2f, 6.2f, 0.4f, 0, 0, 0, 0xa0408a);
-            b.pr("fang#", "head", 2.8f, 5.6f, -7.6f, 1.2f, 3.2f, 0.5f, 0, -1.6f, 0, WHT);
             b.pr("wingR#", "body", 6.8f, 9, 4, 0.8f, 8, 6, 0, -3, 2, 0xe090c8);
         });
         crit("simon_smoke", 0xe85a30, 0xf4e8d0, 0xa8281a, 0xff8a30, b -> {
@@ -84,7 +75,6 @@ final class Canon5 {
             b.p("mane", "head", 0, 15, 2, 12, 3, 6, 0, 0, 0, 0xa8281a);
             b.pr("wing#", "body", 6.8f, 9, 4, 1, 9, 8, 0, -2, 3, 0xf4e8d0);
             for (int i = 0; i < 3; i++) b.p("tsp" + i, "tail", 0, 2, 1 + i * 2, 1.4f, 2.4f, 1.4f, 0, 0, 0, 0xf2c230);
-            b.pr("fang#", "head", 3, 5.6f, -7.6f, 1.2f, 2.6f, 0.5f, 0, -1.3f, 0, WHT);
         });
         crit("icky_licky", 0x141418, 0xf0c020, 0x141418, 0xc02020, b -> {
             b.pr("eyeBulge#", "head", 5.6f, 15, -3, 5.4f, 3, 5.4f, 0, 0, 0, 0x141418);
