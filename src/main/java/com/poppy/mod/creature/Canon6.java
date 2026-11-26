@@ -86,6 +86,8 @@ final class Canon6 {
         b.p("nose", "head", 0, -0.6f, -7f, 1.8f, 1.2f, 0.6f, 0, 0, 0, 0xd06a90);
         b.p("jaw", "head", 0, -3.6f, -6.7f, 8.6f, 2.2f, 0.6f, 0, 0, 0, 0x0a0208);
         b.p("grin", "head", 0, -2.2f, -6.75f, 10.4f, 0.6f, 0.4f, 0, 0, 0, BLK);
+        b.p("decalFace", "head", 0, 0, -6.9f, 11, 9, 0.05f, 0, 0, 0, WHT); d.decal(nm ? "catnap_nm" : "catnap");
+        if (nm) { b.p("decalGrime", "head", 0, 0, -6.96f, 11, 9, 0.05f, 0, 0, 0, WHT); d.decal("grime_catnap"); }
         for (int s = 0; s < 2; s++) {
             String sd = s == 0 ? "L" : "R"; float sg = s == 0 ? -1 : 1;
             b.p("arm" + sd, "body", sg * 4.4f, 1, -5.6f, 2.6f, 18, 2.6f, 0, -9, 0, pu); d.walk(0.55f, s == 0 ? 0 : PI);

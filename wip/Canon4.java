@@ -266,6 +266,7 @@ final class Canon4 {
         b.p("eyeY", "head", 2.4f, 8, -4.7f, 2, 2, 0.5f, 0, 0, 0, nm ? 0xff2020 : 0xffd820).g();
         b.p("jaw", "head", 0, 2.4f, -4.6f, 7.6f, 3, 0.6f, 0, 0, 0, 0x14080a);
         b.p("decalFace", "head", 0, 6, -4.95f, 10, 12, 0.05f, 0, 0, 0, WHT); d.decal("proto");
+        if (nm) { b.p("decalGrime", "head", 0, 6, -5.0f, 10, 12, 0.05f, 0, 0, 0, WHT); d.decal("grime_proto"); b.p("decalEyes", "head", 0, 6, -5.06f, 10, 12, 0.05f, 0, 0, 0, WHT); d.decal("proto_nm_eyes"); d.glow(); }
         for (int i = 0; i < 6; i++) b.p("sqt" + i, "head", -3.2f + i * 1.3f, 3.6f, -5f, 1.1f, 1.8f, 0.4f, 0, 0, 0, WHT);
         b.p("hatBase", "head", 0, 12, 0, 10, 2, 9, 0, 1, 0, rd);
         for (int i = -1; i <= 1; i++) { b.p("prong" + i, "hatBase", i * 3.4f, 1, 0, 2.6f, 8 - Math.abs(i), 2.6f, 0, 4, 0, i == 0 ? gold : co); b.p("bell" + i, "prong" + i, 0, 8 - Math.abs(i), 0, 2.2f, 2.2f, 2.2f, 0, 0.6f, 0, gold); }
