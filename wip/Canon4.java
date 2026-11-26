@@ -55,6 +55,8 @@ final class Canon4 {
             for (int i = 0; i < 4; i++) b.p("nsp" + i, "body", 0, 9 - i * 2.4f, 4.8f, 1.6f, 2.2f, 1.8f, 0, 0, 1, 0x1a1016);
             for (var q : d.parts) if (q.name.equals("decalFace")) q.decal = "toy_nm";
             b.p("decalEyes", "head", 0, 7.5f, -7.72f, 19, 15, 0.05f, 0, 0, 0, WHT); d.decal("toy_nm_eyes"); d.glow();
+            b.p("decalGrime", "head", 0, 7.5f, -7.78f, 19, 15, 0.05f, 0, 0, 0, WHT); d.decal("grime_toy");
+            b.p("decalGrimeBody", "body", 0, 5, -5.36f, 12, 10, 0.05f, 0, 0, 0, WHT); d.decal("grime_toybody");
             for (var q : d.parts) {
                 if (q.name.startsWith("glint")) { q.glow = true; continue; }
                 int c = q.color; if (q.decal != null || c == WHT || c == BLK || c == 0x08030a || q.name.startsWith("nf") || q.name.startsWith("nsp")) continue;

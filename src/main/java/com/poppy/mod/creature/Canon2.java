@@ -43,6 +43,7 @@ final class Canon2 {
         }
         B b = new B(d, k);
         b.p("tongue", "jaw", 0, -2, -1, 6, 1, 8, 0, 0, -3, 0xe0506a);
+        if (nm) { b.p("decalGrime", "head", 0, 6.5f, -6.5f, 14, 13, 0.05f, 0, 0, 0, WHT); d.decal("grime_huggy"); }
         if (nm) for (int i = 0; i < 8; i++) b.p("nfang" + i, "head", -5.6f + i * 1.6f, 4.2f, -6.4f, 0.9f, 4.6f, 0.5f, 0, -2.3f, 0, WHT);
         if (kissy) {
             b.pr("lash#", "head", 4, 11, -6.2f, 4.4f, 0.8f, 0.8f, 0, 0, 0, BLK);
