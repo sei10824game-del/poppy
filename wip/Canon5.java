@@ -33,6 +33,7 @@ final class Canon5 {
         MAP.put(id, d -> {
             B b = Canon4.toy(d, fur, rim, claw, pend, rim);
             for (var q : d.parts) if (q.name.equals("decalFace")) q.decal = "toy_nm";
+            b.p("decalEyes", "head", 0, 7.5f, -7.72f, 19, 15, 0.05f, 0, 0, 0, WHT); d.decal("toy_nm_eyes"); d.glow();
             b.pr("brow#", "head", 5.4f, 14, -7.2f, 6, 1.6f, 0.8f, 0, 0, 0, BLK);
             b.pr("fangU#", "head", 3.6f, 9.6f, -7.6f, 1.2f, 2.6f, 0.5f, 0, -1.3f, 0, WHT);
             extra.accept(b);

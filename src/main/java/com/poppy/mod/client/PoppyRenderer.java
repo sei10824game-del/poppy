@@ -66,7 +66,7 @@ public class PoppyRenderer extends EntityRenderer<PoppyMob> {
                 VertexConsumer dv = buf.getBuffer(RenderType.entityTranslucent(DECALS.computeIfAbsent(p.decal, k -> new ResourceLocation("poppyplaytime", "textures/entity/decal/" + k + ".png"))));
                 float x0 = p.cx - p.w / 2, x1 = p.cx + p.w / 2, y0 = p.cy - p.h / 2, y1 = p.cy + p.h / 2, z = p.cz - p.d / 2;
                 float[][] v = {{x1, y0, 0, 1}, {x0, y0, 1, 1}, {x0, y1, 1, 0}, {x1, y1, 0, 0}};
-                for (float[] q : v) dv.vertex(pp.pose(), q[0], q[1], z).color(1f, 1f, 1f, 1f).uv(q[2], q[3]).overlayCoords(ov).uv2(light).normal(pp.normal(), 0, 0, -1).endVertex();
+                for (float[] q : v) dv.vertex(pp.pose(), q[0], q[1], z).color(1f, 1f, 1f, 1f).uv(q[2], q[3]).overlayCoords(ov).uv2(p.glow ? 0xF000F0 : light).normal(pp.normal(), 0, 0, -1).endVertex();
                 draw(p.name, tree, pose, ps, buf, light, ov);
                 ps.popPose();
                 continue;
